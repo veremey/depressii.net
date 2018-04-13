@@ -1,0 +1,119 @@
+/*- map -*/
+#map
+	height: 600px
+	width: 100%
+
+.map-section
+	position: relative
+
+.map-aside
+	position: absolute
+	top: 0
+	bottom: 0
+	width: 100%
+	max-width: 320px
+	padding: 0
+	margin: 0
+	list-style-type: none
+	font-size: 0
+	background-color: $blue
+	&.is-active
+		z-index: 10
+
+
+.chooseCity
+	position: relative
+	margin-bottom: 60px
+.chooseCity__btn
+	position: absolute
+	top: 0
+	left: 0
+	display: inline-block
+	vertical-align: top
+	height: 52px
+	width: 96px
+	border-radius: 4px 0 0 4px
+	overflow: hidden
+	padding: 10px 6px
+	background-color: $blue
+	color: #fff
+	font-size: 16px
+	z-index: 10
+	pointer-events: none
+	+hb
+	+tr(.4s)
+	&:hover
+		span
+			color: #808080
+	span
+		margin-left: 10px
+		+tr(.4s)
+
+.searchCity
+	display: block
+	width: 100%
+	padding-left: 96px
+	&__input
+		display: inline-block
+		vertical-align: top
+		height: 52px
+		width: 100%
+		border: none
+		outline: none
+		padding: 5px 30px
+		background-color: #fff
+		text-transform: capitalize
+		border-radius: 0 4px 4px 0
+		font-size: 14px
+		color: #8a8a8a
+		+g
+	&__box
+		display: none
+		position: absolute
+		top: 105%
+		left: 97px
+		width: 100%
+		max-width: 320px
+		background-color: #fff
+		z-index: 20
+		padding: 30px
+		background-color: #fff
+		max-height: 420px
+		overflow: hidden
+		&.is-active
+			display: block
+.suggestions
+	font-size: 0
+	padding: 0
+	margin: 0
+	list-style-type: none
+	li
+		font-size: 14px
+		line-height: 20px
+		margin-bottom: 5px
+		color: #8a8a8a
+		cursor: pointer
+		text-transform: capitalize
+		+g
+		+tr(.4s)
+		&:hover
+			font-size: 15px
+			color: #000
+	.highlight
+		color: #000
+
+.filial
+	display: none
+	font-size: 0
+	padding: 0
+	margin: 0
+	&.is-active
+		display: block
+		z-index: 20
+	&__item
+		color: #fff
+		+g
+		font-size: 14px
+		padding: 20px
+		border-bottom: 1px solid #fff
+

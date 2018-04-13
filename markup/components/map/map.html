@@ -1,0 +1,44 @@
+<div class="map-module">
+	<div class="chooseCity" >
+		<button class="chooseCity__btn">
+			<i class="icon-markerSmall"></i>
+			<span>Город</span>
+		</button>
+		<form class="searchCity">
+			<input type="text" class="searchCity__input" placeholder="Например, Новосибирск">
+			<div class="searchCity__box">
+				<ul class="suggestions">
+					<li class="suggestions__list">nety rezyltata</li>
+				</ul>
+			</div>
+
+		</form>
+	</div>
+
+	<div class="map-section">
+		<div class="map-aside">
+			<ul class="filial">
+				<li class="filial__item">Белгород</li>
+			</ul>
+		</div>
+
+		<div id="map"></div>
+
+		<script>
+	    function initMap() {
+	      var uluru = {lat: 55.744510, lng: 37.605334};
+	      var map = new google.maps.Map(document.getElementById('map'), {
+	        zoom: 15,
+	        center: uluru
+	      });
+	      // var marker = new google.maps.Marker({
+	      //   position: uluru,
+	      //   map: map
+	      // });
+	    }
+	  </script>
+	  <script async defer
+	  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAcnQgh1mE04it6R7C7t9Yx0oAZ5nykT_c&callback=initMap">
+	  </script>
+	</div>
+</div>

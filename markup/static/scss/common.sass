@@ -1,0 +1,177 @@
+// Common styles of the project
+
+
+html
+	+selection
+		background: rgba(0, 0, 0, .2)
+		color: #fff
+
+html, body
+	height: 100%
+	+box
+*
+	+box
+
+body
+	color: $desc
+	+hr
+
+* html .page__wrapper
+	height: 100%
+
+.page__gray
+	background-color: #F3F3F3
+
+a
+	text-decoration: none
+	outline: none
+
+
+h1, h2, h3, h4, h5, h6
+	margin: 0 0 .8em
+	font-weight: normal
+	line-height: 1.1
+
+h1
+	font-size: 2em
+h2
+	font-size: 1.8em
+h3
+	font-size: 1.6em
+h4
+	font-size: 1.5em
+h5
+	font-size: 1.4em
+h6
+	font-size: 1.3em
+button
+	cursor: pointer
+	padding: 0
+	border: none
+	outline: none
+
+b, strong
+	font-weight: normal
+
+p
+	margin: 0
+
+.layout
+	&__n
+		width: 100%
+		max-width: 980px
+		margin: 0 auto
+		padding: 0 10px
+	&__m
+		width: 100%
+		max-width: 940px
+		margin: 0 auto
+	&__xl
+		width: 100%
+		max-width: 1050px
+		margin: 0 auto
+		padding: 0 10px
+
+.flex_j
+	display: flex
+	align-items: center
+	justify-content: space-between
+
+.title
+	&__big
+		font-size: 64px
+		color: #01354c
+		margin-bottom: .5em
+		text-transform: uppercase
+		+hbl
+	&__b
+		color: #fff
+		font-size: 48px
+		margin-bottom: .6em
+		+hb
+	&__s
+		color: $blue
+		font-size: 30px
+		margin-bottom: 1.2em
+		+hr
+	&__section
+		font-size: 24px
+		line-height: 1.25
+		margin-bottom: 1em
+		color: #343535
+		+hbl
+
+.subtitle
+	.flex_j
+		align-items: flex-start
+	.title__s
+		width: 78%
+	img
+		width: 20%
+
+
+.desc
+	&__normal
+		font-size: 16px
+		line-height: 1.25
+		font-family: Georgia, serif
+
+.column
+	column-width: 30%
+	column-count: 2
+	column-gap: 90px
+	column-rule: 1px solid $n
+
+.warn
+	font-size: 0
+	display: flex
+	align-items: center
+	background-color: #ffe8ec
+	padding: 20px 26px
+	border-radius: 4px
+	margin-bottom: 30px
+	img
+		display: inline-block
+		vertical-align: top
+		margin-right: 20px
+	p
+		font-size: 14px
+		color: $desc
+		+g
+
+.enter
+	background-color: #009de1
+	padding: 60px 20px 50px
+	text-align: center
+	&__desc
+		width: 100%
+		max-width: 720px
+		margin: 0 auto
+		font-size: 16px
+		line-height: 1.5
+		color: $desc
+		+g
+	&__btn
+		background-color: #004e73
+		padding: 14px 20px 12px
+		border-radius: 4px
+		color: #fff
+		+hb
+		+tr(.4s)
+		&:hover
+			opacity: .8
+
+
+.box
+	&_30
+		margin-bottom: 30px
+	&_40
+		margin-bottom: 40px
+	&_60
+		margin-bottom: 60px
+	&_80
+		margin-bottom: 80px
+	&_t60
+		padding-top: 60px
+	&_b60
+		padding-bottom: 60px

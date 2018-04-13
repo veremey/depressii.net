@@ -1,0 +1,66 @@
+<!doctype html>
+<html class="no-js" lang="ru">
+
+	<head>
+		{{> head/head head.defaults}}
+	</head>
+
+	<body class="page">
+		%=symbols=%
+
+		<div class="page__wrapper">
+
+			{{> header/header}}
+
+			<div class="page__gray">
+				<div class="layout__n ">
+					<div class="layout__m ">
+						<h2 class="title__big box_t60">здесь вам помогут</h2>
+						<div class="subtitle">
+							<div class="layout__m flex_j">
+								<h4 class="title__s">Найдите ближайшую клинику или медицинский центр. Профессиональные врачи и консультанты окажут необходимую помощь!</h4>
+								<img src="static/img/content/sponsor-1.png" alt="клиника лого">
+							</div>
+						</div>
+					</div>
+
+					{{> map/map}}
+
+				</div>
+			</div>
+			<div class="layout__n">
+				<div class="layout__m box_t60">
+					<h4 class="title__section">Программа «Спокойствие рядом»</h4>
+					<div class="column box_30">
+						<p class="desc__normal">Если Вам кажется, что у Вас или Вашего близкого эмоциональное расстройство, обратитесь в один из кабинетов программы «Сспокойствие рядом». Профессиональная помощь будет оказана всем, кто чувствует психологические проблемы, нуждается в квалифицированной консультации или хочет подтвердить или опровергнуть поставленный самостоятельно диагноз «депрессия». </p>
+						<p class="desc__normal">Прием ведут специалисты: психотерапевты, неврологи, психиатры, имеющие профессиональное образование и специальную подготовку. Все лечебные учреждения, включенные в программу, имеют соответствующую аккредитацию и лицензию на оказание психиатрической помощи.</p>
+					</div>
+				</div>
+
+				<div class="warn">
+					<img src="static/img/content/warn.png" alt="warn">
+					<p>Внимание! Стоимость медицинских услуг необходимо уточнить в каждой конкретно взятой клинике</p>
+				</div>
+
+				<div class="enter box_80">
+					<div class="title__b">Присоединиться к проекту!</div>
+					<p class="enter__desc desc__normal box_30">Компания Abbott предлагает медицинским учреждениям присоединиться к проекту и открыть кабинет «Спокойствие рядом». После проверки на соответствие всем юридическим требованиям адрес медицинского учреждения появится на сайте.</p>
+					<button class="enter__btn">Присоединиться</button>
+				</div>
+			</div>
+
+			{{> footer/footer}}
+		</div>
+
+
+		<script src="static/js/separate-js/jquery-3.3.1.min.js"></script>
+		<!-- <script src="static/js/separate-js/chosen.jquery.min.js"></script> -->
+		<!-- <script src="static/js/separate-js/jquery.mCustomScrollbar.js"></script>  -->
+<!--
+		<script src="static/js/separate-js/svg4everybody.min.js"></script>
+		<script>svg4everybody();</script>
+ -->
+		<script src="static/js/separate-js/main.js"></script>
+	</body>
+
+</html>
