@@ -1,28 +1,3 @@
-'head': {
-    defaults: {
-        title: 'depressii.net',
-        useSocialMetaTags: false
-    }
-},
-
-/* Module data structure */
-
-// moduleName: {
-//     dataType: {
-//         property: value
-//     }
-// }
-
-/* Module data example */
-
-_template: {
-    big: {
-        title: 'Hello world',
-        age: 10,
-        button: false
-    }
-},
-
 __iconsData: {
     
         'icon-01': {
@@ -65,15 +40,4 @@ __iconsData: {
             height: '23.146px'
         },
     
-},
-
-__pages: [{
-                name: 'help',
-                href: 'help.html'
-             },{
-                name: 'index',
-                href: 'index.html'
-             },{
-                name: 'info',
-                href: 'info.html'
-             }]
+}

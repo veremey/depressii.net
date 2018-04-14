@@ -1,0 +1,113 @@
+<!doctype html>
+<html class="no-js" lang="ru">
+
+	<head>
+		{{> head/head head.defaults}}
+	</head>
+
+	<body class="page">
+		%=symbols=%
+
+		<div class="page__wrapper">
+
+			{{> header/header}}
+
+			<div class="layout__n">
+				<div class="layout__m box_80">
+					<h4 class="title__bl">Настроение или болезнь</h4>
+					<div class="box_30">
+						<div class="section__pic">
+							<img class="section__img" src="static/img/content/img-01.jpg" alt="picture">
+						</div>
+					</div>
+					<div class=" box_30">
+						<h5 class="title__s">Жителей современных городов окружает множество факторов, провоцирующих стрессы. Проблемы, усталость, упадок сил – эти жалобы постоянно звучат вокруг. Так, все больше людей замечают в своем более или менее близком окружении человека, у которого долгое время "что-то не то с настроением". Мы называем это "депрессия", часто не задумываясь, что это не просто определение состояния, а конкретный и довольно серьезный диагноз.</h5>
+					</div>
+				</div>
+				<div class="layout__m box_30">
+					<h4 class="title__section">Что такое депрессия у близкого человека – настоящая болезнь или его манипуляция своим плохим настроением?</h4>
+					<p class="desc__m">Ответ одновременно прост и сложен: это настоящая болезнь, которую надо лечить у специалиста. В основе этой болезни лежит нарушение биохимических реакций, а именно дефицит химических веществ (нейротрансмиттеров), которые необходимы для правильного функционирования нашей нервной системы.</p>
+
+					<div class="quotes-bg">
+						<img class="quotes__icon" src="static/img/content/icon-quotes.png" alt="">
+						<q>Как помочь? И нужно ли вообще помогать <br>(вдруг человек только хочет обратить на себя внимание)?</q>
+					</div>
+
+					<div class="quotes box_30">
+						<div class="quotes__pic">
+							<img class="quotes__img" src="static/img/content/img-02.jpg" alt="quote pic">
+						</div>
+						<div class="quotes-simple">
+							<img class="quotes__icon" src="static/img/content/icon-quotes-black.png" alt="">
+							<q>В основе этой болезни лежит нарушение биохимических реакций, а именно дефицит химических веществ (нейротрансмиттеров), которые необходимы для правильного функционирования нашей нервной системы.</q>
+						</div>
+					</div>
+
+					<div>
+						<h3 class="title__section">Различают такие типы проявления депрессии:</h4>
+
+						<h5 class="title__s">Эмоциональные проявления депрессии</h5>
+
+						<ul class="emotions">
+							<li class="emotions__list">
+								{{Icon iconName='icon-01' className='customClass' iconWidth='25' iconHeight='25'}}
+								<p class="desc__m">тревога, чувство внутреннего напряжения, ожидание беды</p>
+							</li>
+							<li class="emotions__list">
+								{{Icon iconName='icon-02' className='customClass' iconWidth='25' iconHeight='25'}}
+								<p class="desc__m">чувство вины, частые самообвинения</p>
+							</li>
+							<li class="emotions__list">
+								{{Icon iconName='icon-03' className='customClass' iconWidth='25' iconHeight='25'}}
+								<p class="desc__m">недовольство собой, снижение уверенности в себе, снижение самооценки</p>
+							</li>
+							<li class="emotions__list">
+								{{Icon iconName='icon-04' className='customClass' iconWidth='25' iconHeight='25'}}
+								<p class="desc__m">тоска, страдание, угнетенное, подавленное настроение, отчаяние</p>
+							</li>
+							<li class="emotions__list">
+								{{Icon iconName='icon-05' className='customClass' iconWidth='25' iconHeight='25'}}
+								<p class="desc__m">раздражительность</p>
+							</li>
+							<li class="emotions__list">
+								{{Icon iconName='icon-06' className='customClass' iconWidth='25' iconHeight='25'}}
+								<p class="desc__m">снижение интереса к окружающему, снижение или утрата способности переживать <br>удовольствие от ранее приятных занятий</p>
+							</li>
+							<li class="emotions__list">
+								{{Icon iconName='icon-07' className='customClass' iconWidth='25' iconHeight='25'}}
+								<p class="desc__m">утрата способности переживать какие-либо чувства (в случаях глубоких депрессий)</p>
+							</li>
+						</ul>
+					</div>
+			</div>
+
+
+				<div class="warn">
+					<img src="static/img/content/warn.png" alt="warn">
+					<p>Внимание! Стоимость медицинских услуг необходимо уточнить в каждой конкретно взятой клинике</p>
+				</div>
+
+				<div class="enter box_80">
+					<div class="title__b">Присоединиться к проекту!</div>
+					<p class="enter__desc desc__normal box_30">Компания Abbott предлагает медицинским учреждениям присоединиться к проекту и открыть кабинет «Спокойствие рядом». После проверки на соответствие всем юридическим требованиям адрес медицинского учреждения появится на сайте.</p>
+					<button class="enter__btn">Присоединиться</button>
+				</div>
+			</div>
+
+			{{> footer/footer}}
+		</div>
+
+		<!-- ppp -->
+		{{> partner-ppp/partner-ppp }}
+
+		<!-- <script src="static/js/separate-js/jquery-3.3.1.min.js"></script> -->
+		<!-- <script src="static/js/separate-js/chosen.jquery.min.js"></script> -->
+		<!-- <script src="static/js/separate-js/jquery.mCustomScrollbar.js"></script>  -->
+<!--
+		<script src="static/js/separate-js/svg4everybody.min.js"></script>
+		<script>svg4everybody();</script>
+ -->
+		<script src="static/js/main.js"></script>
+	</body>
+
+</html>

@@ -157,3 +157,15 @@ $(document).ready(function () {
 });
 
 
+
+const formBtn = document.querySelector('.form__btn');
+const formCheckBox = document.querySelector('.agreement__checkbox');
+
+formCheckBox.addEventListener('click', getAgreement);
+function getAgreement() {
+	if (formCheckBox.checked) {
+		formBtn.removeAttribute("disabled");
+	} else {
+		formBtn.setAttribute("disabled", "");
+	}
+}

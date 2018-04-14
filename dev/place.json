@@ -34,7 +34,17 @@
   }, {
     "identificator": "8",
     "title": "Калуга",
-    "filial": ["Калуга", "Калуга"]
+    "filial": [{
+      "place" : [
+        {
+        "title" : "Калуга",
+        "address": "Москва, Мичуринский проспект д. 6",
+        "telShort": "7 (495) 212 ****",
+        "tel": "7 (495) 212 1111",
+        "site": "http://medsi.ru/clinics/belorusska",
+        "cords": [{"lat": "55.744510", "lng": "37.605334"}]
+      }]
+    }]
   }, {
     "identificator": "9",
     "title": "Краснодар",
