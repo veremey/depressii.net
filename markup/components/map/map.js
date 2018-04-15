@@ -18,13 +18,6 @@ function findMatches(wordToMatch, cities) {
     return place.title.match(regex);
   });
 }
-function findfilials(wordToMatch, cities) {
-  return cities.filter(place => {
-    // here we need to figure out if the city or state matches what was searched
-    return place.filial;
-  });
-}
-var text;
 
 function displayMatches() {
   const matchArray = findMatches(this.value, cities);
@@ -35,21 +28,29 @@ function displayMatches() {
     const cityName = place.title.replace(regex, `<span class="highlight">${this.value}</span>`);
     const cityid = place.id;
     return `
-      <li class="suggestions__list" data-id="${cityid}">
+      <li class="suggestions__list" data-id="${cityid}" tabindex="0">
         <span class="name">${cityName}</span>
       </li>
     `;
   }).join('');
   suggestions.innerHTML = citiesList;
+  $('.searchCity__scroll').mCustomScrollbar({});
+}
 
-  const filialList = matchArray.map(place => {
-    const regex = new RegExp(this.value, 'gi');
+
+var text;
+
+function displayFilials() {
+  const matchFilials = findMatches(inputValue, cities);
+  const filialList = matchFilials.map(place => {
     const filialName = place.filial
 
     text = '';
     for (var i = 0; i < filialName.length; i++) {
         text += "<li class='filial__item'>" + filialName[i] + "</li>";
+        // console.log(i);
     }
+    text += "";
     // console.log(text);
 
     return text;
@@ -59,12 +60,12 @@ function displayMatches() {
   filialBox.innerHTML = text;
 }
 
-
 const searchInput = document.querySelector('.searchCity__input');
 const suggestions = document.querySelector('.suggestions');
 const suggestionsList = document.querySelector('.suggestions__list');
 const filialBox = document.querySelector('.filial');
 const mapAside = document.querySelector('.map-aside');
+var inputValue = '';
 
 searchInput.addEventListener('change', displayMatches);
 searchInput.addEventListener('keyup', displayMatches);
@@ -73,14 +74,16 @@ searchInput.addEventListener('click', displayMatches);
 
 
 $(document).ready(function () {
+
 	$('.suggestions').on('click', '.suggestions__list', function () {
 		var suggestionsHtml = $(this).find('.name').text();
-
 		$('.searchCity__input').val(suggestionsHtml);
 		$('.searchCity__box').removeClass('is-active');
+    inputValue = '';
+    inputValue += suggestionsHtml;
 	});
-
-	// $('.suggestions').on('click', '.suggestions__list', displayFilials);
+  text = '';
+	$('.suggestions').on('click', '.suggestions__list', displayFilials);
 
 });
 

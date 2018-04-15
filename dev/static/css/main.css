@@ -1170,6 +1170,11 @@ p {
   display: block;
 }
 
+.searchCity__scroll {
+  overflow: auto;
+  max-height: 300px;
+}
+
 .suggestions {
   font-size: 0;
   padding: 0;
@@ -1177,7 +1182,7 @@ p {
   list-style-type: none;
 }
 
-.suggestions li {
+.suggestions__list {
   font-size: 14px;
   line-height: 20px;
   margin-bottom: 5px;
@@ -1189,7 +1194,7 @@ p {
   transition: 0.4s;
 }
 
-.suggestions li:hover {
+.suggestions__list:hover {
   font-size: 15px;
   color: #000;
 }
