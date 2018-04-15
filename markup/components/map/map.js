@@ -43,22 +43,34 @@ var text;
 function displayFilials() {
   const matchFilials = findMatches(inputValue, cities);
   const filialList = matchFilials.map(place => {
-    const filialName = place.filial
+    const filialName = place.filial;
 
     text = '';
     for (var i = 0; i < filialName.length; i++) {
-        text += "<li class='filial__item'>" + filialName[i] + "</li>";
-        // console.log(i);
+        text += "<li class='filial__item'>" + filialName[i].title + "</li>";
     }
     text += "";
-    // console.log(text);
-
     return text;
   }).push('');
   filialBox.classList.add('is-active');
   mapAside.classList.add('is-active');
   filialBox.innerHTML = text;
 }
+/*--  init map  ---*/
+
+function initMap() {
+  var uluru = {lat: 55.744510, lng: 37.605334};
+  var map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 15,
+    center: uluru
+  });
+  // var marker = new google.maps.Marker({
+  //   position: uluru,
+  //   map: map
+  // });
+}
+
+/*--  init map  ---*/
 
 const searchInput = document.querySelector('.searchCity__input');
 const suggestions = document.querySelector('.suggestions');
@@ -70,7 +82,6 @@ var inputValue = '';
 searchInput.addEventListener('change', displayMatches);
 searchInput.addEventListener('keyup', displayMatches);
 searchInput.addEventListener('click', displayMatches);
-// filial.addEventListener('click', displayFilials);
 
 
 $(document).ready(function () {
@@ -81,9 +92,17 @@ $(document).ready(function () {
 		$('.searchCity__box').removeClass('is-active');
     inputValue = '';
     inputValue += suggestionsHtml;
+
+    var myDiv = $('.suggestions__list');
+    myDiv.each(function () {
+      $(this).text(myDiv.text().substring(0,10) + ' ...');
+    });
+
+
 	});
   text = '';
 	$('.suggestions').on('click', '.suggestions__list', displayFilials);
+
 
 });
 

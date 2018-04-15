@@ -113,13 +113,21 @@
 	font-size: 0
 	padding: 0
 	margin: 0
+	list-style-type: none
+	background-color: #004e73
 	&.is-active
 		display: block
 		z-index: 20
 	&__item
 		color: #fff
-		+g
 		font-size: 14px
-		padding: 20px
-		border-bottom: 1px solid #fff
+		line-height: 1.42
+		padding: 20px 30px
+		border-bottom: 1px solid #2b6987
+		cursor: pointer
+		+g
+		+tr(.4s)
+		&:hover
+			background-color: #ffb51c
+			color: #004e73
 
