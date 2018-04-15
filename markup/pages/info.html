@@ -42,57 +42,72 @@
 							<q>В основе этой болезни лежит нарушение биохимических реакций, а именно дефицит химических веществ (нейротрансмиттеров), которые необходимы для правильного функционирования нашей нервной системы.</q>
 						</div>
 					</div>
+				</div>
 
-					<div>
-						<h3 class="title__section">Различают такие типы проявления депрессии:</h4>
+				<div class="layout__m">
 
-						<h5 class="title__s">Эмоциональные проявления депрессии</h5>
+					{{> list-emotions/list-emotions}}
 
-						<ul class="emotions">
-							<li class="emotions__list">
-								{{Icon iconName='icon-01' className='customClass' iconWidth='25' iconHeight='25'}}
-								<p class="desc__m">тревога, чувство внутреннего напряжения, ожидание беды</p>
-							</li>
-							<li class="emotions__list">
-								{{Icon iconName='icon-02' className='customClass' iconWidth='25' iconHeight='25'}}
-								<p class="desc__m">чувство вины, частые самообвинения</p>
-							</li>
-							<li class="emotions__list">
-								{{Icon iconName='icon-03' className='customClass' iconWidth='25' iconHeight='25'}}
-								<p class="desc__m">недовольство собой, снижение уверенности в себе, снижение самооценки</p>
-							</li>
-							<li class="emotions__list">
-								{{Icon iconName='icon-04' className='customClass' iconWidth='25' iconHeight='25'}}
-								<p class="desc__m">тоска, страдание, угнетенное, подавленное настроение, отчаяние</p>
-							</li>
-							<li class="emotions__list">
-								{{Icon iconName='icon-05' className='customClass' iconWidth='25' iconHeight='25'}}
-								<p class="desc__m">раздражительность</p>
-							</li>
-							<li class="emotions__list">
-								{{Icon iconName='icon-06' className='customClass' iconWidth='25' iconHeight='25'}}
-								<p class="desc__m">снижение интереса к окружающему, снижение или утрата способности переживать <br>удовольствие от ранее приятных занятий</p>
-							</li>
-							<li class="emotions__list">
-								{{Icon iconName='icon-07' className='customClass' iconWidth='25' iconHeight='25'}}
-								<p class="desc__m">утрата способности переживать какие-либо чувства (в случаях глубоких депрессий)</p>
-							</li>
-						</ul>
+					<h5 class="title__sb">Источники</h5>
+					<ul class="footnote">
+						<li class="footnote__item">Подкорытов В.С., Чайка Ю.Ю. Депрессии. Современная терапия. – Харьков, «Торнадо», 2003. – с. 35-37
+						</li>
+							<li class="footnote__item">Внутренние болезни по Тинсли Р. Харрисону. Москва: Практика. − 2002. – т 2. − раздел 5. − С. 3024-3027..
+						</li>
+					</ul>
+
+				</div>
+
+				<div class="layout__m">
+					<div class="doctor box_30">
+						<div class="doctor__pic"><img src="static/img/content/img-03.jpg" alt="doctor-pic" class="doctor__img"></div>
+						<div class="doctor__content">
+							<h5 class="doctor__title">Материал подготовил</h5>
+							<p class="doctor__desc">врач-психиатр, к.м.н., доцент кафедры психиатрии и психосоматики<br>Первого МГМУ им. Сеченова Читлова В.В.</p>
+						</div>
 					</div>
-			</div>
-
-
-				<div class="warn">
-					<img src="static/img/content/warn.png" alt="warn">
-					<p>Внимание! Стоимость медицинских услуг необходимо уточнить в каждой конкретно взятой клинике</p>
+					<div class="doctor-gray box_20 ">
+						<p class="doctor__desc">Описанный клинический случай является собирательным образом на основе клинического опыта из реальной практики <br>врача-психиатра, к.м.н., доцента кафедры психиатрии и психосоматики Первого МГМУ им.Сеченова Читловой В.В.</p>
+					</div>
 				</div>
 
-				<div class="enter box_80">
-					<div class="title__b">Присоединиться к проекту!</div>
-					<p class="enter__desc desc__normal box_30">Компания Abbott предлагает медицинским учреждениям присоединиться к проекту и открыть кабинет «Спокойствие рядом». После проверки на соответствие всем юридическим требованиям адрес медицинского учреждения появится на сайте.</p>
-					<button class="enter__btn">Присоединиться</button>
-				</div>
+				<a href="./" class="back box_60">
+					<span class="back__pic"><img src="static/img/content/icon-back.png" alt="back icon" class="back__img"></span>
+					<p class="back__desc">Назад к списку статей</p>
+				</a>
+
+				<section class="article">
+					<h4 class="title__sl">Читайте также</h4>
+					<ul class="article__list">
+						<li class="article__item box_60">
+							<div class="article__pic"><img src="static/img/content/img-04.jpg" alt="article img" class="article__img"></div>
+							<div class="article__content">
+								<h5 class="title__section">Антидепрессанты</h5>
+								<p class="desc__normal">Фармакологи не зря едят свой хлеб. С 50-х годов прошлого века, когда были изобретены первые антидепрессанты, препаратов стало значительно больше и качественно они изменились изрядно</p>
+							</div>
+						</li>
+						<li class="article__item box_60">
+							<div class="article__pic"><img src="static/img/content/img-04.jpg" alt="article img" class="article__img"></div>
+							<div class="article__content">
+								<h5 class="title__section">Хроническая депрессия или депрессивный невроз</h5>
+								<p class="desc__normal">Это особая форма депрессивных состояний, при которых стрессор воздействует не остро и непродолжительное время, как при реактивной депрессии, но длительно, «выматывая» человека.</p>
+							</div>
+						</li>
+						<li class="article__item box_60">
+							<div class="article__pic"><img src="static/img/content/img-04.jpg" alt="article img" class="article__img"></div>
+							<div class="article__content">
+								<h5 class="title__section">Многоликая депрессия</h5>
+								<p class="desc__normal">Говорят, если больно, значит, живой. Боль физическая для нашего организма – это сигнал к действию, предотвращению раздражающего воздействия. навсегда запомнишь, что к горячему утюгу прикасаться нельзя.</p>
+							</div>
+						</li>
+					</ul>
+					<div class="is-center box_30">
+						<button class="show-more">Читать еще</button>
+					</div>
+				</section>
+
 			</div>
+
 
 			{{> footer/footer}}
 		</div>

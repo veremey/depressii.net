@@ -91,6 +91,9 @@ p
 	align-items: center
 	justify-content: space-between
 
+.is-center
+	text-align: center
+
 .title
 	&__big
 		font-size: 64px
@@ -113,18 +116,36 @@ p
 		font-size: 30px
 		margin-bottom: 1.2em
 		+hr
+	&__sl
+		color: $blueText
+		font-size: 28px
+		margin-bottom: 1.2em
+		+hr
+	&__sb
+		color: $blueText
+		font-size: 24px
+		line-height: .9
+		margin-bottom: .7em
+		+hr
 	&__section
 		font-size: 24px
 		line-height: 1.25
 		margin-bottom: 1em
 		color: #343535
 		+hbl
-	&__s
+	&__m
 		font-size: 18px
 		line-height: 2
 		margin-bottom: 1em
 		color: #343535
 		+hb
+	&__mx
+		font-size: 16px
+		line-height: 1.2
+		margin-bottom: 1em
+		color: #343535
+		+hbl
+
 
 .subtitle
 	.flex_j
@@ -249,8 +270,124 @@ p
 		&:hover
 			opacity: .8
 
+.footnote
+	padding: 0
+	margin: 0 0 30px
+	list-style: none
+	&__item
+		position: relative
+		margin-bottom: 10px
+		padding-left: 30px
+		counter-increment: section
+		font-size: 14px
+		+hl
+		font-style: italic
+		&:before
+			content: counter(section) ". "
+			position: absolute
+			top: 0
+			left: 0px
+
+.doctor
+	display: flex
+	align-items: center
+	padding: 30px 30px 30px 50px
+	flex: 1 0 auto
+	background-color: #f3f3f3
+	border-top: 2px solid #ddd
+
+	&__pic
+		position: relative
+		display: inline-block
+		vertical-align: top
+		width: 100px
+		height: 100px
+		flex: 0 0 100px
+		margin-right: 40px
+		border-radius: 100%
+		overflow: hidden
+	&__img
+		+vcenter
+		width: auto
+		height: auto
+		min-width: 100%
+		min-height: 100%
+	&__title
+		font-size: 16px
+		letter-spacing: .075em
+		line-height: 1.5
+		color: #a0a0a0
+		+g
+
+	&__desc
+		font-size: 14px
+		line-height: 1.28
+		color: $blueText
+		+hr
+	&-gray
+		background-color: #F3F3F3
+		padding: 20px 10px
+		.doctor__desc
+			color: #9b9b9b
+
+.back
+	display: flex
+	align-items: center
+	justify-content: center
+	background-color: #009de1
+	padding: 45px 20px
+	+tr(.4s)
+	&:hover
+		background-color: $blue
+	&__pic
+		display: block
+		font-size: 0
+		margin-right: 30px
+	&__img
+		display: inline-block
+		vertical-align: top
+	&__desc
+		font-size: 18px
+		color: #fff
+		+hl
+
+.article
+	&__list
+		font-size: 0
+		padding: 0
+		margin: 0
+		display: flex
+		justify-content: space-between
+		flex-wrap: wrap
+	&__item
+		width: 30%
+
+	&__pic
+		position: relative
+		margin-bottom: 15px
+		font-size: 0
+	&__img
+		max-width: 100%
+
+.show-more
+	display: inline-block
+	vertical-align: top
+	padding: 12px 20px
+	border: 1px solid $blueBlack
+	background-color: #fff
+	outline: none
+	border-radius: 4px
+	color: $desc
+	font-size: 16px
+	+hb
+	+tr(.4s)
+	&:hover
+		background-color: $blueBlack
+		color: #fff
 
 .box
+	&_20
+		margin-bottom: 20px
 	&_30
 		margin-bottom: 30px
 	&_40

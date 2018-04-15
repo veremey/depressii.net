@@ -1,60 +1,6 @@
 
 'use strict';
 
-/*--- staroe ---*/
-
-/* $(document).ready(function () {
-/* 	// $(".chosen-drop").mCustomScrollbar();
-/* 	$('.chosen-select').chosen({
-/* 		no_results_text: "Ой, мы ничего не нашли.",
-/* 		max_selected_options: 0
-/* 	});
-/*
-/* 	var emptyChosen = $('.chosen-choices').html();
-/*
-/* 	$(".chosen-choices").click(function(){
-/* 	    var newOption = $('.chosen-select').html();
-/* 	    $('.chosen-select').empty(); //remove all child nodes
-/* 	    $('.chosen-select').append(newOption);
-/* 	    $('.chosen-select').trigger("chosen:updated");
-/*
-/* 	    setTimeout(function () {
-/* 		    var t = $('.search-choice').html();
-/* 		    console.log(t);
-/* 	    }, 500);
-/*
-/* 	    // $(".chosen-drop").mCustomScrollbar({
-/* 	    // 	axis:"y"
-/* 	    // });
-/* 	});*/
-
-
-
-
-
-
-	// var choseIndex;
-	// $('.chosen-drop li').click(function (e) {
-	// 	return function () {
-	// 		console.log('123123123');
-	// 	}
-
-
-	// 	// var choseIndex = $(this).attr('data-option-array-index');
-	// 	// console.log(choseIndex);
-	// 	// $('.location-' + choseIndex).show();
-	// 	// $('.map-aside').addClass('is-active');
-	// });
-
-
-
-
-// });
-
-	/*--- staroe --- -*/
-
-
-
 	const endpoint = 'place.json';
 	// const endpoint = 'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json';
 
@@ -87,9 +33,9 @@ function displayMatches() {
   const citiesList = matchArray.map(place => {
     const regex = new RegExp(this.value, 'gi');
     const cityName = place.title.replace(regex, `<span class="highlight">${this.value}</span>`);
-    const cityIdentificator = place.identificator;
+    const cityid = place.id;
     return `
-      <li class="suggestions__list" data-identificator="${cityIdentificator}">
+      <li class="suggestions__list" data-id="${cityid}">
         <span class="name">${cityName}</span>
       </li>
     `;
@@ -104,7 +50,7 @@ function displayMatches() {
     for (var i = 0; i < filialName.length; i++) {
         text += "<li class='filial__item'>" + filialName[i] + "</li>";
     }
-    console.log(text);
+    // console.log(text);
 
     return text;
   }).push('');
@@ -113,33 +59,14 @@ function displayMatches() {
   filialBox.innerHTML = text;
 }
 
-// function displayFilials() {
-//   const filArray = findMatches(this.value, cities);
-//   const filialList = filArray.map(place => {
-//     const regexf = new RegExp(this.value, 'gi');
-//     const filialName = place.title.replace(regexf, `<span class="highlight">${this.value}</span>`);
-//     return `
-//       <li class="filial__item">
-//         <span class="name">${filialName}</span>
-//       </li>
-//     `;
-//   }).join('');
-
-//   filialBox.classList.add('is-active');
-//   filialBox.innerHTML = filialList;
-
-//   // console.log(${filialName});
-// }
 
 const searchInput = document.querySelector('.searchCity__input');
 const suggestions = document.querySelector('.suggestions');
 const suggestionsList = document.querySelector('.suggestions__list');
 const filialBox = document.querySelector('.filial');
-const suggestionsInput = document.querySelector('.searchCity__input');
 const mapAside = document.querySelector('.map-aside');
 
 searchInput.addEventListener('change', displayMatches);
-// suggestionsList.addEventListener('click', displayFilials);
 searchInput.addEventListener('keyup', displayMatches);
 searchInput.addEventListener('click', displayMatches);
 // filial.addEventListener('click', displayFilials);

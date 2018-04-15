@@ -3,53 +3,9 @@
 
 "use strict";
 "use strict";
+"use strict";
 
 'use strict';
-
-/*--- staroe ---*/
-
-/* $(document).ready(function () {
-/* 	// $(".chosen-drop").mCustomScrollbar();
-/* 	$('.chosen-select').chosen({
-/* 		no_results_text: "Ой, мы ничего не нашли.",
-/* 		max_selected_options: 0
-/* 	});
-/*
-/* 	var emptyChosen = $('.chosen-choices').html();
-/*
-/* 	$(".chosen-choices").click(function(){
-/* 	    var newOption = $('.chosen-select').html();
-/* 	    $('.chosen-select').empty(); //remove all child nodes
-/* 	    $('.chosen-select').append(newOption);
-/* 	    $('.chosen-select').trigger("chosen:updated");
-/*
-/* 	    setTimeout(function () {
-/* 		    var t = $('.search-choice').html();
-/* 		    console.log(t);
-/* 	    }, 500);
-/*
-/* 	    // $(".chosen-drop").mCustomScrollbar({
-/* 	    // 	axis:"y"
-/* 	    // });
-/* 	});*/
-
-// var choseIndex;
-// $('.chosen-drop li').click(function (e) {
-// 	return function () {
-// 		console.log('123123123');
-// 	}
-
-
-// 	// var choseIndex = $(this).attr('data-option-array-index');
-// 	// console.log(choseIndex);
-// 	// $('.location-' + choseIndex).show();
-// 	// $('.map-aside').addClass('is-active');
-// });
-
-
-// });
-
-/*--- staroe --- -*/
 
 function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
 
@@ -89,8 +45,8 @@ function displayMatches() {
   var citiesList = matchArray.map(function (place) {
     var regex = new RegExp(_this.value, 'gi');
     var cityName = place.title.replace(regex, '<span class="highlight">' + _this.value + '</span>');
-    var cityIdentificator = place.identificator;
-    return '\n      <li class="suggestions__list" data-identificator="' + cityIdentificator + '">\n        <span class="name">' + cityName + '</span>\n      </li>\n    ';
+    var cityid = place.id;
+    return '\n      <li class="suggestions__list" data-id="' + cityid + '">\n        <span class="name">' + cityName + '</span>\n      </li>\n    ';
   }).join('');
   suggestions.innerHTML = citiesList;
 
@@ -102,7 +58,7 @@ function displayMatches() {
     for (var i = 0; i < filialName.length; i++) {
       text += "<li class='filial__item'>" + filialName[i] + "</li>";
     }
-    console.log(text);
+    // console.log(text);
 
     return text;
   }).push('');
@@ -111,33 +67,13 @@ function displayMatches() {
   filialBox.innerHTML = text;
 }
 
-// function displayFilials() {
-//   const filArray = findMatches(this.value, cities);
-//   const filialList = filArray.map(place => {
-//     const regexf = new RegExp(this.value, 'gi');
-//     const filialName = place.title.replace(regexf, `<span class="highlight">${this.value}</span>`);
-//     return `
-//       <li class="filial__item">
-//         <span class="name">${filialName}</span>
-//       </li>
-//     `;
-//   }).join('');
-
-//   filialBox.classList.add('is-active');
-//   filialBox.innerHTML = filialList;
-
-//   // console.log(${filialName});
-// }
-
 var searchInput = document.querySelector('.searchCity__input');
 var suggestions = document.querySelector('.suggestions');
 var suggestionsList = document.querySelector('.suggestions__list');
 var filialBox = document.querySelector('.filial');
-var suggestionsInput = document.querySelector('.searchCity__input');
 var mapAside = document.querySelector('.map-aside');
 
 searchInput.addEventListener('change', displayMatches);
-// suggestionsList.addEventListener('click', displayFilials);
 searchInput.addEventListener('keyup', displayMatches);
 searchInput.addEventListener('click', displayMatches);
 // filial.addEventListener('click', displayFilials);

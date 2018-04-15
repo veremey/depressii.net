@@ -4,6 +4,6 @@
 // const chosen = require('./chosen-js');
 
 
-$('body').prepend('<p> text </p>');
+// $('body').prepend('<p> text </p>');
 // $()
 // $('.chosen-select').chosen();
