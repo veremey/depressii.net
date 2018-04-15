@@ -2503,36 +2503,67 @@ function displayMatches() {
   $('.searchCity__scroll').mCustomScrollbar({});
 }
 
-var text;
+var text,
+    centerLat,
+    centerLng,
+    $marker = [];
 
 function displayFilials() {
   var matchFilials = findMatches(inputValue, cities);
   var filialList = matchFilials.map(function (place) {
     var filialName = place.filial;
+    centerLat = +place.lat;
+    centerLng = +place.lng;
 
     text = '';
     for (var i = 0; i < filialName.length; i++) {
-      text += "<li class='filial__item'>" + filialName[i].title + "</li>";
+      if (filialName[i].title.length > 30) {
+        text += "<li class='filial__item'>" + filialName[i].title.substring(0, 30) + '...' + "</li>";
+      } else {
+        text += "<li class='filial__item'>" + filialName[i].title + "</li>";
+      }
+      var $lat = filialName[i].merkerLat;
+      var $lng = filialName[i].merkerLng;
+      var lat = parseFloat($lat);
+      var lng = parseFloat($lng);
+      // $marker.push(lng);
+
+      $marker.push({
+        position: new google.maps.LatLng(lat, lng)
+      });
     }
     text += "";
     return text;
   }).push('');
+
+  console.log($marker);
+
   filialBox.classList.add('is-active');
   mapAside.classList.add('is-active');
   filialBox.innerHTML = text;
+  initMap();
 }
+
 /*--  init map  ---*/
 
 function initMap() {
-  var uluru = { lat: 55.744510, lng: 37.605334 };
+  var $lat = 55.756491 || centerLat;
+  var $lng = 37.812185 || centerLng;
+  var $markerLat = 55.756491 || markerLat;
+  var $markerLng = 37.812185 || markerLng;
+  var centerMap = { lat: $lat, lng: $lng };
   var map = new google.maps.Map(document.getElementById('map'), {
     zoom: 15,
-    center: uluru
+    center: centerMap
   });
-  // var marker = new google.maps.Marker({
-  //   position: uluru,
-  //   map: map
-  // });
+  // var marker = $marker;
+  // Create markers.
+  $marker.forEach(function (feature) {
+    var marker = new google.maps.Marker({
+      position: $marker,
+      map: map
+    });
+  });
 }
 
 /*--  init map  ---*/
@@ -2556,11 +2587,6 @@ $(document).ready(function () {
     $('.searchCity__box').removeClass('is-active');
     inputValue = '';
     inputValue += suggestionsHtml;
-
-    var myDiv = $('.suggestions__list');
-    myDiv.each(function () {
-      $(this).text(myDiv.text().substring(0, 10) + ' ...');
-    });
   });
   text = '';
   $('.suggestions').on('click', '.suggestions__list', displayFilials);
