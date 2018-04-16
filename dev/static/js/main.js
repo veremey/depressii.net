@@ -2479,6 +2479,13 @@ fetch(endpoint).then(function (blob) {
   return cities.push.apply(cities, _toConsumableArray(data));
 });
 
+// fetch(endpoint)
+//   .then(blob => blob.json())
+//   .then(data => cities.push(...data)
+//   .then());
+
+console.log(cities);
+
 function findMatches(wordToMatch, cities) {
   return cities.filter(function (place) {
     // here we need to figure out if the city or state matches what was searched
@@ -2516,6 +2523,7 @@ var text,
 var contentString = [];
 var infowindow;
 var content;
+var matchPos;
 
 function displayFilials() {
   var matchFilials = findMatches(inputValue, cities);
@@ -2533,25 +2541,24 @@ function displayFilials() {
       } else {
         text += "<li class='filial__item'>" + filialName[i].title + "</li>";
       }
+
       var $lat = filialName[i].merkerLat;
       var $lng = filialName[i].merkerLng;
       var lat = parseFloat($lat);
       var lng = parseFloat($lng);
       // $marker.push(lng);
-      var $lng = filialName[i].merkerLng;
+      // var $lng = filialName[i].merkerLng;
 
-      title.push([filialName[i].title]);
-      address.push([filialName[i].address]);
-      telShort.push([filialName[i].telShort]);
-      site.push([filialName[i].site]);
+      // title.push([filialName[i].title]);
+      // address.push([filialName[i].address]);
+      // telShort.push([filialName[i].telShort]);
+      // site.push([filialName[i].site]);
 
       $marker.push([lat, lng]);
     }
     text += "";
     return text;
   }).push('');
-
-  // console.log($marker);
 
   filialBox.classList.add('is-active');
   mapAside.classList.add('is-active');
@@ -2562,30 +2569,35 @@ function displayFilials() {
 
 /*--  init map  ---*/
 
+function findPosLat(wordToMatch, cities) {
+  var pregex = new RegExp(wordToMatch, 'gi');
+  console.log(cities.length);
+  for (var i = cities.length - 1; i >= 0; i--) {
+    return cities[i].filial.filter(function (place) {
+      return place.match(pregex);
+    });
+  }
+};
+
+// function findPosLng(wordToMatch, cities) {
+//   return cities.filter(place => {
+//     // here we need to figure out if the city or state matches what was searched
+//     var pregex = new RegExp(wordToMatch, 'gi');
+//     return place.filial.merkerLng.match(pregex);
+//   });
+// };
+
+
 function initMap() {
   var $lat = centerLat || 55.756491;
   var $lng = centerLng || 37.812185;
   var marker;
   var centerMap = { lat: $lat, lng: $lng };
 
-  // for (var i = $marker.length - 1; i >= 0; i--) {
-  //   contentString.push(['<div id="content">'+
-  //      '<div id="siteNotice"></div>'+
-  //      '<h1 id="firstHeading" class="firstHeading">' +title[i]+ '</h1>'+
-  //      '<div id="bodyContent">'+
-  //      '<p>' +address[i]+ '</p>'+
-  //      '<p>' +telShort[i]+ '</p>'+
-  //      '<p>Attribution: Uluru, <a href="' +site[i]+ '">'+
-  //      '' +site[i]+ ''+
-  //      '(last visited June 22, 2009).</p>'+
-  //      '</div>'+
-  //      '</div>']);
-
-  //   content = contentString[i].join('');
-  //   infowindow = new google.maps.InfoWindow({
-  //     content: content
-  //   });
-  // }
+  infowindow = new google.maps.InfoWindow({
+    content: 'matchPos',
+    maxWidth: 200
+  });
 
   var map = new google.maps.Map(document.getElementById('map'), {
     zoom: $zoom || 15,
@@ -2597,29 +2609,26 @@ function initMap() {
       position: new google.maps.LatLng($marker[i][0], $marker[i][1]),
       icon: icon,
       map: map
-    }).addListener('click', toggleBounce);
+    }).addListener('click', function () {
+      infowindow.open(map, marker);
+
+      var clickLat = this.getPosition().lat();
+      var clickLng = this.getPosition().lng();
+
+      var matchPosLat = findPosLat(clickLat, cities);
+      // const matchPosLng = findPosLng(clickLat, cities);
+
+      matchPos = matchPosLat.map(function (place) {
+        var filialName = place.title;
+        var filialAddress = place.address;
+        var filialTelShort = place.telShort;
+        var filialSite = place.site;
+        return '\n          <div id="content">\n            <div id="siteNotice"></div>\n            <h1 id="firstHeading" class="firstHeading">' + title + '</h1>\n            <div id="bodyContent">\n              <p>' + address + '</p>\n              <p>' + telShort + '</p>\n              <p>Attribution: Uluru, <a href="' + site + '">' + site + '</a>\n              (last visited June 22, 2009).</p>\n            </div>\n          </div>\n        ';
+      });
+
+      console.log(matchPos);
+    });
   }
-
-  // google.maps.event.addListener(marker, 'click', function(evt) {
-  //   // console.log('111111');
-
-  //   var posLat = evt.latLng.lat();
-  //   var posLng = evt.latLng.lng();
-
-  //   var matchPosLat = findMatches(posLat, cities);
-  //   var PosLatinfo = matchPosLat.map(place => {
-  //     if(place.filials.merkerLng == posLng ){
-  //       alert('yo-yo-oy');
-  //     }
-
-  //   });
-
-  //   /* получить координаті маркера
-  //   * проверить кому єти координаті принадлежат
-  //   * найти данніеу владельуа и вівести их*/
-
-  //   // infowindow.open(map, marker);
-  // });
 }
 
 function toggleBounce() {
