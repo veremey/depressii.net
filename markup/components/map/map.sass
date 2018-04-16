@@ -23,7 +23,6 @@
 
 .chooseCity
 	position: relative
-	margin-bottom: 60px
 .chooseCity__btn
 	position: absolute
 	top: 0
@@ -76,7 +75,7 @@
 		max-width: 320px
 		background-color: #fff
 		z-index: 20
-		padding: 30px
+		padding: 30px 10px 30px 30px
 		background-color: #fff
 		max-height: 420px
 		overflow: hidden
@@ -115,6 +114,8 @@
 	margin: 0
 	list-style-type: none
 	background-color: #004e73
+	max-height: 100%
+	overflow: auto
 	&.is-active
 		display: block
 		z-index: 20
@@ -131,3 +132,89 @@
 			background-color: #ffb51c
 			color: #004e73
 
+.map
+	&-btns
+		display: flex
+		align-items: center
+		justify-content: space-between
+		margin-bottom: 10px
+		.btn
+			width: 46%
+			display: inline-block
+			vertical-align: top
+			height: 34px
+			background-color: $blueBlack
+			padding: 4px
+			border-radius: 4px
+			outline: none
+			color: #fff
+			font-size: 12px
+			+g
+			tr(.4s)
+			&:hover
+				opacity: .8
+			&.is-active
+				background-color: #ffb51c
+				color: $blueBlack
+
+	&-content
+		// min-width: 300px
+	&__title
+		color: $desc
+		font-size: 14px
+		line-height: 1.28
+		+hbl
+		margin-bottom: 1.2em
+	&__address
+		font-size: 16px
+		color: $desc
+		line-height: 1.25
+		margin-bottom: 1.2em
+		+g
+	&__contact
+		margin-bottom: 10px
+	&__row
+		display: flex
+		align-items: center
+		margin-bottom: 8px
+		img
+			display: inline-block
+			vertical-align: top
+			margin-right: 14px
+		.show-tel
+			display: inline-block
+			vertical-align: top
+			background-color: #fff
+			border-radius: 4px
+			border: 1px solid $blueBlack
+			color: $blueBlack
+			margin-left: auto
+			padding: 5px 7px
+			font-size: 11px
+			+tr(.4s )
+			+hr
+			&:hover
+				background-color: $blueBlack
+				color: #fff
+	&__tel
+		display: inline-block
+		vertical-align: top
+		font-size: 14px
+		line-height: 1.2
+		color: $desc
+		+hbl
+	&__site
+		font-size: 14px
+		text-decoration: underline
+		color: #009de1
+		+hl
+		&:hover
+			text-decoration: none
+	&__info
+		font-size: 11px
+		line-height: 1.2
+		color: #b4b4b4
+		+hl
+
+.hiden-map-info
+	display: none

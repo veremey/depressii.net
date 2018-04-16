@@ -52,6 +52,7 @@ y-axis
 */
 
 	.mCSB_inside > .mCSB_container{ margin-right: 30px; }
+	.map-section .mCSB_inside > .mCSB_container{ margin-right: 6px; }
 
 	.mCSB_container.mCS_no_scrollbar_y.mCS_y_hidden{ margin-right: 0; } /* non-visible scrollbar */
 
@@ -70,6 +71,10 @@ y-axis
 		top: 0;
 		right: 0;
 		bottom: 0;
+	}
+	.map-section .mCSB_scrollTools{ /* contains scrollbar markup (draggable element, dragger rail, buttons etc.) */
+		width: 6px;
+
 	}
 
 	.mCSB_outside + .mCSB_scrollTools{ right: -26px; } /* scrollbar position: outside */
@@ -100,6 +105,16 @@ y-axis
 		-webkit-border-radius: 16px; -moz-border-radius: 16px; border-radius: 16px;
 	}
 
+	.mCSB_scrollTools .mCSB_draggerRail{
+		width: 2px;
+		height: 100%;
+		margin: 0 auto;
+		-webkit-border-radius: 0; -moz-border-radius: 0; border-radius: 0;
+	}
+	.map-section .mCSB_scrollTools .mCSB_draggerRail{
+		width: 100%;
+	}
+
 	.mCSB_scrollTools .mCSB_dragger{ /* the draggable element */
 		cursor: pointer;
 		width: 100%;
@@ -113,6 +128,15 @@ y-axis
 		height: 100%;
 		margin: 0 auto;
 		-webkit-border-radius: 16px; -moz-border-radius: 16px; border-radius: 16px;
+		text-align: center;
+	}
+
+	.map-section .mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar{ /* the dragger element */
+		position: relative;
+		width: 6px;
+		height: 100%;
+		margin: 0 auto;
+		-webkit-border-radius: 0; -moz-border-radius: 0; border-radius: 0px;
 		text-align: center;
 	}
 
@@ -333,6 +357,7 @@ yx-axis
 	/* default theme ("light") */
 
 	.mCSB_scrollTools{ opacity: 0.75; filter: "alpha(opacity=75)"; -ms-filter: "alpha(opacity=75)"; }
+	.map-section .mCSB_scrollTools{ opacity: 1; }
 
 	.mCS-autoHide > .mCustomScrollBox > .mCSB_scrollTools,
 	.mCS-autoHide > .mCustomScrollBox ~ .mCSB_scrollTools{ opacity: 0; filter: "alpha(opacity=0)"; -ms-filter: "alpha(opacity=0)"; }
@@ -348,15 +373,25 @@ yx-axis
 		background-color: #000; background-color: rgba(0,0,0,0.4);
 		filter: "alpha(opacity=40)"; -ms-filter: "alpha(opacity=40)";
 	}
+	.map-section .mCSB_scrollTools .mCSB_draggerRail{
+		background-color: #fff;
+	}
 
 	.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar{
 		background-color: #fff; background-color: rgba(0,78,155,0.75);
 		filter: "alpha(opacity=75)"; -ms-filter: "alpha(opacity=75)";
 	}
 
+	.map-section .mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar{
+		background-color: #009de1;
+	}
+
 	.mCSB_scrollTools .mCSB_dragger:hover .mCSB_dragger_bar{
 		background-color: #fff; background-color:  rgba(0,78,155,0.85);
 		filter: "alpha(opacity=85)"; -ms-filter: "alpha(opacity=85)";
+	}
+	.map-section .mCSB_scrollTools .mCSB_dragger:hover .mCSB_dragger_bar{
+		background-color: #009de1;
 	}
 	.mCSB_scrollTools .mCSB_dragger:active .mCSB_dragger_bar,
 	.mCSB_scrollTools .mCSB_dragger.mCSB_dragger_onDrag .mCSB_dragger_bar{

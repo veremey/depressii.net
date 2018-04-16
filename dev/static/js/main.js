@@ -2467,6 +2467,31 @@ and dependencies (minified).
 
 function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
 
+var text,
+    centerLat,
+    centerLng,
+    $zoom,
+    icon,
+    title = [],
+    $title,
+    $address,
+    $tel,
+    $telShort,
+    $site,
+    address = [],
+    tel = [],
+    telShort = [],
+    site = [],
+    content = {},
+    $content = [],
+    $marker = [];
+var contentString = [];
+var infowindow;
+var matchPos;
+
+var contentHTML = $('.hiden-map-info').html();
+var maxInfoWidth = $('.map-module').width() * .3 > 300 ? $('.map-module').width() * .3 : 300;
+
 var endpoint = 'place.json';
 // const endpoint = 'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json';
 
@@ -2479,12 +2504,7 @@ fetch(endpoint).then(function (blob) {
   return cities.push.apply(cities, _toConsumableArray(data));
 });
 
-// fetch(endpoint)
-//   .then(blob => blob.json())
-//   .then(data => cities.push(...data)
-//   .then());
-
-console.log(cities);
+// console.log(cities);
 
 function findMatches(wordToMatch, cities) {
   return cities.filter(function (place) {
@@ -2510,21 +2530,6 @@ function displayMatches() {
   $('.searchCity__scroll').mCustomScrollbar({});
 }
 
-var text,
-    centerLat,
-    centerLng,
-    $zoom,
-    icon,
-    title = [],
-    address = [],
-    telShort = [],
-    site = [],
-    $marker = [];
-var contentString = [];
-var infowindow;
-var content;
-var matchPos;
-
 function displayFilials() {
   var matchFilials = findMatches(inputValue, cities);
   var filialList = matchFilials.map(function (place) {
@@ -2549,12 +2554,29 @@ function displayFilials() {
       // $marker.push(lng);
       // var $lng = filialName[i].merkerLng;
 
-      // title.push([filialName[i].title]);
-      // address.push([filialName[i].address]);
-      // telShort.push([filialName[i].telShort]);
-      // site.push([filialName[i].site]);
+      title.push([filialName[i].title]);
+      address.push([filialName[i].address]);
+      telShort.push([filialName[i].telShort]);
+      tel.push([filialName[i].tel]);
+      site.push([filialName[i].site]);
+
+      content = {
+        "title": title,
+        "address": address,
+        "telShort": telShort,
+        "tel": tel,
+        "site": site
+      };
+
+      $title = content.title[i];
+      $address = content.address[i];
+      $telShort = content.telShort[i];
+      $tel = content.tel[i];
+      $site = content.site[i];
 
       $marker.push([lat, lng]);
+
+      $content.push('<div class="map-content">\n      <h5 class="map__title">\'' + $title + '\'</h5>\n      <p class="map__address">\'' + $address + '\'</p>\n      <div class="map__contact">\n        <div class="map__row">\n          <img src="static/img/content/icon-tel.png" alt="tel">\n          <a href="tel:+74952121111" class="map__tel" data-tel="' + $tel + '">' + $telShort + '</a>\n          <button class="show-tel">\u041F\u043E\u043A\u0430\u0437\u0430\u0442\u044C \u043D\u043E\u043C\u0435\u0440</button>\n        </div>\n        <div class="map__row">\n          <img src="static/img/content/icon-earth.png" alt="tel">\n          <a href="' + $site + '" class="map__site">' + $site + '</a>\n        </div>\n      </div>\n      <p class="map__info">\u0414\u043E\u043F\u043E\u043B\u043D\u0438\u0442\u0435\u043B\u044C\u043D\u0430\u044F \u0438\u043D\u0444\u043E\u0440\u043C\u0430\u0446\u0438\u044F: \u0414\u043B\u044F \u0437\u0430\u043F\u0438\u0441\u0438 \u043D\u0430 \u043F\u0440\u0438\u0435\u043C \u043A \u0432\u0440\u0430\u0447\u0443 \u043F\u043E\u0437\u0432\u043E\u043D\u0438\u0442\u0435, \u043F\u043E\u0436\u0430\u043B\u0443\u0439\u0441\u0442\u0430, \u043F\u043E \u0443\u043A\u0430\u0437\u0430\u043D\u043D\u043E\u043C\u0443 \u0442\u0435\u043B\u0435\u0444\u043E\u043D\u0443. \u041E\u0431\u044F\u0437\u0430\u0442\u0435\u043B\u044C\u043D\u043E \u0443\u0442\u043E\u0447\u043D\u0438\u0442\u0435, \u0440\u0430\u0431\u043E\u0442\u0430\u0435\u0442 \u043B\u0438 \u043A\u043B\u0438\u043D\u0438\u043A\u0430 \u043F\u043E \u041E\u041C\u0421, \u0414\u041C\u0421 \u043F\u043E\u043B\u0438\u0441\u0430\u043C \u0438\u043B\u0438 \u043E\u0440\u0433\u0430\u043D\u0438\u0437\u043E\u0432\u0430\u043D \u043F\u043B\u0430\u0442\u043D\u044B\u0439 \u043F\u0440\u0438\u0435\u043C.</p>\n    </div>');
     }
     text += "";
     return text;
@@ -2563,21 +2585,38 @@ function displayFilials() {
   filialBox.classList.add('is-active');
   mapAside.classList.add('is-active');
   filialBox.innerHTML = text;
+
+  $('.filial').mCustomScrollbar({});
+
   icon = 'static/img/content/marker.png';
+  iconHighlight = 'static/img/content/marker-hover.png';
   initMap();
+
+  $('.map-btns .btn').removeClass('is-active');
+  $('.btn-list').addClass('is-active');
 }
+
+$('.map-btns').on('click', '.btn', function () {
+  $(this).siblings().removeClass('is-active');
+  $(this).addClass('is-active');
+  if ($('.btn-list').hasClass('is-active')) {
+    $('.filial, .map-aside').addClass('is-active');
+  } else {
+    $('.filial, .map-aside').removeClass('is-active');
+  }
+});
 
 /*--  init map  ---*/
 
-function findPosLat(wordToMatch, cities) {
-  var pregex = new RegExp(wordToMatch, 'gi');
-  console.log(cities.length);
-  for (var i = cities.length - 1; i >= 0; i--) {
-    return cities[i].filial.filter(function (place) {
-      return place.match(pregex);
-    });
-  }
-};
+// function findPosLat(wordToMatch, cities) {
+//   var pregex = new RegExp(wordToMatch, 'gi');
+//   console.log(cities.length );
+//   for (var i = cities.length - 1; i >= 0; i--) {
+//     return cities[i].filial.filter(place => {
+//       return place.match(pregex);
+//     })
+//   }
+// };
 
 // function findPosLng(wordToMatch, cities) {
 //   return cities.filter(place => {
@@ -2594,42 +2633,46 @@ function initMap() {
   var marker;
   var centerMap = { lat: $lat, lng: $lng };
 
-  infowindow = new google.maps.InfoWindow({
-    content: 'matchPos',
-    maxWidth: 200
-  });
-
   var map = new google.maps.Map(document.getElementById('map'), {
     zoom: $zoom || 15,
     center: centerMap
   });
 
   for (var i = $marker.length - 1; i >= 0; i--) {
+    // infoBlock = $content[i];
+
     marker = new google.maps.Marker({
       position: new google.maps.LatLng($marker[i][0], $marker[i][1]),
       icon: icon,
       map: map
-    }).addListener('click', function () {
-      infowindow.open(map, marker);
-
-      var clickLat = this.getPosition().lat();
-      var clickLng = this.getPosition().lng();
-
-      var matchPosLat = findPosLat(clickLat, cities);
-      // const matchPosLng = findPosLng(clickLat, cities);
-
-      matchPos = matchPosLat.map(function (place) {
-        var filialName = place.title;
-        var filialAddress = place.address;
-        var filialTelShort = place.telShort;
-        var filialSite = place.site;
-        return '\n          <div id="content">\n            <div id="siteNotice"></div>\n            <h1 id="firstHeading" class="firstHeading">' + title + '</h1>\n            <div id="bodyContent">\n              <p>' + address + '</p>\n              <p>' + telShort + '</p>\n              <p>Attribution: Uluru, <a href="' + site + '">' + site + '</a>\n              (last visited June 22, 2009).</p>\n            </div>\n          </div>\n        ';
-      });
-
-      console.log(matchPos);
     });
   }
+
+  // console.log($title);
+
+  infowindow = new google.maps.InfoWindow({
+    content: contentHTML,
+    maxWidth: maxInfoWidth
+  });
+
+  marker.addListener('click', function () {
+    var icon = iconHighlight;
+    marker.setIcon(iconHighlight);
+    infowindow.open(map, marker);
+    // console.log(this.position.lng());
+    // console.log(this.position.lat());
+  });
+
+  google.maps.event.addListener(infowindow, 'closeclick', function () {
+    marker.setIcon(icon);
+  });
 }
+
+$('#map').on('click', '.show-tel', function () {
+  var text = $(this).parent('.map__row').find('.map__tel').data('tel');
+
+  $(this).parent('.map__row').find('.map__tel').text(text);
+});
 
 function toggleBounce() {
   if (this.getAnimation() !== null) {
