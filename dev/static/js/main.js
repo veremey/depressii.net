@@ -2506,14 +2506,25 @@ function displayMatches() {
 var text,
     centerLat,
     centerLng,
+    $zoom,
+    icon,
+    title = [],
+    address = [],
+    telShort = [],
+    site = [],
     $marker = [];
+var contentString = [];
+var infowindow;
+var content;
 
 function displayFilials() {
   var matchFilials = findMatches(inputValue, cities);
   var filialList = matchFilials.map(function (place) {
     var filialName = place.filial;
+
     centerLat = +place.lat;
     centerLng = +place.lng;
+    $zoom = +place.zoom;
 
     text = '';
     for (var i = 0; i < filialName.length; i++) {
@@ -2527,43 +2538,96 @@ function displayFilials() {
       var lat = parseFloat($lat);
       var lng = parseFloat($lng);
       // $marker.push(lng);
+      var $lng = filialName[i].merkerLng;
 
-      $marker.push({
-        position: new google.maps.LatLng(lat, lng)
-      });
+      title.push([filialName[i].title]);
+      address.push([filialName[i].address]);
+      telShort.push([filialName[i].telShort]);
+      site.push([filialName[i].site]);
+
+      $marker.push([lat, lng]);
     }
     text += "";
     return text;
   }).push('');
 
-  console.log($marker);
+  // console.log($marker);
 
   filialBox.classList.add('is-active');
   mapAside.classList.add('is-active');
   filialBox.innerHTML = text;
+  icon = 'static/img/content/marker.png';
   initMap();
 }
 
 /*--  init map  ---*/
 
 function initMap() {
-  var $lat = 55.756491 || centerLat;
-  var $lng = 37.812185 || centerLng;
-  var $markerLat = 55.756491 || markerLat;
-  var $markerLng = 37.812185 || markerLng;
+  var $lat = centerLat || 55.756491;
+  var $lng = centerLng || 37.812185;
+  var marker;
   var centerMap = { lat: $lat, lng: $lng };
+
+  // for (var i = $marker.length - 1; i >= 0; i--) {
+  //   contentString.push(['<div id="content">'+
+  //      '<div id="siteNotice"></div>'+
+  //      '<h1 id="firstHeading" class="firstHeading">' +title[i]+ '</h1>'+
+  //      '<div id="bodyContent">'+
+  //      '<p>' +address[i]+ '</p>'+
+  //      '<p>' +telShort[i]+ '</p>'+
+  //      '<p>Attribution: Uluru, <a href="' +site[i]+ '">'+
+  //      '' +site[i]+ ''+
+  //      '(last visited June 22, 2009).</p>'+
+  //      '</div>'+
+  //      '</div>']);
+
+  //   content = contentString[i].join('');
+  //   infowindow = new google.maps.InfoWindow({
+  //     content: content
+  //   });
+  // }
+
   var map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 15,
+    zoom: $zoom || 15,
     center: centerMap
   });
-  // var marker = $marker;
-  // Create markers.
-  $marker.forEach(function (feature) {
-    var marker = new google.maps.Marker({
-      position: $marker,
+
+  for (var i = $marker.length - 1; i >= 0; i--) {
+    marker = new google.maps.Marker({
+      position: new google.maps.LatLng($marker[i][0], $marker[i][1]),
+      icon: icon,
       map: map
-    });
-  });
+    }).addListener('click', toggleBounce);
+  }
+
+  // google.maps.event.addListener(marker, 'click', function(evt) {
+  //   // console.log('111111');
+
+  //   var posLat = evt.latLng.lat();
+  //   var posLng = evt.latLng.lng();
+
+  //   var matchPosLat = findMatches(posLat, cities);
+  //   var PosLatinfo = matchPosLat.map(place => {
+  //     if(place.filials.merkerLng == posLng ){
+  //       alert('yo-yo-oy');
+  //     }
+
+  //   });
+
+  //   /* получить координаті маркера
+  //   * проверить кому єти координаті принадлежат
+  //   * найти данніеу владельуа и вівести их*/
+
+  //   // infowindow.open(map, marker);
+  // });
+}
+
+function toggleBounce() {
+  if (this.getAnimation() !== null) {
+    this.setAnimation(null);
+  } else {
+    this.setAnimation(google.maps.Animation.BOUNCE);
+  }
 }
 
 /*--  init map  ---*/
@@ -2627,8 +2691,10 @@ function open(e) {
 function ppp(e) {
 	e.preventDefault();
 	var openName = this.dataset.open;
+	var docHeight = document.documentElement.scrollHeight + "px";
 	var openEl = document.querySelector("." + openName);
 	var ppp = document.querySelector(".ppp");
-	ppp.style.display = 'block';
+	ppp.setAttribute('style', 'display: block; height: ' + ("" + docHeight));
+	console.log(docHeight);
 	openEl.style.display = 'block';
 }

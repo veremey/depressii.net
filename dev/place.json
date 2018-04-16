@@ -2,8 +2,9 @@
   {
     "id": "0",
     "title": "Белгород",
-    "lat": 55.756588,
-    "lng": 37.801413,
+    "lat": 50.609409,
+    "lng": 36.578795,
+    "zoom": 13,
     "filial": [
       {
         "title" : "Управление делами Президента РФ Федеральное Государственное бюджетное учреждение Объединенная Больница с Поликлиникой",
@@ -11,8 +12,8 @@
         "telShort": "7 (495) 212 ****",
         "tel": "7 (495) 212 1111",
         "site": "http://medsi.ru/clinics/belorusska",
-        "merkerLat": 55.744510,
-        "merkerLng": 37.605334
+        "merkerLat": 50.603053,
+        "merkerLng": 36.581496
       },
       {
         "title" : "КДЦ «МЕДСИ»",
@@ -20,8 +21,8 @@
         "telShort": "7 (495) 212 ****",
         "tel": "7 (495) 212 1111",
         "site": "http://medsi.ru/clinics/belorusska",
-        "merkerLat": 55.744520,
-        "merkerLng": 37.605330
+        "merkerLat": 50.603313,
+        "merkerLng": 36.581398
       },
       {
         "title" : "МК Семейный доктор",
@@ -29,8 +30,8 @@
         "telShort": "7 (495) 212 ****",
         "tel": "7 (495) 212 1111",
         "site": "http://medsi.ru/clinics/belorusska",
-        "merkerLat": 55.744530,
-        "merkerLng": 37.605338
+        "merkerLat": 50.603824,
+        "merkerLng": 36.592693
       },
       {
         "title" : "Медицинский центр «Атлас»",
@@ -38,8 +39,8 @@
         "telShort": "7 (495) 212 ****",
         "tel": "7 (495) 212 1111",
         "site": "http://medsi.ru/clinics/belorusska",
-        "merkerLat": 55.744530,
-        "merkerLng": 37.605338
+        "merkerLat": 50.610333,
+        "merkerLng": 36.576913
       }
     ]
   }, {

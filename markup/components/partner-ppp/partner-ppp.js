@@ -33,8 +33,10 @@ function open(e) {
 function ppp(e) {
 	e.preventDefault();
 	let openName = this.dataset.open;
+	let docHeight = document.documentElement.scrollHeight + "px";
 	let openEl = document.querySelector("." + openName);
 	let ppp = document.querySelector(".ppp");
-	ppp.style.display = 'block';
+	ppp.setAttribute('style', 'display: block; height: ' + `${docHeight}`);
+	console.log(docHeight);
 	openEl.style.display = 'block';
 }
