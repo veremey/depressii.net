@@ -2951,6 +2951,7 @@ $(document).ready(function () {
   $('.suggestions').on('click', '.suggestions__list', displayFilials);
 });
 "use strict";
+"use strict";
 
 var pppBtn = document.querySelector(".js-ppp");
 var closeBtn = document.querySelector(".js-close");

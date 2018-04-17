@@ -117,6 +117,13 @@ p
 		+hbl
 		+r(700)
 			font-size: 24px
+	&__bm
+		color: $blueBlack
+		font-size: 36px
+		margin-bottom: .6em
+		+hb
+		+r(700)
+			font-size: 24px
 	&__s
 		color: $blueText
 		font-size: 30px
@@ -158,14 +165,22 @@ p
 		color: #343535
 		+hbl
 
-
 .subtitle
 	.flex_j
 		align-items: flex-start
+		+r(500)
+			flex-direction: column-reverse
+			justify-content: center
 	.title__s
 		width: 78%
+		+r(500)
+			width: 100%
 	img
 		width: 20%
+		+r(500)
+			width: 50%
+			margin: 0 auto 10px
+			display: none
 
 .desc
 	&__normal

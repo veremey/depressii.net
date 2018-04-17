@@ -26,6 +26,28 @@
 
 .chooseCity
 	position: relative
+	&-title
+		display: flex
+		align-items: center
+		justify-content: space-between
+		+r(760)
+			display: block
+		.title__bm
+			margin: 0 14px 0 0
+			+r(760)
+				margin-bottom: .6em
+	&__content
+		position: relative
+		width: 60%
+		max-width: 320px
+		+r(760)
+			max-width: 100%
+			width: 100%
+		.searchCity__input
+			background-color: #f3f3f3
+		.searchCity__box
+			right: 0
+			left: 0
 .chooseCity__btn
 	position: absolute
 	top: 0
@@ -140,14 +162,19 @@
 .map
 	&-btns
 		display: none
-		align-items: center
-		justify-content: space-between
 		margin-bottom: 10px
 		+r(760)
+			width: 100%
 			display: flex
+			align-items: center
+			justify-content: space-between
 		.btn
 			width: 46%
-			display: inline-block
+			flex: 1 1 100%
+			// display: inline-block
+			display: flex
+			align-items: center
+			justify-content: center
 			vertical-align: top
 			height: 34px
 			background-color: $blueBlack
@@ -163,6 +190,10 @@
 			&.is-active
 				background-color: #ffb51c
 				color: $blueBlack
+			&-map
+				margin-right: 5px
+			&-list
+				margin-left: 5px
 
 	&-content
 		// min-width: 300px
