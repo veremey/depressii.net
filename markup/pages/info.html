@@ -33,7 +33,7 @@
 						<q>Как помочь? И нужно ли вообще помогать <br>(вдруг человек только хочет обратить на себя внимание)?</q>
 					</div>
 
-					<div class="quotes box_30">
+					<div class="quotes">
 						<div class="quotes__pic">
 							<img class="quotes__img" src="static/img/content/img-02.jpg" alt="quote pic">
 						</div>
@@ -71,7 +71,11 @@
 					</div>
 				</div>
 
-				<a href="./" class="back box_60">
+				<div class="box_30">
+					{{> map/map}}
+				</div>
+
+				<a href="./" class="back box_60 box_mt30">
 					<span class="back__pic"><img src="static/img/content/icon-back.png" alt="back icon" class="back__img"></span>
 					<p class="back__desc">Назад к списку статей</p>
 				</a>
@@ -115,14 +119,11 @@
 		<!-- ppp -->
 		{{> partner-ppp/partner-ppp }}
 
-		<!-- <script src="static/js/separate-js/jquery-3.3.1.min.js"></script> -->
-		<!-- <script src="static/js/separate-js/chosen.jquery.min.js"></script> -->
-		<!-- <script src="static/js/separate-js/jquery.mCustomScrollbar.js"></script>  -->
-<!--
-		<script src="static/js/separate-js/svg4everybody.min.js"></script>
-		<script>svg4everybody();</script>
- -->
+
+		<!-- <script src="static/js/separate-js/svg4everybody.min.js"></script>
+		<script>svg4everybody();</script> -->
+
 		<script src="static/js/main.js"></script>
-	</body>
+
 
 </html>

@@ -6,17 +6,58 @@
 
 
 .header
+	position: relative
+	z-index: 50
+	+tr(.6s)
+	+r(760)
+		margin-bottom: 20px
 	&__top
 		padding: 30px 0
 		background-color: $blue
+		+tr(.6s)
+		+r(760)
+			padding: 20px 0
+		.layout__m
+			position: relative
+			display: flex
+			align-items: center
+			justify-content: space-between
 	&__bottom
 		background-color: #fff
+		+r(760)
+			position: absolute
+			display: none
+		&.is-active
+			display: block
+			top: 100%
+			width: 100%
+			background-color: rgba(0, 78, 115, .72)
+			left: 0
+			.header__nav
+				width: 100%
 	&__nav
 		display: inline-block
 		vertical-align: top
+	&.is-fixed
+		position: fixed
+		top: 0
+		left: 0
+		right: 0
+		.header__top
+			padding: 10px 0
+		.get-help
+			top: 60px
 	.get-help
 		background-color: #ff0028
 		color: #fff
+		position: absolute
+		right: 0
+		top: 80px
+		+r(760)
+			position: static
+	.logo
+		+r(420)
+			width: 80px
 
 .nav
 	&__list
@@ -26,11 +67,20 @@
 		padding: 0
 		margin: 0
 		list-style-type: none
+		+r(760)
+			height: auto
+			display: block
+			text-align: center
+			padding: 40px 0 20px 0
 	&__item
 		padding: 0
 		margin-right: 20px
 		display: inline-block
 		vertical-align: top
+		+r(760)
+			display: block
+			margin: 0 0 20px 0
+			text-align: center
 	&__link
 		display: block
 		text-transform: uppercase
@@ -38,6 +88,8 @@
 		font-size: 14px
 		+hb
 		+tr(.4s)
+		+r(760)
+			color: #fff
 		&:hover
 			color: #0095d6
 
@@ -53,6 +105,63 @@
 	font-size: 12px
 	+hm
 	+tr(.4s)
+	+r(760)
+		padding: 18px
+		margin: 0 30px 0 auto
+	+r(650)
+		padding: 10px 18px
+	+r(420)
+		margin-right: 20px
+		padding: 6px 4px
 	&:hover
 		opacity: .7
 
+.btn-menu
+	display: inline-block
+	width: 54px
+	height: 38px
+	vertical-align: top
+	background-color: $n
+	border: none
+	outline: none
+	padding: 0
+	margin: 0
+	position: relative
+	+box
+	+r(650)
+		width: 48px
+		height: 28px
+	+r(420)
+		width: 36px
+
+	&:before
+		content: ''
+		position: absolute
+		top: 0
+		left: 0
+		height: 50%
+		width: 100%
+		border-top: 4px solid #fff
+		border-bottom: 2px solid #fff
+		+box
+	&:after
+		content: ''
+		position: absolute
+		bottom: 0%
+		left: 0
+		height: 50%
+		width: 100%
+		border-top: 2px solid #fff
+		border-bottom: 4px solid #fff
+		+box
+	&.is-active
+		&:before
+			border-bottom: none
+			transform-origin: 0 0
+			transform: rotate(40deg) translate(5px, -3px)
+			+r(650)
+				transform: rotate(40deg) translate(0px, -5px)
+		&:after
+			border-top: none
+			transform-origin: 0 0
+			transform: rotate(-40deg) translate(-8px, 0px)

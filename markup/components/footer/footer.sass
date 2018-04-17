@@ -3,26 +3,49 @@
 	background-color: $blue
 	&__top
 		padding: 60px 0 10px
+	&__content
+		display: flex
+		justify-content: space-between
+		align-items: flex-start
+		width: calc(100% - 180px)
+		+r(680)
+			width: 100%
+			flex-direction: column-reverse
+			min-height: 20px
 	&__nav
 		display: flex
 		flex: 0 1 370px
 		flex-wrap: wrap
 		margin-left: auto
+		+r(750)
+			flex: 0 1 300px
+			margin: 0 auto 0 0
+		+r(680)
+			flex: 0 1 auto
+			width: 100%
+			margin: 20px 0 0
 	&__list
 		padding: 0
 		font-size: 0
 		list-style-type: none
+		+r(680)
+			width: 100%
 	&__item
 		display: inline-block
 		vertical-align: top
 		width: 50%
+		margin-bottom: 16px
 	&__link
 		font-size: 16px
 		color: #fff
 		+hr
 	.get-help
+		width: 164px
 		background-color: #009de1
 		color: #fff
+		+r(680)
+			align-self: flex-end
+			width: 140px
 	&__license
 		color: #fff
 		font-size: 14px
@@ -32,6 +55,14 @@
 		small
 			text-transform: lovercase
 			+ht
+	.logo
+		align-self: flex-start
+		+r(680)
+			position: absolute
+			top: 0px
+			left: 0
+	.layout__m
+		position: relative
 
 .contraindications
 	border-top: 1px solid #fff
@@ -41,8 +72,12 @@
 		vertical-align: top
 		width: 100%
 		max-width: 100%
+		+r(650)
+			margin-bottom: 10px
 	&__desc
 		font-size: 10px
 		color: #c0bfbf
 		+ht
+		+r(650)
+			line-height: 1.4
 

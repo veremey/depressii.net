@@ -15,6 +15,8 @@
 		<link href="static/css/separate-css/jquery.mCustomScrollbar.css" rel="stylesheet" type="text/css">
 		<link href="static/css/main.css" rel="stylesheet" type="text/css">
 		
+		<script src="static/js/separate-js/jquery-3.3.1.min.js"></script>
+		
 		
 		<link rel="icon" type="image/png" href="favicon.png">
 		<script>
@@ -35,6 +37,11 @@
 							<a href="/" class="logo">
 								<img src="../static/img/minified-svg/logo.svg" alt="logo">
 							</a>
+			
+							<button class="get-help js-ppp" data-open="partner__content">получить помощь</button>
+			
+							<button class="btn-menu js-open" data-open="header__bottom"></button>
+			
 						</div>
 					</div>
 				</div>
@@ -49,7 +56,7 @@
 									<li class="nav__item"><a href="#" class="nav__link">как помочь</a></li>
 								</ul>
 							</nav>
-							<button class="get-help js-ppp" data-open="partner">получить помощь</button>
+			
 						</div>
 					</div>
 				</div>
@@ -99,8 +106,6 @@
 								</ul>
 							</div>
 					
-					
-					
 							<div id="map"></div>
 					
 							<script>
@@ -112,6 +117,7 @@
 						      });
 						    }
 						  </script>
+					
 						  <script async defer
 						  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAcnQgh1mE04it6R7C7t9Yx0oAZ5nykT_c&callback=initMap">
 						  </script>
@@ -166,15 +172,17 @@
 							<a href="/" class="logo">
 								<img src="../static/img/minified-svg/logo.svg" alt="logo">
 							</a>
-							<nav class="footer__nav">
-								<ul class="footer__list">
-									<li class="footer__item"><a href="#" class="footer__link">Тесты</a></li>
-									<li class="footer__item"><a href="#" class="footer__link">Истории из жизни</a></li>
-									<li class="footer__item"><a href="#" class="footer__link">О депрессии</a></li>
-									<li class="footer__item"><a href="#" class="footer__link">Как помочь</a></li>
-								</ul>
-							</nav>
-							<button class="get-help">получить помощь</button>
+							<div class="footer__content">
+								<nav class="footer__nav">
+									<ul class="footer__list">
+										<li class="footer__item"><a href="#" class="footer__link">Тесты</a></li>
+										<li class="footer__item"><a href="#" class="footer__link">Истории из жизни</a></li>
+										<li class="footer__item"><a href="#" class="footer__link">О депрессии</a></li>
+										<li class="footer__item"><a href="#" class="footer__link">Как помочь</a></li>
+									</ul>
+								</nav>
+								<button class="get-help">получить помощь</button>
+							</div>
 						</div>
 						<div class="layout__m flex_j">
 							<p class="footer__license">RUFEV161483a <small>от 23.03.2018</small> </p>
@@ -184,7 +192,7 @@
 				<div class="footer__bottom">
 					<div class="layout__xl">
 						<div class="contraindications">
-							<img src="static/img/general/contraindications.png" alt="contraindications" class="contraindications__img">
+							<img src="static/img/general/contraindications.png" alt="contraindications" class="contraindications__img js-mobChangePic">
 							<div class="contraindications__text">
 								<p class="contraindications__desc">Материал разработан при поддержке ООО "Эбботт Лэбораториз" в целях информирования пациентов о заболевании. Информация в материале не заменяет консультации специалиста здравоохранения. Обратитесь к лечащему врачу</p>
 							</div>
@@ -200,7 +208,7 @@
 		<div class="ppp partner">
 			<div class="ppp__layout"></div>
 			<div class="ppp__content partner__content">
-				<a href="#" class="icon-close js-close" data-close="ppp"></a>
+				<a href="#" class="icon-close js-close" data-close="ppp" data-parent="partner__content"></a>
 				<h4 class="title__b">Станьте партнером</h4>
 				<p class="desc__normal">Заполните форму и присоединяйтесь в качестве информационного партнера программы</p>
 				<form action="/" method="post" autocomplete="off" class="form partner__form">
@@ -232,14 +240,13 @@
 			</div>
 		</div>
 
-		<!-- <script src="static/js/separate-js/jquery-3.3.1.min.js"></script> -->
-		<!-- <script src="static/js/separate-js/chosen.jquery.min.js"></script> -->
-		<!-- <script src="static/js/separate-js/jquery.mCustomScrollbar.js"></script>  -->
-<!--
-		<script src="static/js/separate-js/svg4everybody.min.js"></script>
-		
- -->
+
+		<!-- <script src="static/js/separate-js/svg4everybody.min.js"></script>
+		 -->
+
 		<script src="static/js/main.js"></script>
+
+
 	</body>
 
 </html>

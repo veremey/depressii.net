@@ -16,6 +16,8 @@ site = [],
 content = {},
 $content = [],
 $marker = [];
+var icon = 'static/img/content/marker.png';
+var iconHighlight = 'static/img/content/marker-hover.png';
 var contentString = [];
 var infowindow;
 var matchPos;
@@ -26,12 +28,226 @@ var maxInfoWidth = $('.map-module').width() * .3 > 300 ? $('.map-module').width(
 	const endpoint = 'place.json';
 	// const endpoint = 'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json';
 
-	const cities = [];
+	const cities = [
+  {
+    "id": "0",
+    "title": "Белгород",
+    "lat": 50.609409,
+    "lng": 36.578795,
+    "zoom": 13,
+    "filial": [
+      {
+        "title" : "Управление делами Президента РФ Федеральное Государственное бюджетное учреждение Объединенная Больница с Поликлиникой",
+        "address": "Москва, Мичуринский проспект д. 6",
+        "telShort": "7 (495) 212 ****",
+        "tel": "7 (495) 212 1111",
+        "site": "http://medsi.ru/clinics/belorusska",
+        "merkerLat": 50.603053,
+        "merkerLng": 36.581496
+      },
+      {
+        "title" : "КДЦ «МЕДСИ»",
+        "address": "Москва, Мичуринский проспект д. 6",
+        "telShort": "7 (495) 212 ****",
+        "tel": "7 (495) 212 1111",
+        "site": "http://medsi.ru/clinics/belorusska",
+        "merkerLat": 50.603313,
+        "merkerLng": 36.601398
+      },
+      {
+        "title" : "МК Семейный доктор",
+        "address": "Москва, Мичуринский проспект д. 6",
+        "telShort": "7 (495) 212 ****",
+        "tel": "7 (495) 212 1111",
+        "site": "http://medsi.ru/clinics/belorusska",
+        "merkerLat": 50.603824,
+        "merkerLng": 36.592693
+      },
+      {
+        "title" : "Медицинский центр «Атлас»",
+        "address": "Москва, Мичуринский проспект д. 6",
+        "telShort": "7 (495) 212 ****",
+        "tel": "7 (495) 212 1111",
+        "site": "http://medsi.ru/clinics/belorusska",
+        "merkerLat": 50.610333,
+        "merkerLng": 36.576913
+      },
+      {
+        "title" : "Управление делами Президента РФ Федеральное Государственное бюджетное учреждение Объединенная Больница с Поликлиникой",
+        "address": "Москва, Мичуринский проспект д. 6",
+        "telShort": "7 (495) 212 ****",
+        "tel": "7 (495) 212 1111",
+        "site": "http://medsi.ru/clinics/belorusska",
+        "merkerLat": 50.603053,
+        "merkerLng": 36.581496
+      },
+      {
+        "title" : "КДЦ «МЕДСИ»",
+        "address": "Москва, Мичуринский проспект д. 6",
+        "telShort": "7 (495) 212 ****",
+        "tel": "7 (495) 212 1111",
+        "site": "http://medsi.ru/clinics/belorusska",
+        "merkerLat": 50.603313,
+        "merkerLng": 36.601398
+      },
+      {
+        "title" : "МК Семейный доктор",
+        "address": "Москва, Мичуринский проспект д. 6",
+        "telShort": "7 (495) 212 ****",
+        "tel": "7 (495) 212 1111",
+        "site": "http://medsi.ru/clinics/belorusska",
+        "merkerLat": 50.603824,
+        "merkerLng": 36.592693
+      },
+      {
+        "title" : "Медицинский центр «Атлас»",
+        "address": "Москва, Мичуринский проспект д. 6",
+        "telShort": "7 (495) 212 ****",
+        "tel": "7 (495) 212 1111",
+        "site": "http://medsi.ru/clinics/belorusska",
+        "merkerLat": 50.612333,
+        "merkerLng": 36.516913
+      },
+      {
+        "title" : "Управление делами Президента РФ Федеральное Государственное бюджетное учреждение Объединенная Больница с Поликлиникой",
+        "address": "Москва, Мичуринский проспект д. 6",
+        "telShort": "7 (495) 212 ****",
+        "tel": "7 (495) 212 1111",
+        "site": "http://medsi.ru/clinics/belorusska",
+        "merkerLat": 50.643053,
+        "merkerLng": 36.582496
+      },
+      {
+        "title" : "КДЦ «МЕДСИ»",
+        "address": "Москва, Мичуринский проспект д. 6",
+        "telShort": "7 (495) 212 ****",
+        "tel": "7 (495) 212 1111",
+        "site": "http://medsi.ru/clinics/belorusska",
+        "merkerLat": 50.606313,
+        "merkerLng": 36.661398
+      },
+      {
+        "title" : "МК Семейный доктор",
+        "address": "Москва, Мичуринский проспект д. 6",
+        "telShort": "7 (495) 212 ****",
+        "tel": "7 (495) 212 1111",
+        "site": "http://medsi.ru/clinics/belorusska",
+        "merkerLat": 50.603824,
+        "merkerLng": 36.592693
+      },
+      {
+        "title" : "Медицинский центр «Атлас»",
+        "address": "Москва, Мичуринский проспект д. 6",
+        "telShort": "7 (495) 212 ****",
+        "tel": "7 (495) 212 1111",
+        "site": "http://medsi.ru/clinics/belorusska",
+        "merkerLat": 50.610333,
+        "merkerLng": 36.576913
+      },
+      {
+        "title" : "Управление делами Президента РФ Федеральное Государственное бюджетное учреждение Объединенная Больница с Поликлиникой",
+        "address": "Москва, Мичуринский проспект д. 6",
+        "telShort": "7 (495) 212 ****",
+        "tel": "7 (495) 212 1111",
+        "site": "http://medsi.ru/clinics/belorusska",
+        "merkerLat": 50.603053,
+        "merkerLng": 36.581496
+      },
+      {
+        "title" : "КДЦ «МЕДСИ»",
+        "address": "Москва, Мичуринский проспект д. 6",
+        "telShort": "7 (495) 212 ****",
+        "tel": "7 (495) 212 1111",
+        "site": "http://medsi.ru/clinics/belorusska",
+        "merkerLat": 50.603313,
+        "merkerLng": 36.601398
+      },
+      {
+        "title" : "МК Семейный доктор",
+        "address": "Москва, Мичуринский проспект д. 6",
+        "telShort": "7 (495) 212 ****",
+        "tel": "7 (495) 212 1111",
+        "site": "http://medsi.ru/clinics/belorusska",
+        "merkerLat": 50.603824,
+        "merkerLng": 36.592693
+      },
+      {
+        "title" : "Медицинский центр «Атлас»",
+        "address": "Москва, Мичуринский проспект д. 6",
+        "telShort": "7 (495) 212 ****",
+        "tel": "7 (495) 212 1111",
+        "site": "http://medsi.ru/clinics/belorusska",
+        "merkerLat": 50.610333,
+        "merkerLng": 36.576913
+      }
+    ]
+  }, {
+    "id": "1",
+    "title": "Волгоград",
+    "filial": ["Волгоград", "Волгоград"]
+  }, {
+    "id": "2",
+    "title": "Воронеж",
+    "filial": ["Воронеж", "Воронеж"]
+  }, {
+    "id": "3",
+    "title": "Екатеринбург",
+    "filial": ["Екатеринбург", "Екатеринбург"]
+  }, {
+    "id": "4",
+    "title": "Железноводск",
+    "filial": ["Железноводск", "Железноводск"]
+  }, {
+    "id": "5",
+    "title": "Ижевск",
+    "filial": ["Ижевск", "Ижевск"]
+  }, {
+    "id": "6",
+    "title": "Иркутск",
+    "filial": ["Иркутск", "Иркутск"]
+  }, {
+    "id": "7",
+    "title": "Казань",
+    "filial": ["Казань", "Казань"]
+  }, {
+    "id": "8",
+    "title": "Калуга",
+    "filial": ["Калуга"]
+  }, {
+    "id": "9",
+    "title": "Краснодар",
+    "filial": ["Краснодар", "Краснодар"]
+  }, {
+    "id": "10",
+    "title": "Красноярск",
+    "filial": ["Красноярск", "Красноярск"]
+  }, {
+    "id": "11",
+    "title": "Липецк",
+    "filial": ["Липецк", "пецк"]
+  }, {
+    "id": "12",
+    "title": "Набережные Челны",
+    "filial": ["Набережные Челны", "Набережные Челны"]
+  }, {
+    "id": "13",
+    "title": "Нижний Новгород",
+    "filial": ["Нижний Новгород", "Нижний Новгород"]
+  }, {
+    "id": "14",
+    "title": "Новороссийск",
+    "filial": ["Новороссийск", "Новороссийск"]
+  }, {
+    "id": "15",
+    "title": "Новосибирск",
+    "filial": ["Новосибирск", "qweqeqweqwe", "11111111111111"]
+  }
+];
 	const filials = [];
 
-fetch(endpoint)
-  .then(blob => blob.json())
-  .then(data => cities.push(...data));
+// fetch(endpoint)
+//   .then(blob => blob.json())
+//   .then(data => cities.push(...data));
 
 
   // console.log(cities);
@@ -132,19 +348,20 @@ function displayFilials() {
     return text;
   }).push('');
 
+  if($(document).width() > 760){
+  	filialBox.classList.add('is-active');
+  	mapAside.classList.add('is-active');
+  }
 
-  filialBox.classList.add('is-active');
-  mapAside.classList.add('is-active');
+
   filialBox.innerHTML = text;
 
   $('.filial').mCustomScrollbar({});
 
-  icon = 'static/img/content/marker.png';
-  iconHighlight = 'static/img/content/marker-hover.png';
   initMap();
 
   $('.map-btns .btn').removeClass('is-active');
-  $('.btn-list').addClass('is-active');
+  $('.btn-map').addClass('is-active');
 }
 
 $('.map-btns').on('click','.btn', function () {
@@ -204,28 +421,30 @@ function initMap() {
   // console.log($title);
 
   infowindow = new google.maps.InfoWindow({
-      content: contentHTML,
-      maxWidth: maxInfoWidth
-    });
-
-  marker.addListener('click', function() {
-      var icon = iconHighlight;
-      marker.setIcon(iconHighlight);
-      infowindow.open(map, marker);
-      // console.log(this.position.lng());
-      // console.log(this.position.lat());
-   });
-
+    content: contentHTML,
+    maxWidth: maxInfoWidth
+  });
 
     google.maps.event.addListener(infowindow, 'closeclick', function() {
       marker.setIcon(icon);
-    })
+    });
+
+
+	    google.maps.event.addListener(marker, 'click', function() {
+	      this.setIcon(iconHighlight);
+	      infowindow.setContent(contentHTML);
+	      infowindow.open(map, this);
+	    });
 
 
 }
 
 
-$('#map').on('click','.show-tel', function () {
+
+
+
+
+$('#map').on('click touchstart','.show-tel', function () {
   var text = $(this).parent('.map__row').find('.map__tel').data('tel');
 
   $(this).parent('.map__row').find('.map__tel').text(text);
@@ -236,7 +455,6 @@ function toggleBounce() {
     this.setAnimation(null);
   } else {
     this.setAnimation(google.maps.Animation.BOUNCE);
-
   }
 }
 
@@ -257,7 +475,18 @@ searchInput.addEventListener('click', displayMatches);
 
 $(document).ready(function () {
 
-	$('.suggestions').on('click', '.suggestions__list', function () {
+  /*- out search input click -*/
+  $(document).on('click touchstart', function(el){
+   var childr = $('.searchCity').find('*');
+
+   if($(el.target).is(childr) == false ){
+     $('.searchCity__box').removeClass('is-active');
+   }
+   // $('body').removeClass('not-move');
+  });
+  /*--*/
+
+	$('.suggestions').on('click touchstart', '.suggestions__list', function () {
 		var suggestionsHtml = $(this).find('.name').text();
 		$('.searchCity__input').val(suggestionsHtml);
 		$('.searchCity__box').removeClass('is-active');
@@ -266,7 +495,6 @@ $(document).ready(function () {
 	});
   text = '';
 	$('.suggestions').on('click', '.suggestions__list', displayFilials);
-
 
 });
 

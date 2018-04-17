@@ -12,6 +12,7 @@
 		display: inline-block
 		vertical-align: top
 		height: 34px
+		min-width: 34px
 		margin-right: 30px
 		fill: #0f5979
 	.icon-3
@@ -28,6 +29,10 @@
 		display: flex
 		align-items: flex-start
 		margin-bottom: 30px
+		+r(650)
+			display: block
+			text-align: center
+			margin-bottom: 20px
 	&__pic
 		display: inline-block
 		vertical-align: top
@@ -38,6 +43,8 @@
 		height: 70px
 		border-radius: 100%
 		margin-right: 10px
+		+r(650)
+			margin: 0 0 15px 0
 	&__icon
 		+vcenter
 		height: 44px
