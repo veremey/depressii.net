@@ -106,4 +106,7 @@ __pages: [{
              },{
                 name: 'info',
                 href: 'info.html'
+             },{
+                name: 'main',
+                href: 'main.html'
              }]

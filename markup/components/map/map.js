@@ -1,6 +1,7 @@
 
 'use strict';
 
+if($('#map').length){
 
 var text, centerLat, centerLng,$zoom,icon,
 title = [],
@@ -462,6 +463,7 @@ function toggleBounce() {
 /*--  init map  ---*/
 
 const searchInput = document.querySelector('.searchCity__input');
+
 const suggestions = document.querySelector('.suggestions');
 const suggestionsList = document.querySelector('.suggestions__list');
 const filialBox = document.querySelector('.filial');
@@ -497,4 +499,7 @@ $(document).ready(function () {
 	$('.suggestions').on('click', '.suggestions__list', displayFilials);
 
 });
+
+
+} /*- end if -*/
 

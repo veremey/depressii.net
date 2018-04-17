@@ -61,93 +61,81 @@
 					</div>
 				</div>
 			</header>
-			<div class="page__gray">
-				<div class="layout__n  box_b60">
-					<div class="layout__m ">
-						<h2 class="title__big box_t60">здесь вам помогут</h2>
-						<div class="subtitle">
-							<div class="layout__m flex_j">
-								<h4 class="title__s">Найдите ближайшую клинику или медицинский центр. Профессиональные врачи и консультанты окажут необходимую помощь!</h4>
-								<img src="static/img/content/sponsor-1.png" alt="клиника лого">
+			<div class="layout__n  box_b60">
+				<div class="layout__m ">
+					<div class="startscreen">
+						<div class="startscreen__item">
+							<div class="startscreen__pic">
+								<img src="static/img/content/img-00.jpg" alt="picture" class="startscreen__img">
 							</div>
-						</div>
-					</div>
-
-					<div class="map-module ">
-						<div class="chooseCity box_20" >
-							<button class="chooseCity__btn">
-								<i class="icon-markerSmall"></i>
-								<span>Город</span>
-							</button>
-							<form class="searchCity">
-								<input type="text" class="searchCity__input" placeholder="Например, Новосибирск" tabindex="0">
-								<div class="searchCity__box" >
-									<div class="searchCity__scroll" >
-										<ul class="suggestions">
-											<li class="suggestions__list" >Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim fuga at delectus natus exercitationem porro laudantium dolores doloribus, excepturi accusantium dignissimos, cumque cupiditate rerum, non molestias eveniet provident officia tenetur, nobis suscipit. Debitis, ab. Similique numquam accusamus praesentium iusto nam iure eligendi inventore pariatur expedita, voluptate repudiandae modi fuga, sint necessitatibus ratione deleniti architecto quae ad aspernatur ex explicabo. Autem nemo recusandae distinctio adipisci, doloremque odit dolorem vel suscipit minima, illo cumque beatae quidem reiciendis totam excepturi voluptate id, sequi molestiae eum itaque necessitatibus animi repellendus ducimus? Itaque, voluptatem praesentium magni quos veritatis dolorum consectetur nam, quod omnis quis, excepturi.</li>
-											<li class="suggestions__list" >Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim fuga at delectus natus exercitationem porro laudantium dolores doloribus, excepturi accusantium dignissimos, cumque cupiditate rerum, non molestias eveniet provident officia tenetur, nobis suscipit. Debitis, ab. Similique numquam accusamus praesentium iusto nam iure eligendi inventore pariatur expedita, voluptate repudiandae modi fuga, sint necessitatibus ratione deleniti architecto quae ad aspernatur ex explicabo. Autem nemo recusandae distinctio adipisci, doloremque odit dolorem vel suscipit minima, illo cumque beatae quidem reiciendis totam excepturi voluptate id, sequi molestiae eum itaque necessitatibus animi repellendus ducimus? Itaque, voluptatem praesentium magni quos veritatis dolorum consectetur nam, quod omnis quis, excepturi.</li>
-					
-										</ul>
-									</div>
-								</div>
-					
-							</form>
-						</div>
-					
-						<div class="map-btns">
-							<button class="btn btn-map is-active">Карта</button>
-							<button class="btn btn-list">Медицинские центры</button>
-						</div>
-					
-						<div class="map-section">
-							<div class="map-aside">
-								<ul class="filial">
-									<li class="filial__item">Введите город</li>
-								</ul>
-							</div>
-					
-							<div id="map"></div>
-					
-							<script>
-						    function initMap() {
-						      var uluru = {lat: 55.744510, lng: 37.605334};
-						      var map = new google.maps.Map(document.getElementById('map'), {
-						        zoom: 15,
-						        center: uluru
-						      });
-						    }
-						  </script>
-					
-						  <script async defer
-						  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAcnQgh1mE04it6R7C7t9Yx0oAZ5nykT_c&callback=initMap">
-						  </script>
-						</div>
-					
-							<div class="hiden-map-info" >
-						  <div class="map-content">
-						  	<h5 class="map__title">Управление делами Президента РФ Федеральное Государственное бюджетное учреждение Объединенная Больница с Поликлиникой</h5>
-						  	<p class="map__address">Москва, Мичуринский проспект д. 6</p>
-						  	<div class="map__contact">
-						  		<div class="map__row">
-						  			<img src="static/img/content/icon-tel.png" alt="tel">
-						  			<a href="tel:+74952121111" class="map__tel" data-tel="+7 (495) 212 1111">+7 (495) 212 ****</a>
-						  			<button class="show-tel">Показать номер</button>
-						  		</div>
-						  		<div class="map__row">
-						  			<img src="static/img/content/icon-earth.png" alt="tel">
-						  			<a href="http://medsi.ru/clinics/belorusska" class="map__site">http://medsi.ru/clinics/belorusska</a>
-						  		</div>
-						  	</div>
-						 		<p class="map__info">Дополнительная информация: Для записи на прием к врачу позвоните, пожалуйста, по указанному телефону. Обязательно уточните, работает ли клиника по ОМС, ДМС полисам или организован платный прием.</p>
-						  </div>
+							<h2 class="title__big">Жизнь без <br> депрессии</h2>
 						</div>
 					</div>
 				</div>
 			</div>
+
+			<div class="enter box_80">
+				<div class="title__b">Помощь рядом!</div>
+				<p class="enter__desc desc__normal box_30">Найдите ближайшую клинику или медицинский центр.<br>Профессиональные врачи и консультанты окажут необходимую помощь!</p>
+
+				<div class="enter__box is-center">
+					<div class="chooseCity__content">
+						<button class="chooseCity__btn">
+							<i class="icon-markerSmall"></i>
+							<span>Город</span>
+						</button>
+						<form class="searchCity">
+							<input type="text" class="searchCity__input" placeholder="Например, Новосибирск" tabindex="0">
+							<div class="searchCity__box" >
+								<div class="searchCity__scroll" >
+									<ul class="suggestions">
+										<li class="suggestions__list" >Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim fuga at delectus natus exercitationem porro laudantium dolores doloribus, excepturi accusantium dignissimos, cumque cupiditate rerum, non molestias eveniet provident officia tenetur, nobis suscipit. Debitis, ab. Similique numquam accusamus praesentium iusto nam iure eligendi inventore pariatur expedita, voluptate repudiandae modi fuga, sint necessitatibus ratione deleniti architecto quae ad aspernatur ex explicabo. Autem nemo recusandae distinctio adipisci, doloremque odit dolorem vel suscipit minima, illo cumque beatae quidem reiciendis totam excepturi voluptate id, sequi molestiae eum itaque necessitatibus animi repellendus ducimus? Itaque, voluptatem praesentium magni quos veritatis dolorum consectetur nam, quod omnis quis, excepturi.</li>
+										<li class="suggestions__list" >Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim fuga at delectus natus exercitationem porro laudantium dolores doloribus, excepturi accusantium dignissimos, cumque cupiditate rerum, non molestias eveniet provident officia tenetur, nobis suscipit. Debitis, ab. Similique numquam accusamus praesentium iusto nam iure eligendi inventore pariatur expedita, voluptate repudiandae modi fuga, sint necessitatibus ratione deleniti architecto quae ad aspernatur ex explicabo. Autem nemo recusandae distinctio adipisci, doloremque odit dolorem vel suscipit minima, illo cumque beatae quidem reiciendis totam excepturi voluptate id, sequi molestiae eum itaque necessitatibus animi repellendus ducimus? Itaque, voluptatem praesentium magni quos veritatis dolorum consectetur nam, quod omnis quis, excepturi.</li>
+
+									</ul>
+								</div>
+							</div>
+
+						</form>
+					</div>
+				</div>
+			</div>
+
+
+
+			<div class="layout__n  box_b60">
+				<div class="layout__m column">
+					<div class="column__item">
+						<h5 class="title__s">Проявления депрессии могут быть разнообразными, но в одном учёные солидарны: депрессия — серьезная болезнь, требующая обязательного лечения! </h5>
+					</div>
+					<div class="column__item">
+						<div class="column__row">
+							<div class="status box_20">
+								<div class="status__pic">
+									<img src="static/img/content/img-04.jpg" alt="pic" class="status__img">
+								</div>
+								<div class="status__content">
+									<h6 class="title__ms">Хроническая депрессия или депрессивный невроз</h6>
+								</div>
+							</div>
+
+							<div class="status">
+								<div class="status__pic">
+									<img src="static/img/content/img-04.jpg" alt="pic" class="status__img">
+								</div>
+								<div class="status__content">
+									<h6 class="title__ms">Многоликая депрессия</h6>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
 			<div class="layout__n">
 				<div class="layout__m box_t60">
 					<h4 class="title__section">Программа «Спокойствие рядом»</h4>
-					<div class="column-text box_30">
+					<div class="column box_30">
 						<p class="desc__normal">Если Вам кажется, что у Вас или Вашего близкого эмоциональное расстройство, обратитесь в один из кабинетов программы «Сспокойствие рядом». Профессиональная помощь будет оказана всем, кто чувствует психологические проблемы, нуждается в квалифицированной консультации или хочет подтвердить или опровергнуть поставленный самостоятельно диагноз «депрессия». </p>
 						<p class="desc__normal">Прием ведут специалисты: психотерапевты, неврологи, психиатры, имеющие профессиональное образование и специальную подготовку. Все лечебные учреждения, включенные в программу, имеют соответствующую аккредитацию и лицензию на оказание психиатрической помощи.</p>
 					</div>
@@ -158,11 +146,6 @@
 					<p>Внимание! Стоимость медицинских услуг необходимо уточнить в каждой конкретно взятой клинике</p>
 				</div>
 
-				<div class="enter box_80">
-					<div class="title__b">Присоединиться к проекту!</div>
-					<p class="enter__desc desc__normal box_30">Компания Abbott предлагает медицинским учреждениям присоединиться к проекту и открыть кабинет «Спокойствие рядом». После проверки на соответствие всем юридическим требованиям адрес медицинского учреждения появится на сайте.</p>
-					<button class="enter__btn">Присоединиться</button>
-				</div>
 			</div>
 
 			<footer class="footer">

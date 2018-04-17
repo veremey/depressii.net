@@ -2504,452 +2504,456 @@ $(document).on('scroll', function () {
 
 'use strict';
 
-var text,
-    centerLat,
-    centerLng,
-    $zoom,
-    icon,
-    title = [],
-    $title,
-    $address,
-    $tel,
-    $telShort,
-    $site,
-    address = [],
-    tel = [],
-    telShort = [],
-    site = [],
-    content = {},
-    $content = [],
-    $marker = [];
-var icon = 'static/img/content/marker.png';
-var iconHighlight = 'static/img/content/marker-hover.png';
-var contentString = [];
-var infowindow;
-var matchPos;
+if ($('#map').length) {
 
-var contentHTML = $('.hiden-map-info').html();
-var maxInfoWidth = $('.map-module').width() * .3 > 300 ? $('.map-module').width() * .3 : 300;
-
-var endpoint = 'place.json';
-// const endpoint = 'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json';
-
-var cities = [{
-  "id": "0",
-  "title": "Белгород",
-  "lat": 50.609409,
-  "lng": 36.578795,
-  "zoom": 13,
-  "filial": [{
-    "title": "Управление делами Президента РФ Федеральное Государственное бюджетное учреждение Объединенная Больница с Поликлиникой",
-    "address": "Москва, Мичуринский проспект д. 6",
-    "telShort": "7 (495) 212 ****",
-    "tel": "7 (495) 212 1111",
-    "site": "http://medsi.ru/clinics/belorusska",
-    "merkerLat": 50.603053,
-    "merkerLng": 36.581496
-  }, {
-    "title": "КДЦ «МЕДСИ»",
-    "address": "Москва, Мичуринский проспект д. 6",
-    "telShort": "7 (495) 212 ****",
-    "tel": "7 (495) 212 1111",
-    "site": "http://medsi.ru/clinics/belorusska",
-    "merkerLat": 50.603313,
-    "merkerLng": 36.601398
-  }, {
-    "title": "МК Семейный доктор",
-    "address": "Москва, Мичуринский проспект д. 6",
-    "telShort": "7 (495) 212 ****",
-    "tel": "7 (495) 212 1111",
-    "site": "http://medsi.ru/clinics/belorusska",
-    "merkerLat": 50.603824,
-    "merkerLng": 36.592693
-  }, {
-    "title": "Медицинский центр «Атлас»",
-    "address": "Москва, Мичуринский проспект д. 6",
-    "telShort": "7 (495) 212 ****",
-    "tel": "7 (495) 212 1111",
-    "site": "http://medsi.ru/clinics/belorusska",
-    "merkerLat": 50.610333,
-    "merkerLng": 36.576913
-  }, {
-    "title": "Управление делами Президента РФ Федеральное Государственное бюджетное учреждение Объединенная Больница с Поликлиникой",
-    "address": "Москва, Мичуринский проспект д. 6",
-    "telShort": "7 (495) 212 ****",
-    "tel": "7 (495) 212 1111",
-    "site": "http://medsi.ru/clinics/belorusska",
-    "merkerLat": 50.603053,
-    "merkerLng": 36.581496
-  }, {
-    "title": "КДЦ «МЕДСИ»",
-    "address": "Москва, Мичуринский проспект д. 6",
-    "telShort": "7 (495) 212 ****",
-    "tel": "7 (495) 212 1111",
-    "site": "http://medsi.ru/clinics/belorusska",
-    "merkerLat": 50.603313,
-    "merkerLng": 36.601398
-  }, {
-    "title": "МК Семейный доктор",
-    "address": "Москва, Мичуринский проспект д. 6",
-    "telShort": "7 (495) 212 ****",
-    "tel": "7 (495) 212 1111",
-    "site": "http://medsi.ru/clinics/belorusska",
-    "merkerLat": 50.603824,
-    "merkerLng": 36.592693
-  }, {
-    "title": "Медицинский центр «Атлас»",
-    "address": "Москва, Мичуринский проспект д. 6",
-    "telShort": "7 (495) 212 ****",
-    "tel": "7 (495) 212 1111",
-    "site": "http://medsi.ru/clinics/belorusska",
-    "merkerLat": 50.612333,
-    "merkerLng": 36.516913
-  }, {
-    "title": "Управление делами Президента РФ Федеральное Государственное бюджетное учреждение Объединенная Больница с Поликлиникой",
-    "address": "Москва, Мичуринский проспект д. 6",
-    "telShort": "7 (495) 212 ****",
-    "tel": "7 (495) 212 1111",
-    "site": "http://medsi.ru/clinics/belorusska",
-    "merkerLat": 50.643053,
-    "merkerLng": 36.582496
-  }, {
-    "title": "КДЦ «МЕДСИ»",
-    "address": "Москва, Мичуринский проспект д. 6",
-    "telShort": "7 (495) 212 ****",
-    "tel": "7 (495) 212 1111",
-    "site": "http://medsi.ru/clinics/belorusska",
-    "merkerLat": 50.606313,
-    "merkerLng": 36.661398
-  }, {
-    "title": "МК Семейный доктор",
-    "address": "Москва, Мичуринский проспект д. 6",
-    "telShort": "7 (495) 212 ****",
-    "tel": "7 (495) 212 1111",
-    "site": "http://medsi.ru/clinics/belorusska",
-    "merkerLat": 50.603824,
-    "merkerLng": 36.592693
-  }, {
-    "title": "Медицинский центр «Атлас»",
-    "address": "Москва, Мичуринский проспект д. 6",
-    "telShort": "7 (495) 212 ****",
-    "tel": "7 (495) 212 1111",
-    "site": "http://medsi.ru/clinics/belorusska",
-    "merkerLat": 50.610333,
-    "merkerLng": 36.576913
-  }, {
-    "title": "Управление делами Президента РФ Федеральное Государственное бюджетное учреждение Объединенная Больница с Поликлиникой",
-    "address": "Москва, Мичуринский проспект д. 6",
-    "telShort": "7 (495) 212 ****",
-    "tel": "7 (495) 212 1111",
-    "site": "http://medsi.ru/clinics/belorusska",
-    "merkerLat": 50.603053,
-    "merkerLng": 36.581496
-  }, {
-    "title": "КДЦ «МЕДСИ»",
-    "address": "Москва, Мичуринский проспект д. 6",
-    "telShort": "7 (495) 212 ****",
-    "tel": "7 (495) 212 1111",
-    "site": "http://medsi.ru/clinics/belorusska",
-    "merkerLat": 50.603313,
-    "merkerLng": 36.601398
-  }, {
-    "title": "МК Семейный доктор",
-    "address": "Москва, Мичуринский проспект д. 6",
-    "telShort": "7 (495) 212 ****",
-    "tel": "7 (495) 212 1111",
-    "site": "http://medsi.ru/clinics/belorusska",
-    "merkerLat": 50.603824,
-    "merkerLng": 36.592693
-  }, {
-    "title": "Медицинский центр «Атлас»",
-    "address": "Москва, Мичуринский проспект д. 6",
-    "telShort": "7 (495) 212 ****",
-    "tel": "7 (495) 212 1111",
-    "site": "http://medsi.ru/clinics/belorusska",
-    "merkerLat": 50.610333,
-    "merkerLng": 36.576913
-  }]
-}, {
-  "id": "1",
-  "title": "Волгоград",
-  "filial": ["Волгоград", "Волгоград"]
-}, {
-  "id": "2",
-  "title": "Воронеж",
-  "filial": ["Воронеж", "Воронеж"]
-}, {
-  "id": "3",
-  "title": "Екатеринбург",
-  "filial": ["Екатеринбург", "Екатеринбург"]
-}, {
-  "id": "4",
-  "title": "Железноводск",
-  "filial": ["Железноводск", "Железноводск"]
-}, {
-  "id": "5",
-  "title": "Ижевск",
-  "filial": ["Ижевск", "Ижевск"]
-}, {
-  "id": "6",
-  "title": "Иркутск",
-  "filial": ["Иркутск", "Иркутск"]
-}, {
-  "id": "7",
-  "title": "Казань",
-  "filial": ["Казань", "Казань"]
-}, {
-  "id": "8",
-  "title": "Калуга",
-  "filial": ["Калуга"]
-}, {
-  "id": "9",
-  "title": "Краснодар",
-  "filial": ["Краснодар", "Краснодар"]
-}, {
-  "id": "10",
-  "title": "Красноярск",
-  "filial": ["Красноярск", "Красноярск"]
-}, {
-  "id": "11",
-  "title": "Липецк",
-  "filial": ["Липецк", "пецк"]
-}, {
-  "id": "12",
-  "title": "Набережные Челны",
-  "filial": ["Набережные Челны", "Набережные Челны"]
-}, {
-  "id": "13",
-  "title": "Нижний Новгород",
-  "filial": ["Нижний Новгород", "Нижний Новгород"]
-}, {
-  "id": "14",
-  "title": "Новороссийск",
-  "filial": ["Новороссийск", "Новороссийск"]
-}, {
-  "id": "15",
-  "title": "Новосибирск",
-  "filial": ["Новосибирск", "qweqeqweqwe", "11111111111111"]
-}];
-var filials = [];
-
-// fetch(endpoint)
-//   .then(blob => blob.json())
-//   .then(data => cities.push(...data));
+  // fetch(endpoint)
+  //   .then(blob => blob.json())
+  //   .then(data => cities.push(...data));
 
 
-// console.log(cities);
+  // console.log(cities);
 
-function findMatches(wordToMatch, cities) {
-  return cities.filter(function (place) {
-    // here we need to figure out if the city or state matches what was searched
-    var regex = new RegExp(wordToMatch, 'gi');
-    return place.title.match(regex);
-  });
-}
-
-function displayMatches() {
-  var _this = this;
-
-  var matchArray = findMatches(this.value, cities);
-  var searchCity__box = document.querySelector('.searchCity__box');
-  searchCity__box.classList.add('is-active');
-  var citiesList = matchArray.map(function (place) {
-    var regex = new RegExp(_this.value, 'gi');
-    var cityName = place.title.replace(regex, '<span class="highlight">' + _this.value + '</span>');
-    var cityid = place.id;
-    return '\n      <li class="suggestions__list" data-id="' + cityid + '" tabindex="0">\n        <span class="name">' + cityName + '</span>\n      </li>\n    ';
-  }).join('');
-  suggestions.innerHTML = citiesList;
-  $('.searchCity__scroll').mCustomScrollbar({});
-}
-
-function displayFilials() {
-  var matchFilials = findMatches(inputValue, cities);
-  var filialList = matchFilials.map(function (place) {
-    var filialName = place.filial;
-
-    centerLat = +place.lat;
-    centerLng = +place.lng;
-    $zoom = +place.zoom;
-
-    text = '';
-    for (var i = 0; i < filialName.length; i++) {
-      if (filialName[i].title.length > 30) {
-        text += "<li class='filial__item'>" + filialName[i].title.substring(0, 30) + '...' + "</li>";
-      } else {
-        text += "<li class='filial__item'>" + filialName[i].title + "</li>";
-      }
-
-      var $lat = filialName[i].merkerLat;
-      var $lng = filialName[i].merkerLng;
-      var lat = parseFloat($lat);
-      var lng = parseFloat($lng);
-      // $marker.push(lng);
-      // var $lng = filialName[i].merkerLng;
-
-      title.push([filialName[i].title]);
-      address.push([filialName[i].address]);
-      telShort.push([filialName[i].telShort]);
-      tel.push([filialName[i].tel]);
-      site.push([filialName[i].site]);
-
-      content = {
-        "title": title,
-        "address": address,
-        "telShort": telShort,
-        "tel": tel,
-        "site": site
-      };
-
-      $title = content.title[i];
-      $address = content.address[i];
-      $telShort = content.telShort[i];
-      $tel = content.tel[i];
-      $site = content.site[i];
-
-      $marker.push([lat, lng]);
-
-      $content.push('<div class="map-content">\n      <h5 class="map__title">\'' + $title + '\'</h5>\n      <p class="map__address">\'' + $address + '\'</p>\n      <div class="map__contact">\n        <div class="map__row">\n          <img src="static/img/content/icon-tel.png" alt="tel">\n          <a href="tel:+74952121111" class="map__tel" data-tel="' + $tel + '">' + $telShort + '</a>\n          <button class="show-tel">\u041F\u043E\u043A\u0430\u0437\u0430\u0442\u044C \u043D\u043E\u043C\u0435\u0440</button>\n        </div>\n        <div class="map__row">\n          <img src="static/img/content/icon-earth.png" alt="tel">\n          <a href="' + $site + '" class="map__site">' + $site + '</a>\n        </div>\n      </div>\n      <p class="map__info">\u0414\u043E\u043F\u043E\u043B\u043D\u0438\u0442\u0435\u043B\u044C\u043D\u0430\u044F \u0438\u043D\u0444\u043E\u0440\u043C\u0430\u0446\u0438\u044F: \u0414\u043B\u044F \u0437\u0430\u043F\u0438\u0441\u0438 \u043D\u0430 \u043F\u0440\u0438\u0435\u043C \u043A \u0432\u0440\u0430\u0447\u0443 \u043F\u043E\u0437\u0432\u043E\u043D\u0438\u0442\u0435, \u043F\u043E\u0436\u0430\u043B\u0443\u0439\u0441\u0442\u0430, \u043F\u043E \u0443\u043A\u0430\u0437\u0430\u043D\u043D\u043E\u043C\u0443 \u0442\u0435\u043B\u0435\u0444\u043E\u043D\u0443. \u041E\u0431\u044F\u0437\u0430\u0442\u0435\u043B\u044C\u043D\u043E \u0443\u0442\u043E\u0447\u043D\u0438\u0442\u0435, \u0440\u0430\u0431\u043E\u0442\u0430\u0435\u0442 \u043B\u0438 \u043A\u043B\u0438\u043D\u0438\u043A\u0430 \u043F\u043E \u041E\u041C\u0421, \u0414\u041C\u0421 \u043F\u043E\u043B\u0438\u0441\u0430\u043C \u0438\u043B\u0438 \u043E\u0440\u0433\u0430\u043D\u0438\u0437\u043E\u0432\u0430\u043D \u043F\u043B\u0430\u0442\u043D\u044B\u0439 \u043F\u0440\u0438\u0435\u043C.</p>\n    </div>');
-    }
-    text += "";
-    return text;
-  }).push('');
-
-  if ($(document).width() > 760) {
-    filialBox.classList.add('is-active');
-    mapAside.classList.add('is-active');
-  }
-
-  filialBox.innerHTML = text;
-
-  $('.filial').mCustomScrollbar({});
-
-  initMap();
-
-  $('.map-btns .btn').removeClass('is-active');
-  $('.btn-map').addClass('is-active');
-}
-
-$('.map-btns').on('click', '.btn', function () {
-  $(this).siblings().removeClass('is-active');
-  $(this).addClass('is-active');
-  if ($('.btn-list').hasClass('is-active')) {
-    $('.filial, .map-aside').addClass('is-active');
-  } else {
-    $('.filial, .map-aside').removeClass('is-active');
-  }
-});
-
-/*--  init map  ---*/
-
-// function findPosLat(wordToMatch, cities) {
-//   var pregex = new RegExp(wordToMatch, 'gi');
-//   console.log(cities.length );
-//   for (var i = cities.length - 1; i >= 0; i--) {
-//     return cities[i].filial.filter(place => {
-//       return place.match(pregex);
-//     })
-//   }
-// };
-
-// function findPosLng(wordToMatch, cities) {
-//   return cities.filter(place => {
-//     // here we need to figure out if the city or state matches what was searched
-//     var pregex = new RegExp(wordToMatch, 'gi');
-//     return place.filial.merkerLng.match(pregex);
-//   });
-// };
-
-
-function initMap() {
-  var $lat = centerLat || 55.756491;
-  var $lng = centerLng || 37.812185;
-  var marker;
-  var centerMap = { lat: $lat, lng: $lng };
-
-  var map = new google.maps.Map(document.getElementById('map'), {
-    zoom: $zoom || 15,
-    center: centerMap
-  });
-
-  for (var i = $marker.length - 1; i >= 0; i--) {
-    // infoBlock = $content[i];
-
-    marker = new google.maps.Marker({
-      position: new google.maps.LatLng($marker[i][0], $marker[i][1]),
-      icon: icon,
-      map: map
+  var findMatches = function findMatches(wordToMatch, cities) {
+    return cities.filter(function (place) {
+      // here we need to figure out if the city or state matches what was searched
+      var regex = new RegExp(wordToMatch, 'gi');
+      return place.title.match(regex);
     });
-  }
+  };
 
-  // console.log($title);
+  var displayMatches = function displayMatches() {
+    var _this = this;
 
-  infowindow = new google.maps.InfoWindow({
-    content: contentHTML,
-    maxWidth: maxInfoWidth
-  });
+    var matchArray = findMatches(this.value, cities);
+    var searchCity__box = document.querySelector('.searchCity__box');
+    searchCity__box.classList.add('is-active');
+    var citiesList = matchArray.map(function (place) {
+      var regex = new RegExp(_this.value, 'gi');
+      var cityName = place.title.replace(regex, '<span class="highlight">' + _this.value + '</span>');
+      var cityid = place.id;
+      return '\n      <li class="suggestions__list" data-id="' + cityid + '" tabindex="0">\n        <span class="name">' + cityName + '</span>\n      </li>\n    ';
+    }).join('');
+    suggestions.innerHTML = citiesList;
+    $('.searchCity__scroll').mCustomScrollbar({});
+  };
 
-  google.maps.event.addListener(infowindow, 'closeclick', function () {
-    marker.setIcon(icon);
-  });
+  var displayFilials = function displayFilials() {
+    var matchFilials = findMatches(inputValue, cities);
+    var filialList = matchFilials.map(function (place) {
+      var filialName = place.filial;
 
-  google.maps.event.addListener(marker, 'click', function () {
-    this.setIcon(iconHighlight);
-    infowindow.setContent(contentHTML);
-    infowindow.open(map, this);
-  });
-}
+      centerLat = +place.lat;
+      centerLng = +place.lng;
+      $zoom = +place.zoom;
 
-$('#map').on('click touchstart', '.show-tel', function () {
-  var text = $(this).parent('.map__row').find('.map__tel').data('tel');
+      text = '';
+      for (var i = 0; i < filialName.length; i++) {
+        if (filialName[i].title.length > 30) {
+          text += "<li class='filial__item'>" + filialName[i].title.substring(0, 30) + '...' + "</li>";
+        } else {
+          text += "<li class='filial__item'>" + filialName[i].title + "</li>";
+        }
 
-  $(this).parent('.map__row').find('.map__tel').text(text);
-});
+        var $lat = filialName[i].merkerLat;
+        var $lng = filialName[i].merkerLng;
+        var lat = parseFloat($lat);
+        var lng = parseFloat($lng);
+        // $marker.push(lng);
+        // var $lng = filialName[i].merkerLng;
 
-function toggleBounce() {
-  if (this.getAnimation() !== null) {
-    this.setAnimation(null);
-  } else {
-    this.setAnimation(google.maps.Animation.BOUNCE);
-  }
-}
+        title.push([filialName[i].title]);
+        address.push([filialName[i].address]);
+        telShort.push([filialName[i].telShort]);
+        tel.push([filialName[i].tel]);
+        site.push([filialName[i].site]);
 
-/*--  init map  ---*/
+        content = {
+          "title": title,
+          "address": address,
+          "telShort": telShort,
+          "tel": tel,
+          "site": site
+        };
 
-var searchInput = document.querySelector('.searchCity__input');
-var suggestions = document.querySelector('.suggestions');
-var suggestionsList = document.querySelector('.suggestions__list');
-var filialBox = document.querySelector('.filial');
-var mapAside = document.querySelector('.map-aside');
-var inputValue = '';
+        $title = content.title[i];
+        $address = content.address[i];
+        $telShort = content.telShort[i];
+        $tel = content.tel[i];
+        $site = content.site[i];
 
-searchInput.addEventListener('change', displayMatches);
-searchInput.addEventListener('keyup', displayMatches);
-searchInput.addEventListener('click', displayMatches);
+        $marker.push([lat, lng]);
 
-$(document).ready(function () {
+        $content.push('<div class="map-content">\n      <h5 class="map__title">\'' + $title + '\'</h5>\n      <p class="map__address">\'' + $address + '\'</p>\n      <div class="map__contact">\n        <div class="map__row">\n          <img src="static/img/content/icon-tel.png" alt="tel">\n          <a href="tel:+74952121111" class="map__tel" data-tel="' + $tel + '">' + $telShort + '</a>\n          <button class="show-tel">\u041F\u043E\u043A\u0430\u0437\u0430\u0442\u044C \u043D\u043E\u043C\u0435\u0440</button>\n        </div>\n        <div class="map__row">\n          <img src="static/img/content/icon-earth.png" alt="tel">\n          <a href="' + $site + '" class="map__site">' + $site + '</a>\n        </div>\n      </div>\n      <p class="map__info">\u0414\u043E\u043F\u043E\u043B\u043D\u0438\u0442\u0435\u043B\u044C\u043D\u0430\u044F \u0438\u043D\u0444\u043E\u0440\u043C\u0430\u0446\u0438\u044F: \u0414\u043B\u044F \u0437\u0430\u043F\u0438\u0441\u0438 \u043D\u0430 \u043F\u0440\u0438\u0435\u043C \u043A \u0432\u0440\u0430\u0447\u0443 \u043F\u043E\u0437\u0432\u043E\u043D\u0438\u0442\u0435, \u043F\u043E\u0436\u0430\u043B\u0443\u0439\u0441\u0442\u0430, \u043F\u043E \u0443\u043A\u0430\u0437\u0430\u043D\u043D\u043E\u043C\u0443 \u0442\u0435\u043B\u0435\u0444\u043E\u043D\u0443. \u041E\u0431\u044F\u0437\u0430\u0442\u0435\u043B\u044C\u043D\u043E \u0443\u0442\u043E\u0447\u043D\u0438\u0442\u0435, \u0440\u0430\u0431\u043E\u0442\u0430\u0435\u0442 \u043B\u0438 \u043A\u043B\u0438\u043D\u0438\u043A\u0430 \u043F\u043E \u041E\u041C\u0421, \u0414\u041C\u0421 \u043F\u043E\u043B\u0438\u0441\u0430\u043C \u0438\u043B\u0438 \u043E\u0440\u0433\u0430\u043D\u0438\u0437\u043E\u0432\u0430\u043D \u043F\u043B\u0430\u0442\u043D\u044B\u0439 \u043F\u0440\u0438\u0435\u043C.</p>\n    </div>');
+      }
+      text += "";
+      return text;
+    }).push('');
 
-  /*- out search input click -*/
-  $(document).on('click touchstart', function (el) {
-    var childr = $('.searchCity').find('*');
-
-    if ($(el.target).is(childr) == false) {
-      $('.searchCity__box').removeClass('is-active');
+    if ($(document).width() > 760) {
+      filialBox.classList.add('is-active');
+      mapAside.classList.add('is-active');
     }
-    // $('body').removeClass('not-move');
-  });
-  /*--*/
 
-  $('.suggestions').on('click touchstart', '.suggestions__list', function () {
-    var suggestionsHtml = $(this).find('.name').text();
-    $('.searchCity__input').val(suggestionsHtml);
-    $('.searchCity__box').removeClass('is-active');
-    inputValue = '';
-    inputValue += suggestionsHtml;
+    filialBox.innerHTML = text;
+
+    $('.filial').mCustomScrollbar({});
+
+    initMap();
+
+    $('.map-btns .btn').removeClass('is-active');
+    $('.btn-map').addClass('is-active');
+  };
+
+  /*--  init map  ---*/
+
+  // function findPosLat(wordToMatch, cities) {
+  //   var pregex = new RegExp(wordToMatch, 'gi');
+  //   console.log(cities.length );
+  //   for (var i = cities.length - 1; i >= 0; i--) {
+  //     return cities[i].filial.filter(place => {
+  //       return place.match(pregex);
+  //     })
+  //   }
+  // };
+
+  // function findPosLng(wordToMatch, cities) {
+  //   return cities.filter(place => {
+  //     // here we need to figure out if the city or state matches what was searched
+  //     var pregex = new RegExp(wordToMatch, 'gi');
+  //     return place.filial.merkerLng.match(pregex);
+  //   });
+  // };
+
+
+  var initMap = function initMap() {
+    var $lat = centerLat || 55.756491;
+    var $lng = centerLng || 37.812185;
+    var marker;
+    var centerMap = { lat: $lat, lng: $lng };
+
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: $zoom || 15,
+      center: centerMap
+    });
+
+    for (var i = $marker.length - 1; i >= 0; i--) {
+      // infoBlock = $content[i];
+
+      marker = new google.maps.Marker({
+        position: new google.maps.LatLng($marker[i][0], $marker[i][1]),
+        icon: icon,
+        map: map
+      });
+    }
+
+    // console.log($title);
+
+    infowindow = new google.maps.InfoWindow({
+      content: contentHTML,
+      maxWidth: maxInfoWidth
+    });
+
+    google.maps.event.addListener(infowindow, 'closeclick', function () {
+      marker.setIcon(icon);
+    });
+
+    google.maps.event.addListener(marker, 'click', function () {
+      this.setIcon(iconHighlight);
+      infowindow.setContent(contentHTML);
+      infowindow.open(map, this);
+    });
+  };
+
+  var toggleBounce = function toggleBounce() {
+    if (this.getAnimation() !== null) {
+      this.setAnimation(null);
+    } else {
+      this.setAnimation(google.maps.Animation.BOUNCE);
+    }
+  };
+
+  /*--  init map  ---*/
+
+  var text,
+      centerLat,
+      centerLng,
+      $zoom,
+      icon,
+      title = [],
+      $title,
+      $address,
+      $tel,
+      $telShort,
+      $site,
+      address = [],
+      tel = [],
+      telShort = [],
+      site = [],
+      content = {},
+      $content = [],
+      $marker = [];
+  var icon = 'static/img/content/marker.png';
+  var iconHighlight = 'static/img/content/marker-hover.png';
+  var contentString = [];
+  var infowindow;
+  var matchPos;
+
+  var contentHTML = $('.hiden-map-info').html();
+  var maxInfoWidth = $('.map-module').width() * .3 > 300 ? $('.map-module').width() * .3 : 300;
+
+  var endpoint = 'place.json';
+  // const endpoint = 'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json';
+
+  var cities = [{
+    "id": "0",
+    "title": "Белгород",
+    "lat": 50.609409,
+    "lng": 36.578795,
+    "zoom": 13,
+    "filial": [{
+      "title": "Управление делами Президента РФ Федеральное Государственное бюджетное учреждение Объединенная Больница с Поликлиникой",
+      "address": "Москва, Мичуринский проспект д. 6",
+      "telShort": "7 (495) 212 ****",
+      "tel": "7 (495) 212 1111",
+      "site": "http://medsi.ru/clinics/belorusska",
+      "merkerLat": 50.603053,
+      "merkerLng": 36.581496
+    }, {
+      "title": "КДЦ «МЕДСИ»",
+      "address": "Москва, Мичуринский проспект д. 6",
+      "telShort": "7 (495) 212 ****",
+      "tel": "7 (495) 212 1111",
+      "site": "http://medsi.ru/clinics/belorusska",
+      "merkerLat": 50.603313,
+      "merkerLng": 36.601398
+    }, {
+      "title": "МК Семейный доктор",
+      "address": "Москва, Мичуринский проспект д. 6",
+      "telShort": "7 (495) 212 ****",
+      "tel": "7 (495) 212 1111",
+      "site": "http://medsi.ru/clinics/belorusska",
+      "merkerLat": 50.603824,
+      "merkerLng": 36.592693
+    }, {
+      "title": "Медицинский центр «Атлас»",
+      "address": "Москва, Мичуринский проспект д. 6",
+      "telShort": "7 (495) 212 ****",
+      "tel": "7 (495) 212 1111",
+      "site": "http://medsi.ru/clinics/belorusska",
+      "merkerLat": 50.610333,
+      "merkerLng": 36.576913
+    }, {
+      "title": "Управление делами Президента РФ Федеральное Государственное бюджетное учреждение Объединенная Больница с Поликлиникой",
+      "address": "Москва, Мичуринский проспект д. 6",
+      "telShort": "7 (495) 212 ****",
+      "tel": "7 (495) 212 1111",
+      "site": "http://medsi.ru/clinics/belorusska",
+      "merkerLat": 50.603053,
+      "merkerLng": 36.581496
+    }, {
+      "title": "КДЦ «МЕДСИ»",
+      "address": "Москва, Мичуринский проспект д. 6",
+      "telShort": "7 (495) 212 ****",
+      "tel": "7 (495) 212 1111",
+      "site": "http://medsi.ru/clinics/belorusska",
+      "merkerLat": 50.603313,
+      "merkerLng": 36.601398
+    }, {
+      "title": "МК Семейный доктор",
+      "address": "Москва, Мичуринский проспект д. 6",
+      "telShort": "7 (495) 212 ****",
+      "tel": "7 (495) 212 1111",
+      "site": "http://medsi.ru/clinics/belorusska",
+      "merkerLat": 50.603824,
+      "merkerLng": 36.592693
+    }, {
+      "title": "Медицинский центр «Атлас»",
+      "address": "Москва, Мичуринский проспект д. 6",
+      "telShort": "7 (495) 212 ****",
+      "tel": "7 (495) 212 1111",
+      "site": "http://medsi.ru/clinics/belorusska",
+      "merkerLat": 50.612333,
+      "merkerLng": 36.516913
+    }, {
+      "title": "Управление делами Президента РФ Федеральное Государственное бюджетное учреждение Объединенная Больница с Поликлиникой",
+      "address": "Москва, Мичуринский проспект д. 6",
+      "telShort": "7 (495) 212 ****",
+      "tel": "7 (495) 212 1111",
+      "site": "http://medsi.ru/clinics/belorusska",
+      "merkerLat": 50.643053,
+      "merkerLng": 36.582496
+    }, {
+      "title": "КДЦ «МЕДСИ»",
+      "address": "Москва, Мичуринский проспект д. 6",
+      "telShort": "7 (495) 212 ****",
+      "tel": "7 (495) 212 1111",
+      "site": "http://medsi.ru/clinics/belorusska",
+      "merkerLat": 50.606313,
+      "merkerLng": 36.661398
+    }, {
+      "title": "МК Семейный доктор",
+      "address": "Москва, Мичуринский проспект д. 6",
+      "telShort": "7 (495) 212 ****",
+      "tel": "7 (495) 212 1111",
+      "site": "http://medsi.ru/clinics/belorusska",
+      "merkerLat": 50.603824,
+      "merkerLng": 36.592693
+    }, {
+      "title": "Медицинский центр «Атлас»",
+      "address": "Москва, Мичуринский проспект д. 6",
+      "telShort": "7 (495) 212 ****",
+      "tel": "7 (495) 212 1111",
+      "site": "http://medsi.ru/clinics/belorusska",
+      "merkerLat": 50.610333,
+      "merkerLng": 36.576913
+    }, {
+      "title": "Управление делами Президента РФ Федеральное Государственное бюджетное учреждение Объединенная Больница с Поликлиникой",
+      "address": "Москва, Мичуринский проспект д. 6",
+      "telShort": "7 (495) 212 ****",
+      "tel": "7 (495) 212 1111",
+      "site": "http://medsi.ru/clinics/belorusska",
+      "merkerLat": 50.603053,
+      "merkerLng": 36.581496
+    }, {
+      "title": "КДЦ «МЕДСИ»",
+      "address": "Москва, Мичуринский проспект д. 6",
+      "telShort": "7 (495) 212 ****",
+      "tel": "7 (495) 212 1111",
+      "site": "http://medsi.ru/clinics/belorusska",
+      "merkerLat": 50.603313,
+      "merkerLng": 36.601398
+    }, {
+      "title": "МК Семейный доктор",
+      "address": "Москва, Мичуринский проспект д. 6",
+      "telShort": "7 (495) 212 ****",
+      "tel": "7 (495) 212 1111",
+      "site": "http://medsi.ru/clinics/belorusska",
+      "merkerLat": 50.603824,
+      "merkerLng": 36.592693
+    }, {
+      "title": "Медицинский центр «Атлас»",
+      "address": "Москва, Мичуринский проспект д. 6",
+      "telShort": "7 (495) 212 ****",
+      "tel": "7 (495) 212 1111",
+      "site": "http://medsi.ru/clinics/belorusska",
+      "merkerLat": 50.610333,
+      "merkerLng": 36.576913
+    }]
+  }, {
+    "id": "1",
+    "title": "Волгоград",
+    "filial": ["Волгоград", "Волгоград"]
+  }, {
+    "id": "2",
+    "title": "Воронеж",
+    "filial": ["Воронеж", "Воронеж"]
+  }, {
+    "id": "3",
+    "title": "Екатеринбург",
+    "filial": ["Екатеринбург", "Екатеринбург"]
+  }, {
+    "id": "4",
+    "title": "Железноводск",
+    "filial": ["Железноводск", "Железноводск"]
+  }, {
+    "id": "5",
+    "title": "Ижевск",
+    "filial": ["Ижевск", "Ижевск"]
+  }, {
+    "id": "6",
+    "title": "Иркутск",
+    "filial": ["Иркутск", "Иркутск"]
+  }, {
+    "id": "7",
+    "title": "Казань",
+    "filial": ["Казань", "Казань"]
+  }, {
+    "id": "8",
+    "title": "Калуга",
+    "filial": ["Калуга"]
+  }, {
+    "id": "9",
+    "title": "Краснодар",
+    "filial": ["Краснодар", "Краснодар"]
+  }, {
+    "id": "10",
+    "title": "Красноярск",
+    "filial": ["Красноярск", "Красноярск"]
+  }, {
+    "id": "11",
+    "title": "Липецк",
+    "filial": ["Липецк", "пецк"]
+  }, {
+    "id": "12",
+    "title": "Набережные Челны",
+    "filial": ["Набережные Челны", "Набережные Челны"]
+  }, {
+    "id": "13",
+    "title": "Нижний Новгород",
+    "filial": ["Нижний Новгород", "Нижний Новгород"]
+  }, {
+    "id": "14",
+    "title": "Новороссийск",
+    "filial": ["Новороссийск", "Новороссийск"]
+  }, {
+    "id": "15",
+    "title": "Новосибирск",
+    "filial": ["Новосибирск", "qweqeqweqwe", "11111111111111"]
+  }];
+  var filials = [];
+
+  $('.map-btns').on('click', '.btn', function () {
+    $(this).siblings().removeClass('is-active');
+    $(this).addClass('is-active');
+    if ($('.btn-list').hasClass('is-active')) {
+      $('.filial, .map-aside').addClass('is-active');
+    } else {
+      $('.filial, .map-aside').removeClass('is-active');
+    }
   });
-  text = '';
-  $('.suggestions').on('click', '.suggestions__list', displayFilials);
-});
+
+  $('#map').on('click touchstart', '.show-tel', function () {
+    var text = $(this).parent('.map__row').find('.map__tel').data('tel');
+
+    $(this).parent('.map__row').find('.map__tel').text(text);
+  });
+
+  var searchInput = document.querySelector('.searchCity__input');
+
+  var suggestions = document.querySelector('.suggestions');
+  var suggestionsList = document.querySelector('.suggestions__list');
+  var filialBox = document.querySelector('.filial');
+  var mapAside = document.querySelector('.map-aside');
+  var inputValue = '';
+
+  searchInput.addEventListener('change', displayMatches);
+  searchInput.addEventListener('keyup', displayMatches);
+  searchInput.addEventListener('click', displayMatches);
+
+  $(document).ready(function () {
+
+    /*- out search input click -*/
+    $(document).on('click touchstart', function (el) {
+      var childr = $('.searchCity').find('*');
+
+      if ($(el.target).is(childr) == false) {
+        $('.searchCity__box').removeClass('is-active');
+      }
+      // $('body').removeClass('not-move');
+    });
+    /*--*/
+
+    $('.suggestions').on('click touchstart', '.suggestions__list', function () {
+      var suggestionsHtml = $(this).find('.name').text();
+      $('.searchCity__input').val(suggestionsHtml);
+      $('.searchCity__box').removeClass('is-active');
+      inputValue = '';
+      inputValue += suggestionsHtml;
+    });
+    text = '';
+    $('.suggestions').on('click', '.suggestions__list', displayFilials);
+  });
+} /*- end if -*/
 "use strict";
 "use strict";
 
