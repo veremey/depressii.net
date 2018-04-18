@@ -75,7 +75,9 @@ p
 		width: 100%
 		max-width: 980px
 		margin: 0 auto
-		padding: 0 10px
+		padding: 0 40px
+		+r(700)
+			padding: 0 10px
 	&__m
 		width: 100%
 		max-width: 940px
@@ -84,7 +86,17 @@ p
 		width: 100%
 		max-width: 1050px
 		margin: 0 auto
-		padding: 0 10px
+		padding: 0 40px
+		+r(700)
+			padding: 0 10px
+	&__wide
+		+r(780)
+			width: calc(100% + 80px )
+			margin-left: -40px
+		+r(700)
+			width: calc(100% + 20px )
+			margin-left: -10px
+
 
 .flex_j
 	display: flex
@@ -126,6 +138,12 @@ p
 		+hb
 		+r(700)
 			font-size: 24px
+	&__sx
+		color: $blueBlack
+		font-size: 32px
+		margin-bottom: .6em
+		+hbl
+
 	&__s
 		color: $blueText
 		font-size: 30px
@@ -191,6 +209,12 @@ p
 			display: none
 
 .desc
+	&__b
+		font-size: 18px
+		line-height: 1.25
+		font-family: Georgia, serif
+		+r(650)
+			font-size: 14px
 	&__normal
 		font-size: 16px
 		line-height: 1.25
@@ -201,6 +225,11 @@ p
 		font-size: 14px
 		line-height: 1.25
 		+hr
+	&__link
+		color: #009de1
+		+tr(.4s)
+		&:hover
+			color: $blueBlack
 
 .quotes
 	display: flex
@@ -270,7 +299,6 @@ p
 		vertical-align: top
 		min-width: 100%
 		width: 100%
-
 
 .section
 	&__pic
@@ -344,6 +372,11 @@ p
 	padding: 20px 26px
 	border-radius: 4px
 	margin-bottom: 30px
+	+r(780)
+		padding: 20px 40px
+	+r(700)
+		padding-left: 10px
+		padding-right: 10px
 	img
 		display: inline-block
 		vertical-align: top
@@ -357,6 +390,12 @@ p
 	background-color: #009de1
 	padding: 60px 20px 50px
 	text-align: center
+	+r(780)
+		padding-left: 40px
+		padding-right: 40px
+	+r(700)
+		padding-left: 10px
+		padding-right: 10px
 	&__desc
 		width: 100%
 		max-width: 720px
@@ -488,6 +527,8 @@ p
 		max-width: 100%
 		+r(500)
 			width: 100%
+	.desc__b
+		margin-bottom: 10px
 
 .show-more
 	display: inline-block

@@ -8,6 +8,8 @@
 		justify-content: space-between
 		align-items: flex-start
 		width: calc(100% - 180px)
+		+r(800)
+			width: calc(100% - 160px)
 		+r(680)
 			width: 100%
 			flex-direction: column-reverse
@@ -40,13 +42,17 @@
 		color: #fff
 		+hr
 	.get-help
-		width: 164px
+		min-width: 164px
 		background-color: #009de1
 		color: #fff
+		+r(760)
+			padding: 10px 14px
+			margin-right: 0
 		+r(680)
 			align-self: flex-end
 		+r(450)
 			width: 140px
+			min-width: 140px
 	&__license
 		color: #fff
 		font-size: 14px

@@ -378,9 +378,7 @@ yx-axis
 	}
 
 	.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar{
-		background-color: #fff; background-color: rgba(0,78,155,0.75);
-		filter: "alpha(opacity=75)"; -ms-filter: "alpha(opacity=75)";
-	}
+		background-color: #009de1; 	}
 
 	.map-section .mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar{
 		background-color: #009de1;

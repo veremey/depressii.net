@@ -98,6 +98,9 @@ __iconsData: {
 },
 
 __pages: [{
+                name: 'gethelp',
+                href: 'gethelp.html'
+             },{
                 name: 'help',
                 href: 'help.html'
              },{
