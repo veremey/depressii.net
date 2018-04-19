@@ -312,7 +312,7 @@ $('.select__item').on('click', function () {
 });
 
 function relocate(item) {
-  var relocate = $(this) || item.data('relocate');
+  var relocate = $(this).data('relocate') || item.data('relocate');
   var location = window.location.href;
   var pageName = location.split("/").slice(-1)[0];
 

@@ -97,7 +97,6 @@ p
 			width: calc(100% + 20px )
 			margin-left: -10px
 
-
 .flex_j
 	display: flex
 	align-items: center
@@ -383,11 +382,16 @@ p
 				right: -25px
 				top: 50%
 				+try(-50%)
-				background-image: url(../img/content/icon-right-50.png)
+				width: 10px
+				height: 7px
+				background-image: url(../img/content/icon-right.png)
 	&__link
 		font-size: 14px
 		color: $blueLight
 		+g
+		+tr(.4s)
+		&:hover
+			color: $blueBlack
 
 .status
 	display: flex
@@ -597,17 +601,49 @@ p
 .help
 	display: flex
 	justify-content: space-between
-	height: 420px
+	border-radius: 4px
+	overflow: hidden
+	&-height
+		height: 420px
 	&__half
 		position: relative
 		width: 50%
+	&__halfest
+		position: relative
+		width: 49%
+		border-radius: 4px
+		overflow: hidden
+		&.mod-navy
+			background-color: #074E71
+			.help__upper,
+			.help__title,
+			.show-more
+				color: #fff
+			.show-more
+				background-color: $n
+				border-color: $yellow
+				&:hover
+					background-color: $yellow
 	&__content
 		padding: 40px 40px 40px 50px
+		height: 100%
+	&__title
+		font-size: 14px
+		text-transform: uppercase
+		color: $blue
+		+g
+	&__upper
+		font-size: 18px
+		text-transform: uppercase
+		color: $blue
+		+hbl
+
 	&__pic
 		position: relative
 		width: 100%
 		height: 100%
 		overflow: hidden
+
 	&__img
 		+vcenter
 		min-width: 100%
@@ -617,6 +653,11 @@ p
 		color: #16576C
 	.show-more
 		background-color: $n
+	.chooseCity
+		margin: 0
+	.title__section
+		color: #fff
+		+hb
 
 .show-more
 	display: inline-block
@@ -666,4 +707,10 @@ p
 		+r(780)
 			padding-bottom: 30px
 
+.flex-center
+	display: flex
+	align-items: center
+	justify-content: center
 
+.mod-yellow
+	background-color: #FDB434

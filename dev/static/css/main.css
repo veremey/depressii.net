@@ -897,13 +897,21 @@ p {
   top: 50%;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
-  background-image: url(../img/content/icon-right-50.png);
+  width: 10px;
+  height: 7px;
+  background-image: url(../img/content/icon-right.png);
 }
 
 .breadcrumbs__link {
   font-size: 14px;
   color: #0095d6;
   font-family: Georgia, serif;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.breadcrumbs__link:hover {
+  color: #01354c;
 }
 
 .status {
@@ -1257,6 +1265,11 @@ p {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.help-height {
   height: 420px;
 }
 
@@ -1265,8 +1278,49 @@ p {
   width: 50%;
 }
 
+.help__halfest {
+  position: relative;
+  width: 49%;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.help__halfest.mod-navy {
+  background-color: #074E71;
+}
+
+.help__halfest.mod-navy .help__upper,
+.help__halfest.mod-navy .help__title,
+.help__halfest.mod-navy .show-more {
+  color: #fff;
+}
+
+.help__halfest.mod-navy .show-more {
+  background-color: transparent;
+  border-color: #ffb51c;
+}
+
+.help__halfest.mod-navy .show-more:hover {
+  background-color: #ffb51c;
+}
+
 .help__content {
   padding: 40px 40px 40px 50px;
+  height: 100%;
+}
+
+.help__title {
+  font-size: 14px;
+  text-transform: uppercase;
+  color: #004e73;
+  font-family: Georgia, serif;
+}
+
+.help__upper {
+  font-size: 18px;
+  text-transform: uppercase;
+  color: #004e73;
+  font-family: 'helveticaneuecyrblackwebfont', Arial, sans-serif;
 }
 
 .help__pic {
@@ -1292,6 +1346,15 @@ p {
 
 .help .show-more {
   background-color: transparent;
+}
+
+.help .chooseCity {
+  margin: 0;
+}
+
+.help .title__section {
+  color: #fff;
+  font-family: 'helveticaneuecyrboldwebfont', Arial, sans-serif;
 }
 
 .show-more {
@@ -1380,6 +1443,22 @@ p {
   .box_b90 {
     padding-bottom: 30px;
   }
+}
+
+.flex-center {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.mod-yellow {
+  background-color: #FDB434;
 }
 
 .footer {
