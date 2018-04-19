@@ -1,21 +1,21 @@
 
-const pppBtn = document.querySelector(".js-ppp");
-const closeBtn = document.querySelector(".js-close");
-// const openBtn = document.querySelector(".js-open");
-const formBtn = document.querySelector('.form__btn');
-const formCheckBox = document.querySelector('.agreement__checkbox');
+const pppBtn = $(".js-ppp");
+const closeBtn = $(".js-close");
+// const openBtn = $(".js-open");
+const formBtn = $('.form__btn');
+const formCheckBox = $('.agreement__checkbox');
 
-formCheckBox.addEventListener('click', getAgreement);
-closeBtn.addEventListener('click', close);
-// openBtn.addEventListener('click', open);
-pppBtn.addEventListener('click', ppp);
+formCheckBox.on('click', getAgreement);
+closeBtn.on('click', close);
+// openBtn.on('click', open);
+pppBtn.on('click', ppp);
 
 
 function getAgreement() {
 	if (formCheckBox.checked) {
-		formBtn.removeAttribute("disabled");
+		formBtn.removeAttr("disabled");
 	} else {
-		formBtn.setAttribute("disabled", "");
+		formBtn.attr("disabled", "");
 	}
 }
 
@@ -32,20 +32,20 @@ function close(e) {
 
 function open(e) {
 	e.preventDefault();
-	let openName = this.dataset.open;
-	let openEl = document.querySelector("." + openName);
-	openEl.style.display = 'block';
+	let openName = $(this).data('open');
+	let openEl = $("." + openName);
+	openEl.css({'display' : 'block'});
 }
 
 function ppp(e) {
 	e.preventDefault();
-	let openName = this.dataset.open;
-	let docHeight = document.documentElement.scrollHeight + "px";
-	let openEl = document.querySelector("." + openName);
-	let ppp = document.querySelector(".ppp");
-	ppp.setAttribute('style', 'display: block; height: ' + `${docHeight}`);
+	let openName = $(this).data('open');
+	let docHeight = $(document).height() + "px";
+	let openEl = $("." + openName);
+	let ppp = $(".ppp");
+	ppp.attr('style', 'display: block; height: ' + `${docHeight}`);
 	// console.log(docHeight);
-	openEl.style.display = 'block';
+	openEl.css({'display' : 'block'});
 }
 
 $(document).ready(function () {

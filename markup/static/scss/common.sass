@@ -73,7 +73,7 @@ p
 .layout
 	&__n
 		width: 100%
-		max-width: 980px
+		max-width: 1040px
 		margin: 0 auto
 		padding: 0 40px
 		+r(700)
@@ -115,28 +115,30 @@ p
 		margin-bottom: .5em
 		text-transform: uppercase
 		+hbl
-		+r(700)
+		+r(770)
+			font-size: 48px
+		+r(750)
 			font-size: 24px
 	&__b
 		color: #fff
 		font-size: 48px
 		margin-bottom: .6em
 		+hb
-		+r(700)
+		+r(750)
 			font-size: 30px
 	&__bl
 		color: $blueBlack
 		font-size: 48px
 		margin-bottom: .6em
 		+hbl
-		+r(700)
+		+r(750)
 			font-size: 24px
 	&__bm
-		color: $blueBlack
+		color: $blue
 		font-size: 36px
 		margin-bottom: .6em
 		+hb
-		+r(700)
+		+r(750)
 			font-size: 24px
 	&__sx
 		color: $blueBlack
@@ -149,15 +151,15 @@ p
 		font-size: 30px
 		margin-bottom: 1.2em
 		+hr
-		+r(700)
-			font-size: 20px
+		+r(780)
+			font-size: 24px
 	&__sl
-		color: $blueText
+		color: $blue
 		font-size: 28px
 		margin-bottom: 1.2em
 		+hr
-		+r(700)
-			font-size: 20px
+		+r(780)
+			font-size: 22px
 	&__sb
 		color: $blueText
 		font-size: 24px
@@ -170,7 +172,7 @@ p
 		margin-bottom: 1em
 		color: #343535
 		+hbl
-		+r(700)
+		+r(750)
 			font-size: 18px
 	&__m
 		font-size: 18px
@@ -184,6 +186,8 @@ p
 		margin-bottom: 1em//?
 		color: #004f71
 		+hbl
+		+r(750)
+			font-size: 16px
 	&__mx
 		font-size: 16px
 		line-height: 1.2
@@ -217,6 +221,12 @@ p
 			font-size: 14px
 	&__normal
 		font-size: 16px
+		line-height: 1.25
+		font-family: Georgia, serif
+		+r(650)
+			font-size: 14px
+	&__n
+		font-size: 14px
 		line-height: 1.25
 		font-family: Georgia, serif
 		+r(650)
@@ -324,16 +334,23 @@ p
 		left: 46px
 		+try(100%)
 		margin-bottom: 0
+		+r(700)
+			left: 10px
 
 .column
 	display: flex
 	justify-content: space-between
 	+box
+	+r(650)
+		display: block
+		width: 100%
 	&__item
 		display: inline-block
 		vertical-align: top
 		width: 46%
-
+		+r(650)
+			display: block
+			width: 100%
 
 .column-text
 	column-width: 30%
@@ -342,6 +359,27 @@ p
 	column-rule: 1px solid $n
 	+r(760)
 		column-count: 1
+
+.breadcrumbs
+	padding: 0
+	margin: 0 0 30px
+	list-style: none
+	&__list
+		position: relative
+		display: inline-block
+		&:not(:last-child)
+			margin-right: 34px
+			&:after
+				content: ''
+				position: absolute
+				right: -25px
+				top: 50%
+				+try(-50%)
+				background-image: url(../img/content/icon-right-50.png)
+	&__link
+		font-size: 14px
+		color: $blueLight
+		+g
 
 .status
 	display: flex
@@ -354,6 +392,9 @@ p
 		+vcenter
 		min-width: 100%
 		height: 100%
+		+r(650)
+			min-height: 100%
+			height: auto
 	&__content
 		display: flex
 		align-items: center
@@ -381,6 +422,7 @@ p
 		display: inline-block
 		vertical-align: top
 		margin-right: 20px
+		min-width: 24px
 	p
 		font-size: 14px
 		color: $desc
@@ -391,8 +433,7 @@ p
 	padding: 60px 20px 50px
 	text-align: center
 	+r(780)
-		padding-left: 40px
-		padding-right: 40px
+		padding: 50px 40px 30px
 	+r(700)
 		padding-left: 10px
 		padding-right: 10px
@@ -404,6 +445,10 @@ p
 		line-height: 1.5
 		color: $desc
 		+g
+	&__box
+		width: 100%
+		max-width: 420px
+		margin: 0 auto
 	&__btn
 		background-color: #004e73
 		padding: 14px 20px 12px
@@ -506,14 +551,15 @@ p
 
 .article
 	&__list
+		width: calc(100% + 20px)
+		margin-left: -20px
 		font-size: 0
 		padding: 0
-		margin: 0
-		display: flex
-		justify-content: space-between
-		flex-wrap: wrap
 	&__item
-		width: 30%
+		display: inline-block
+		vertical-align: top
+		width: 33.3333%
+		padding-left: 20px
 		+r(700)
 			width: 100%
 
@@ -529,6 +575,8 @@ p
 			width: 100%
 	.desc__b
 		margin-bottom: 10px
+		color: #246584
+		+g
 
 .show-more
 	display: inline-block
@@ -553,13 +601,15 @@ p
 		margin-bottom: 30px
 	&_40
 		margin-bottom: 40px
+		+r(780)
+			margin-bottom: 20px
 	&_60
 		margin-bottom: 60px
 		+r(700)
 			margin-bottom: 30px
 	&_80
 		margin-bottom: 80px
-		+r(700)
+		+r(780)
 			margin-bottom: 40px
 	&_t60
 		padding-top: 60px
@@ -568,6 +618,10 @@ p
 	&_b60
 		padding-bottom: 60px
 		+r(700)
+			padding-bottom: 30px
+	&_b90
+		padding-bottom: 90px
+		+r(780)
 			padding-bottom: 30px
 
 

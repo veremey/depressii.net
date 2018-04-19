@@ -2742,7 +2742,7 @@ $(document).ready(function () {
 
     if ($(el.target).is(childr) == false) {
       $('.select').removeClass('is-active');
-      $('.select__box').slideUp('fast');
+      $('.select__box').slideUp(100);
     }
   });
   /*- -*/
@@ -2777,11 +2777,20 @@ $('.select__item').on('click', function () {
     for (var i = place.filial.length - 1; i >= 0; i--) {
       filials.push(place.filial[i]);
     }
-
-    console.log(filials);
   });
+  if ($('#map').length) {
+    initMap();
+  }
+});
 
-  initMap();
+$('.select__item').on('click', function () {
+  if ($(this).parents('.js-relocate')) {
+    var relocate = $('.js-relocate').data('relocate');
+    var location = window.location.href;
+    var pageName = location.split("/").slice(-1)[0];
+
+    window.location.href = window.location.href.replace(pageName, relocate);
+  }
 });
 
 function select() {
@@ -2797,7 +2806,7 @@ function select() {
         setTimeout(function () {
           $self.removeClass('is-active');
         }, 400);
-        select_list.slideUp("fast");
+        select_list.slideUp(100);
       } else {
         $(".js-select").removeClass("is-active");
         $(".js-select-list").removeClass('is-active').hide();
@@ -2813,7 +2822,7 @@ function select() {
       var content = $(this).html();
       select_list.parent().find(".js-select-text").html(content);
       id = select_list.parent().find(".js-select-input").val(id);
-      select_list.slideUp();
+      select_list.slideUp(100);
       select_list.parents(".js-select").removeClass("is-active");
       event.stopPropagation();
     });
@@ -2828,42 +2837,44 @@ function findMatches(wordToMatch, cities) {
   });
 }
 
-function initMap() {
-  var $lat = centerLat || 55.756491;
-  var $lng = centerLng || 37.812185;
-  var marker;
-  var centerMap = { lat: $lat, lng: $lng };
+if ($('#map').length) {
+  var _initMap = function _initMap() {
+    var $lat = centerLat || 55.756491;
+    var $lng = centerLng || 37.812185;
+    var marker;
+    var centerMap = { lat: $lat, lng: $lng };
 
-  var map = new google.maps.Map(document.getElementById('map'), {
-    zoom: zoom || 15,
-    center: centerMap
-  });
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: zoom || 15,
+      center: centerMap
+    });
 
-  if (filials.length) {
-    for (var i = filials.length - 1; i >= 0; i--) {
-      marker = new google.maps.Marker({
-        position: new google.maps.LatLng(filials[i].merkerLat, filials[i].merkerLng),
-        icon: icon,
-        map: map
-      });
-    } /*-for-*/
-  } /*- if -*/
+    if (filials.length) {
+      for (var i = filials.length - 1; i >= 0; i--) {
+        marker = new google.maps.Marker({
+          position: new google.maps.LatLng(filials[i].merkerLat, filials[i].merkerLng),
+          icon: icon,
+          map: map
+        });
+      } /*-for-*/
+    } /*- if -*/
 
-  infowindow = new google.maps.InfoWindow({
-    content: contentHTML,
-    maxWidth: maxInfoWidth,
-    zIndex: 300
-  });
+    infowindow = new google.maps.InfoWindow({
+      content: contentHTML,
+      maxWidth: maxInfoWidth,
+      zIndex: 300
+    });
 
-  google.maps.event.addListener(infowindow, 'closeclick', function () {
-    marker.setIcon(icon);
-  });
+    google.maps.event.addListener(infowindow, 'closeclick', function () {
+      marker.setIcon(icon);
+    });
 
-  google.maps.event.addListener(marker, 'click', function () {
-    this.setIcon(iconHighlight);
-    infowindow.setContent(contentHTML);
-    infowindow.open(map, this);
-  });
+    google.maps.event.addListener(marker, 'click', function () {
+      this.setIcon(iconHighlight);
+      infowindow.setContent(contentHTML);
+      infowindow.open(map, this);
+    });
+  };
 }
 
 $('#map').on('click touchstart', '.show-tel', function () {
@@ -2874,22 +2885,22 @@ $('#map').on('click touchstart', '.show-tel', function () {
 "use strict";
 "use strict";
 
-var pppBtn = document.querySelector(".js-ppp");
-var closeBtn = document.querySelector(".js-close");
-// const openBtn = document.querySelector(".js-open");
-var formBtn = document.querySelector('.form__btn');
-var formCheckBox = document.querySelector('.agreement__checkbox');
+var pppBtn = $(".js-ppp");
+var closeBtn = $(".js-close");
+// const openBtn = $(".js-open");
+var formBtn = $('.form__btn');
+var formCheckBox = $('.agreement__checkbox');
 
-formCheckBox.addEventListener('click', getAgreement);
-closeBtn.addEventListener('click', close);
-// openBtn.addEventListener('click', open);
-pppBtn.addEventListener('click', ppp);
+formCheckBox.on('click', getAgreement);
+closeBtn.on('click', close);
+// openBtn.on('click', open);
+pppBtn.on('click', ppp);
 
 function getAgreement() {
 	if (formCheckBox.checked) {
-		formBtn.removeAttribute("disabled");
+		formBtn.removeAttr("disabled");
 	} else {
-		formBtn.setAttribute("disabled", "");
+		formBtn.attr("disabled", "");
 	}
 }
 
@@ -2905,20 +2916,20 @@ function close(e) {
 
 function open(e) {
 	e.preventDefault();
-	var openName = this.dataset.open;
-	var openEl = document.querySelector("." + openName);
-	openEl.style.display = 'block';
+	var openName = $(this).data('open');
+	var openEl = $("." + openName);
+	openEl.css({ 'display': 'block' });
 }
 
 function ppp(e) {
 	e.preventDefault();
-	var openName = this.dataset.open;
-	var docHeight = document.documentElement.scrollHeight + "px";
-	var openEl = document.querySelector("." + openName);
-	var ppp = document.querySelector(".ppp");
-	ppp.setAttribute('style', 'display: block; height: ' + ("" + docHeight));
+	var openName = $(this).data('open');
+	var docHeight = $(document).height() + "px";
+	var openEl = $("." + openName);
+	var ppp = $(".ppp");
+	ppp.attr('style', 'display: block; height: ' + ("" + docHeight));
 	// console.log(docHeight);
-	openEl.style.display = 'block';
+	openEl.css({ 'display': 'block' });
 }
 
 $(document).ready(function () {

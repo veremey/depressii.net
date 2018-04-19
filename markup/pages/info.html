@@ -14,26 +14,48 @@
 
 			<div class="layout__n">
 				<div class="layout__m box_80">
-					<h4 class="title__bl">Настроение или болезнь</h4>
-					<div class="box_30">
-						<div class="section__pic">
-							<img class="section__img" src="static/img/content/img-01.jpg" alt="picture">
+					<!--  -->
+					<ul class="breadcrumbs">
+						<li class="breadcrumbs__list">
+							<a href="#" class="breadcrumbs__link">Главная</a>
+						</li>
+						<li class="breadcrumbs__list">
+							<a href="#" class="breadcrumbs__link">Статьи</a>
+						</li>
+					</ul>
+					<!--  -->
+					<section class="section">
+						<h4 class="title__bl">Настроение или болезнь</h4>
+						<!--  -->
+						<div class="box_30">
+							<div class="section__pic">
+								<img class="section__img" src="static/img/content/img-01.jpg" alt="picture">
+							</div>
 						</div>
-					</div>
-					<div class=" box_30">
-						<h5 class="title__s">Жителей современных городов окружает множество факторов, провоцирующих стрессы. Проблемы, усталость, упадок сил – эти жалобы постоянно звучат вокруг. Так, все больше людей замечают в своем более или менее близком окружении человека, у которого долгое время "что-то не то с настроением". Мы называем это "депрессия", часто не задумываясь, что это не просто определение состояния, а конкретный и довольно серьезный диагноз.</h5>
-					</div>
+						<!--  -->
+						<div class=" box_30">
+							<h5 class="title__s">Жителей современных городов окружает множество факторов, провоцирующих стрессы. Проблемы, усталость, упадок сил – эти жалобы постоянно звучат вокруг. Так, все больше людей замечают в своем более или менее близком окружении человека, у которого долгое время "что-то не то с настроением". Мы называем это "депрессия", часто не задумываясь, что это не просто определение состояния, а конкретный и довольно серьезный диагноз.</h5>
+						</div>
+					</section>
+					<!--  -->
 				</div>
-				<div class="layout__m box_30">
-					<h4 class="title__section">Что такое депрессия у близкого человека – настоящая болезнь или его манипуляция своим плохим настроением?</h4>
-					<p class="desc__m">Ответ одновременно прост и сложен: это настоящая болезнь, которую надо лечить у специалиста. В основе этой болезни лежит нарушение биохимических реакций, а именно дефицит химических веществ (нейротрансмиттеров), которые необходимы для правильного функционирования нашей нервной системы.</p>
 
+				<div class="layout__m">
+					<!--  -->
+					<section class="section box_30">
+						<h4 class="title__section">Что такое депрессия у близкого человека – настоящая болезнь или его манипуляция своим плохим настроением?</h4>
+						<p class="desc__m">Ответ одновременно прост и сложен: это настоящая болезнь, которую надо лечить у специалиста. В основе этой болезни лежит нарушение биохимических реакций, а именно дефицит химических веществ (нейротрансмиттеров), которые необходимы для правильного функционирования нашей нервной системы.</p>
+					</section>
+					<!--  -->
+					<!-- quotes-bg -->
 					<div class="quotes-bg">
 						<img class="quotes__icon" src="static/img/content/icon-quotes.png" alt="">
 						<q>Как помочь? И нужно ли вообще помогать <br>(вдруг человек только хочет обратить на себя внимание)?</q>
 					</div>
+					<!-- quotes-bg -->
 
-					<div class="quotes">
+					<!-- quotes -->
+					<div class="quotes box_20">
 						<div class="quotes__pic">
 							<img class="quotes__img" src="static/img/content/img-02.jpg" alt="quote pic">
 						</div>
@@ -42,23 +64,33 @@
 							<q>В основе этой болезни лежит нарушение биохимических реакций, а именно дефицит химических веществ (нейротрансмиттеров), которые необходимы для правильного функционирования нашей нервной системы.</q>
 						</div>
 					</div>
-				</div>
-
-				<div class="layout__m">
-
-					{{> list-emotions/list-emotions}}
-
-					<h5 class="title__sb">Источники</h5>
-					<ul class="footnote">
-						<li class="footnote__item">Подкорытов В.С., Чайка Ю.Ю. Депрессии. Современная терапия. – Харьков, «Торнадо», 2003. – с. 35-37
-						</li>
-							<li class="footnote__item">Внутренние болезни по Тинсли Р. Харрисону. Москва: Практика. − 2002. – т 2. − раздел 5. − С. 3024-3027..
-						</li>
-					</ul>
+					<!-- quotes -->
 
 				</div>
 
 				<div class="layout__m">
+					<!-- списки -->
+					<section class="section">
+						{{> list-emotions/list-emotions}}
+					</section>
+					<!-- списки -->
+
+					<!-- Источники -->
+					<section class="section">
+						<h5 class="title__sb">Источники</h5>
+						<ul class="footnote">
+							<li class="footnote__item">Подкорытов В.С., Чайка Ю.Ю. Депрессии. Современная терапия. – Харьков, «Торнадо», 2003. – с. 35-37
+							</li>
+								<li class="footnote__item">Внутренние болезни по Тинсли Р. Харрисону. Москва: Практика. − 2002. – т 2. − раздел 5. − С. 3024-3027..
+							</li>
+						</ul>
+					</section>
+					<!-- Источники -->
+
+				</div>
+
+				<div class="layout__m">
+					<!-- doctor -->
 					<div class="doctor box_30">
 						<div class="doctor__pic"><img src="static/img/content/img-03.jpg" alt="doctor-pic" class="doctor__img"></div>
 						<div class="doctor__content">
@@ -66,62 +98,70 @@
 							<p class="doctor__desc">врач-психиатр, к.м.н., доцент кафедры психиатрии и психосоматики<br>Первого МГМУ им. Сеченова Читлова В.В.</p>
 						</div>
 					</div>
+					<!-- doctor -->
+
+					<!-- клинический случай -->
 					<div class="doctor-gray box_20 ">
 						<p class="doctor__desc">Описанный клинический случай является собирательным образом на основе клинического опыта из реальной практики <br>врача-психиатра, к.м.н., доцента кафедры психиатрии и психосоматики Первого МГМУ им.Сеченова Читловой В.В.</p>
 					</div>
+					<!-- клинический случай -->
 				</div>
 
 				<div class="box_30">
 					{{> mapTitle/mapTitle}}
 				</div>
 
-				<a href="./" class="back box_60 box_mt30">
+				<!-- back -->
+				<a href="./" class="back box_60 box_mt30 layout__wide">
 					<span class="back__pic"><img src="static/img/content/icon-back.png" alt="back icon" class="back__img"></span>
 					<p class="back__desc">Назад к списку статей</p>
 				</a>
+				<!-- back -->
 
+				<!-- article -->
 				<section class="article">
 					<h4 class="title__sl">Читайте также</h4>
+					<!-- article list -->
 					<ul class="article__list">
 						<li class="article__item box_60">
 							<div class="article__pic"><img src="static/img/content/img-04.jpg" alt="article img" class="article__img"></div>
 							<div class="article__content">
-								<h5 class="title__section">Антидепрессанты</h5>
-								<p class="desc__normal">Фармакологи не зря едят свой хлеб. С 50-х годов прошлого века, когда были изобретены первые антидепрессанты, препаратов стало значительно больше и качественно они изменились изрядно</p>
+								<h5 class="title__section">Анти&shy;де&shy;прес&shy;сан&shy;ты</h5>
+								<p class="desc__n">Фармакологи не зря едят свой хлеб. С 50-х годов прошлого века, когда были изобретены первые антидепрессанты, препаратов стало значительно больше и качественно они изменились изрядно</p>
 							</div>
 						</li>
 						<li class="article__item box_60">
 							<div class="article__pic"><img src="static/img/content/img-04.jpg" alt="article img" class="article__img"></div>
 							<div class="article__content">
 								<h5 class="title__section">Хроническая депрессия или депрессивный невроз</h5>
-								<p class="desc__normal">Это особая форма депрессивных состояний, при которых стрессор воздействует не остро и непродолжительное время, как при реактивной депрессии, но длительно, «выматывая» человека.</p>
+								<p class="desc__n">Это особая форма депрессивных состояний, при которых стрессор воздействует не остро и непродолжительное время, как при реактивной депрессии, но длительно, «выматывая» человека.</p>
 							</div>
 						</li>
 						<li class="article__item box_60">
 							<div class="article__pic"><img src="static/img/content/img-04.jpg" alt="article img" class="article__img"></div>
 							<div class="article__content">
 								<h5 class="title__section">Многоликая депрессия</h5>
-								<p class="desc__normal">Говорят, если больно, значит, живой. Боль физическая для нашего организма – это сигнал к действию, предотвращению раздражающего воздействия. навсегда запомнишь, что к горячему утюгу прикасаться нельзя.</p>
+								<p class="desc__n">Говорят, если больно, значит, живой. Боль физическая для нашего организма – это сигнал к действию, предотвращению раздражающего воздействия. навсегда запомнишь, что к горячему утюгу прикасаться нельзя.</p>
 							</div>
 						</li>
 					</ul>
+					<!-- article list -->
 					<div class="is-center box_30">
 						<button class="show-more">Читать еще</button>
 					</div>
 				</section>
+				<!-- article -->
 
 			</div>
-
 
 			{{> footer/footer}}
 		</div>
 
 		<!-- ppp -->
-		{{> partner-ppp/partner-ppp }}
-
-
-		<!-- <script src="static/js/separate-js/svg4everybody.min.js"></script>
-		<script>svg4everybody();</script> -->
+		<div class="ppp">
+			<div class="ppp__layout"></div>
+			{{> partner-ppp/partner-ppp }}
+		</div>
 
 		<script src="static/js/main.js"></script>
 

@@ -30,6 +30,9 @@
 		padding: 0
 		font-size: 0
 		list-style-type: none
+		+r(760)
+			display: flex
+			flex-wrap: wrap
 		+r(680)
 			width: 100%
 	&__item
@@ -37,6 +40,12 @@
 		vertical-align: top
 		width: 50%
 		margin-bottom: 16px
+		+r(760)
+			display: flex
+			align-items: center
+			flex-wrap: wrap
+			&:nth-of-type(even)
+				justify-content: flex-end
 	&__link
 		font-size: 16px
 		color: #fff
@@ -50,9 +59,9 @@
 			margin-right: 0
 		+r(680)
 			align-self: flex-end
-		+r(450)
-			width: 140px
-			min-width: 140px
+		// +r(450)
+		// 	width: 140px
+		// 	min-width: 140px
 	&__license
 		color: #fff
 		font-size: 14px

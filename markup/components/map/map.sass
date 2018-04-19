@@ -12,7 +12,6 @@
 		display: block
 
 .map-aside
-
 	width: 100%
 	max-width: 320px
 	height: 600px
@@ -38,6 +37,8 @@
 	width: 100%
 	cursor: pointer
 	font-size: 0
+	text-align: left
+	border-radius: 4px
 	z-index: 10
 	&:after
 		content: ""
@@ -94,7 +95,8 @@
 		height: 420px
 		border-radius: 4px
 		background: #fff
-		padding: 10px 10px 0px 30px
+		padding: 10px 10px 10px 30px
+		box-shadow: 0 0 1px #9b9b9b
 		overflow: hidden
 		+r(760)
 			width: 100%
@@ -146,6 +148,25 @@
 
 .chooseCity
 	position: relative
+	&-title
+		display: flex
+		align-items: center
+		justify-content: space-between
+		flex-wrap: wrap
+		.chooseCity
+			width: 40%
+			min-width: 360px
+			+r(760)
+				width: 100%
+				min-width: 300px
+			.title__bm
+				margin-right: 10px
+	.select
+		box-shadow: 0 0 1px #9b9b9b
+		&__box
+			left: 0
+			width: 100%
+			box-shadow: 0px 18px 49px 0px rgba(0, 0, 0, 0.23)
 
 .chooseCity__btn
 	position: absolute
