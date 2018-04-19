@@ -351,6 +351,14 @@ p
 		+r(650)
 			display: block
 			width: 100%
+	&-ppp
+		background-color: #fff
+		padding: 40px
+		width: 100%
+		max-width: 480px
+		border-radius: 4px
+		.column__item
+			width: 100%
 
 .column-text
 	column-width: 30%
@@ -383,6 +391,8 @@ p
 
 .status
 	display: flex
+	&:hover
+		opacity: .8
 	&__pic
 		position: relative
 		width: 33%
@@ -395,9 +405,15 @@ p
 		+r(650)
 			min-height: 100%
 			height: auto
+	&__icon
+		display: inline-block
+		vertical-align: top
+		min-width: 16px
+		margin-left: 10px
 	&__content
 		display: flex
 		align-items: center
+		justify-content: space-between
 		width: 66%
 		min-height: 110px
 		padding: 15px
@@ -578,6 +594,30 @@ p
 		color: #246584
 		+g
 
+.help
+	display: flex
+	justify-content: space-between
+	height: 420px
+	&__half
+		position: relative
+		width: 50%
+	&__content
+		padding: 40px 40px 40px 50px
+	&__pic
+		position: relative
+		width: 100%
+		height: 100%
+		overflow: hidden
+	&__img
+		+vcenter
+		min-width: 100%
+		min-height: 100%
+
+	.title__sx
+		color: #16576C
+	.show-more
+		background-color: $n
+
 .show-more
 	display: inline-block
 	vertical-align: top
@@ -593,6 +633,8 @@ p
 	&:hover
 		background-color: $blueBlack
 		color: #fff
+
+
 
 .box
 	&_20

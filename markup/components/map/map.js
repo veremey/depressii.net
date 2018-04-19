@@ -305,15 +305,19 @@ $('.select__item').on('click', function () {
 
 $('.select__item').on('click', function () {
   if($(this).parents('.js-relocate') ) {
-      var relocate = $('.js-relocate').data('relocate');
-      var location = window.location.href;
-      var pageName = location.split("/").slice(-1)[0];
-
-      window.location.href = window.location.href.replace(pageName,relocate);
+    var goTo = $(this).parents('.js-relocate');
+    relocate(goTo);
   }
 
 });
 
+function relocate(item) {
+  var relocate = $(this) || item.data('relocate');
+  var location = window.location.href;
+  var pageName = location.split("/").slice(-1)[0];
+
+  window.location.href = window.location.href.replace(pageName,relocate);
+}
 
 function select() {
   $(".js-select").each(function(){

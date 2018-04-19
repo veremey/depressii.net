@@ -49,6 +49,8 @@ function ppp(e) {
 }
 
 $(document).ready(function () {
+	let docHeight = $(document).height() + "px";
+
 	$(".js-open").on('click', function(e) {
 		e.preventDefault();
 		var openName = $(this).data('open');
@@ -63,5 +65,12 @@ $(document).ready(function () {
 		}
 
 	});
+
+	if($('.js-autoppp').length){
+		setTimeout(function() {
+			$('.ppp').attr('style', 'display: block; height: ' + `${docHeight}`);
+			$('.js-autoppp').css({'display' : 'block'});
+		}, 2000);
+	}
 
 });
