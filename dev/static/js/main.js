@@ -2730,10 +2730,20 @@ $(document).ready(function () {
     }
   });
   /*--*/
+  $('.filial__item').on('click', function () {
+    $('.filial__item').removeClass('is-active');
+    $(this).addClass('is-active');
+  });
+  /*--*/
 
   $('.filial').mCustomScrollbar({});
 
   select();
+
+  $('.js-relocate').on('click', '.select__item', function () {
+    var goTo = $(this).parents('.js-relocate');
+    relocate(goTo);
+  });
 
   $('.select__box').mCustomScrollbar({});
 
@@ -2780,13 +2790,6 @@ $('.select__item').on('click', function () {
   });
   if ($('#map').length) {
     initMap();
-  }
-});
-
-$('.select__item').on('click', function () {
-  if ($(this).parents('.js-relocate')) {
-    var goTo = $(this).parents('.js-relocate');
-    relocate(goTo);
   }
 });
 
@@ -2842,44 +2845,43 @@ function findMatches(wordToMatch, cities) {
   });
 }
 
-if ($('#map').length) {
-  var _initMap = function _initMap() {
-    var $lat = centerLat || 55.756491;
-    var $lng = centerLng || 37.812185;
-    var marker;
-    var centerMap = { lat: $lat, lng: $lng };
+// if($('#map').length){
+function initMap() {
+  var $lat = centerLat || 55.756491;
+  var $lng = centerLng || 37.812185;
+  var marker;
+  var centerMap = { lat: $lat, lng: $lng };
 
-    var map = new google.maps.Map(document.getElementById('map'), {
-      zoom: zoom || 15,
-      center: centerMap
-    });
+  var map = new google.maps.Map(document.getElementById('map'), {
+    zoom: zoom || 15,
+    center: centerMap
+  });
 
-    if (filials.length) {
-      for (var i = filials.length - 1; i >= 0; i--) {
-        marker = new google.maps.Marker({
-          position: new google.maps.LatLng(filials[i].merkerLat, filials[i].merkerLng),
-          icon: icon,
-          map: map
-        });
-      } /*-for-*/
-    } /*- if -*/
+  if (filials.length) {
+    for (var i = filials.length - 1; i >= 0; i--) {
+      marker = new google.maps.Marker({
+        position: new google.maps.LatLng(filials[i].merkerLat, filials[i].merkerLng),
+        icon: icon,
+        map: map
+      });
+    } /*-for-*/
+  } /*- if -*/
 
-    infowindow = new google.maps.InfoWindow({
-      content: contentHTML,
-      maxWidth: maxInfoWidth,
-      zIndex: 300
-    });
+  infowindow = new google.maps.InfoWindow({
+    content: contentHTML,
+    maxWidth: maxInfoWidth,
+    zIndex: 300
+  });
 
-    google.maps.event.addListener(infowindow, 'closeclick', function () {
-      marker.setIcon(icon);
-    });
+  google.maps.event.addListener(infowindow, 'closeclick', function () {
+    marker.setIcon(icon);
+  });
 
-    google.maps.event.addListener(marker, 'click', function () {
-      this.setIcon(iconHighlight);
-      infowindow.setContent(contentHTML);
-      infowindow.open(map, this);
-    });
-  };
+  google.maps.event.addListener(marker, 'click', function () {
+    this.setIcon(iconHighlight);
+    infowindow.setContent(contentHTML);
+    infowindow.open(map, this);
+  });
 }
 
 $('#map').on('click touchstart', '.show-tel', function () {

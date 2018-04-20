@@ -246,10 +246,21 @@ $(document).ready(function() {
 
   });
   /*--*/
+  $('.filial__item').on('click', function () {
+    $('.filial__item').removeClass('is-active');
+    $(this).addClass('is-active');
+  });
+  /*--*/
 
   $('.filial').mCustomScrollbar({});
 
   select();
+
+
+  $('.js-relocate').on('click', '.select__item', function () {
+      var goTo = $(this).parents('.js-relocate');
+      relocate(goTo);
+  });
 
   $('.select__box').mCustomScrollbar({});
 
@@ -303,13 +314,8 @@ $('.select__item').on('click', function () {
 
 });
 
-$('.select__item').on('click', function () {
-  if($(this).parents('.js-relocate') ) {
-    var goTo = $(this).parents('.js-relocate');
-    relocate(goTo);
-  }
 
-});
+
 
 function relocate(item) {
   var relocate = $(this).data('relocate') || item.data('relocate');
@@ -364,7 +370,7 @@ function findMatches(wordToMatch, cities) {
 }
 
 
-if($('#map').length){
+// if($('#map').length){
   function initMap() {
     var $lat = centerLat || 55.756491;
     var $lng = centerLng || 37.812185;
@@ -405,7 +411,7 @@ if($('#map').length){
     });
 
   }
-}
+
 
 
 $('#map').on('click touchstart','.show-tel', function () {

@@ -1,8 +1,10 @@
 /*- map -*/
 #map
 	height: 600px
-	width: 100%
+	width: calc(100% - 320px)
 	max-height: 80vh
+	+r(760)
+		width: 100%
 
 .map-section
 	position: relative
@@ -15,6 +17,7 @@
 	width: 100%
 	max-width: 320px
 	height: 600px
+	max-height: 80vh
 	padding: 0
 	margin: 0
 	list-style-type: none
