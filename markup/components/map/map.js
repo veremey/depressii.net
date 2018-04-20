@@ -315,8 +315,6 @@ $('.select__item').on('click', function () {
 });
 
 
-
-
 function relocate(item) {
   var relocate = item || $(this).data('relocate');
   var location = window.location.href;

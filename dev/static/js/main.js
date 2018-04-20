@@ -2478,7 +2478,6 @@ $(document).ready(function () {
 		$('.js-mobChangePic').attr('src', largePic);
 	}
 });
-"use strict";
 'use strict';
 
 /*- out search input click -*/
@@ -2504,6 +2503,7 @@ $(document).on('scroll', function () {
 				$('.header').removeClass('is-fixed');
 		}
 });
+"use strict";
 
 'use strict';
 
