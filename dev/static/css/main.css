@@ -344,6 +344,98 @@ p {
   margin: 0;
 }
 
+.page-error {
+  background-color: #004E73;
+  margin-bottom: 10px;
+  padding-top: 50px;
+  padding-bottom: 40px;
+  text-align: center;
+}
+
+.page-error__title {
+  font-size: 48px;
+  line-height: .9;
+  color: #ffb51c;
+  margin-bottom: 20px;
+  font-family: 'helveticaneuecyrboldwebfont', Arial, sans-serif;
+}
+
+@media only screen and (max-width: 650px) {
+  .page-error__title {
+    font-size: 36px;
+  }
+}
+
+.page-error__num {
+  font-size: 230px;
+  line-height: .9;
+  margin-bottom: .1em;
+  color: #ffb51c;
+  text-shadow: 0px 5px 5px rgba(0, 46, 67, 0.75);
+  font-family: 'helveticaneuecyrboldwebfont', Arial, sans-serif;
+}
+
+@media only screen and (max-width: 650px) {
+  .page-error__num {
+    font-size: 150px;
+  }
+}
+
+.page-error__subtitle {
+  font-size: 36px;
+  margin-bottom: .55em;
+  color: #fff;
+  font-family: 'helveticaneuecyrlightwebfont', Arial, sans-serif;
+}
+
+@media only screen and (max-width: 650px) {
+  .page-error__subtitle {
+    font-size: 30px;
+  }
+}
+
+.page-error__desc {
+  font-size: 24px;
+  line-height: 1.33;
+  color: #fff;
+  font-family: 'helveticaneuecyrlightwebfont', Arial, sans-serif;
+}
+
+@media only screen and (max-width: 780px) {
+  .page-error__desc {
+    font-size: 21px;
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  .page-error__desc {
+    font-size: 14px;
+  }
+}
+
+.page-error__desc.color-yellow {
+  color: #ffb51c;
+  font-size: 30px;
+  font-family: 'helveticaneuecyrlightwebfont', Arial, sans-serif;
+}
+
+@media only screen and (max-width: 650px) {
+  .page-error__desc.color-yellow {
+    font-size: 16px;
+  }
+}
+
+.page-error__desc a {
+  display: inline-block;
+  color: inherit;
+  border-bottom: 1px solid currentColor;
+  word-wrap: no-wrap;
+}
+
+.page-error__desc a:hover {
+  border-color: transparent;
+}
+
 .layout__n {
   width: 100%;
   max-width: 1040px;
@@ -879,7 +971,14 @@ p {
           column-rule: 1px solid transparent;
 }
 
-@media only screen and (max-width: 760px) {
+@media only screen and (max-width: 800px) {
+  .column-text {
+    -webkit-column-gap: 40px;
+            column-gap: 40px;
+  }
+}
+
+@media only screen and (max-width: 700px) {
   .column-text {
     -webkit-column-count: 1;
             column-count: 1;
@@ -996,7 +1095,7 @@ p {
           align-items: center;
   background-color: #ffe8ec;
   padding: 20px 26px;
-  border-radius: 4px;
+  border-radius: 2px;
   margin-bottom: 30px;
 }
 
@@ -1029,6 +1128,7 @@ p {
 .enter {
   background-color: #009de1;
   padding: 60px 20px 50px;
+  border-radius: 4px;
   text-align: center;
 }
 
@@ -1904,6 +2004,8 @@ a.article__pic:hover {
 }
 
 .footer__link {
+  display: inline-block;
+  white-space: nowrap;
   font-size: 16px;
   color: #fff;
   font-family: 'helveticaneuecyrromanwebfont', Arial, sans-serif;
@@ -1913,6 +2015,7 @@ a.article__pic:hover {
   min-width: 164px;
   background-color: #009de1;
   color: #fff;
+  margin: 0 0 0 10px;
 }
 
 @media only screen and (max-width: 760px) {
@@ -1980,12 +2083,14 @@ a.article__pic:hover {
 .contraindications__desc {
   font-size: 10px;
   color: #c0bfbf;
-  font-family: 'helveticaneuecyrthinwebfont', Arial, sans-serif;
+  font-family: calibri, 'helveticaneuecyrthinwebfont', Arial, sans-serif;
 }
 
-@media only screen and (max-width: 650px) {
+@media only screen and (max-width: 800px) {
   .contraindications__desc {
+    margin-top: 10px;
     line-height: 1.4;
+    text-align: center;
   }
 }
 
@@ -2401,6 +2506,12 @@ a.article__pic:hover {
   }
 }
 
+@media only screen and (max-width: 650px) {
+  #map {
+    height: 200px;
+  }
+}
+
 .map-section {
   position: relative;
   display: -webkit-box;
@@ -2438,6 +2549,12 @@ a.article__pic:hover {
     max-width: 100%;
     height: 100%;
     z-index: -5;
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  .map-aside {
+    height: 200px;
   }
 }
 
@@ -3006,6 +3123,12 @@ a.article__pic:hover {
 @media only screen and (max-height: 900px) {
   .partner__content {
     padding: 40px 80px;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .partner__content {
+    padding: 20px 20px 30px;
   }
 }
 

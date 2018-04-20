@@ -2904,9 +2904,12 @@ closeBtn.on('click', close);
 pppBtn.on('click', ppp);
 
 function getAgreement() {
-	if (formCheckBox.checked) {
+	console.log($(this));
+	if ($(this).is(':checked')) {
+		$(this).attr("checked", false);
 		formBtn.removeAttr("disabled");
 	} else {
+		$(this).attr("checked", true);
 		formBtn.attr("disabled", "");
 	}
 }

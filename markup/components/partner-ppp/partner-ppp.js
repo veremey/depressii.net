@@ -12,11 +12,16 @@ pppBtn.on('click', ppp);
 
 
 function getAgreement() {
-	if (formCheckBox.checked) {
-		formBtn.removeAttr("disabled");
-	} else {
-		formBtn.attr("disabled", "");
+	console.log($(this));
+	if ($(this).is(':checked')){
+    $(this).attr("checked", false);
+    formBtn.removeAttr("disabled");
 	}
+  else {
+    $(this).attr("checked", true);
+    formBtn.attr("disabled", "");
+  }
+
 }
 
 function close(e) {

@@ -70,6 +70,62 @@ b, strong
 p
 	margin: 0
 
+.page-error
+	background-color: #004E73
+	margin-bottom: 10px
+	padding-top: 50px
+	padding-bottom: 40px
+	text-align: center
+	&__title
+		font-size: 48px
+		line-height: .9
+		color: $yellow
+		margin-bottom: 20px
+		+hb
+		+r(650)
+			font-size: 36px
+	&__num
+		font-size: 230px
+		line-height: .9
+		margin-bottom: .1em
+		color: rgb(255, 181, 28)
+		text-shadow: 0px 5px 5px rgba(0, 46, 67, 0.75)
+		+hb
+		+r(650)
+			font-size: 150px
+	&__subtitle
+		font-size: 36px
+		margin-bottom: .55em
+		color: #fff
+		+hl
+		+r(650)
+			font-size: 30px
+	&__desc
+		font-size: 24px
+		line-height: 1.33
+		color: #fff
+		+hl
+		+r(780)
+			font-size: 21px
+		+r(650)
+			font-size: 14px
+		&.color-yellow
+			color: $yellow
+			font-size: 30px
+			+hl
+			+r(650)
+				font-size: 16px
+		a
+			display: inline-block
+			color: inherit
+			border-bottom: 1px solid currentColor
+			word-wrap: no-wrap
+			&:hover
+				border-color: $n
+
+
+
+
 .layout
 	&__n
 		width: 100%
@@ -371,7 +427,9 @@ p
 	column-count: 2
 	column-gap: 90px
 	column-rule: 1px solid $n
-	+r(760)
+	+r(800)
+		column-gap: 40px
+	+r(700)
 		column-count: 1
 
 .breadcrumbs
@@ -438,7 +496,7 @@ p
 	align-items: center
 	background-color: #ffe8ec
 	padding: 20px 26px
-	border-radius: 4px
+	border-radius: 2px
 	margin-bottom: 30px
 	+r(780)
 		padding: 20px 40px
@@ -458,6 +516,7 @@ p
 .enter
 	background-color: #009de1
 	padding: 60px 20px 50px
+	border-radius: 4px
 	text-align: center
 	+r(780)
 		padding: 50px 40px 30px
