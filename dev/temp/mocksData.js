@@ -112,4 +112,16 @@ __pages: [{
              },{
                 name: 'main',
                 href: 'main.html'
+             },{
+                name: 'problem',
+                href: 'problem.html'
+             },{
+                name: 'search-ok',
+                href: 'search-ok.html'
+             },{
+                name: 'search',
+                href: 'search.html'
+             },{
+                name: 'stories',
+                href: 'stories.html'
              }]

@@ -23,7 +23,7 @@ body
 .page__gray
 	background-color: #F3F3F3
 
-.pages
+.site-pages
 	display: block
 	width: 300px
 	vertical-align: top
@@ -171,6 +171,12 @@ p
 		margin-bottom: 1em
 		color: #343535
 		+hbl
+		a
+			color: #343535
+			+tr(.4s)
+		&:hover
+			a
+				color: $blue
 		+r(750)
 			font-size: 18px
 	&__m
@@ -584,9 +590,11 @@ p
 			width: 100%
 
 	&__pic
+		display: block
 		position: relative
 		margin-bottom: 15px
 		font-size: 0
+		+tr(.4s)
 		+r(700)
 			text-align: center
 	&__img
@@ -598,6 +606,8 @@ p
 		color: #246584
 		+g
 
+a.article__pic:hover
+	opacity: .8
 .help
 	width: 100%
 	display: flex
@@ -741,6 +751,8 @@ p
 		font-size: 0px
 		border-radius: 4px
 		overflow: hidden
+		+r(650)
+			max-width: 100%
 	&__input
 		margin: 0
 		border: none
@@ -766,7 +778,87 @@ p
 		&:hover
 			opacity: .9
 
+	&-resaults
+		display: none
+		&.is-active
+			display: block
+	&__desc
+		font-size: 28px
+		line-height: 1
+		padding-bottom: .5em
+		margin-bottom: .5em
+		color: #004E73
+		+hr
+		+r(650)
+			font-size: 18px
+		&.mod-red
+			color: #FF0028
+			border-bottom: 1px solid #D2D2D2
 
+.pages
+	display: flex
+	justify-content: space-between
+	width: 100%
+	&__list
+		padding: 0
+		margin: 0
+		list-style: none
+		font-size: 0
+		+trx(-20px)
+		+r(500)
+			+trx(-14px)
+	&__item
+		display: inline-block
+		vertical-align: top
+		width: 52px
+		height: 52px
+		margin: 0 0 0 20px
+		+r(500)
+			width: 30px
+			height: 30px
+			margin-left: 14px
+		&:hover,
+		&.is-active
+			.pages__link
+				background-color: #009DE1
+				color: #fff
+	&__link
+		display: block
+		background-color: #F3F3F3
+		text-align: center
+		line-height: 50px
+		border-radius: 4px
+		font-size: 16px
+		color: #141414
+		+hb
+		+tr(.4s)
+		+r(500)
+			font-size: 14px
+			line-height: 30px
+	&__btn
+		display: inline-block
+		vertical-align: top
+		padding: 17px 20px
+		border-radius: 4px
+		border: none
+		background-color: #F3F3F3
+		color: $blue
+		font-size: 16px
+		cursor: pointer
+		+hb
+		+tr(.4s)
+		+r(500)
+			font-size: 14px
+			padding: 7px 10px
+		&:hover
+			color: #F3F3F3
+			background-color: $blue
+			.icon-help
+				background-image: url(../img/content/icon-status-yellow.png)
+		.icon-help
+			margin-left: 10px
+			+r(500)
+				display: none
 
 
 .box
