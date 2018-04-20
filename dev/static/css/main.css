@@ -594,6 +594,7 @@ p {
 
 .subtitle img {
   width: 20%;
+  max-width: 150px;
 }
 
 @media only screen and (max-width: 500px) {
@@ -1959,7 +1960,7 @@ a.article__pic:hover {
 }
 
 .contraindications {
-  border-top: 1px solid #fff;
+  border-top: 1px solid #185E7F;
   padding: 20px 0 24px;
 }
 
@@ -2625,6 +2626,10 @@ a.article__pic:hover {
 
 .chooseCity-title .chooseCity .title__bm {
   margin-right: 10px;
+}
+
+.chooseCity-title .select__text {
+  background-color: #f3f3f3;
 }
 
 .chooseCity .select {

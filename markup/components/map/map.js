@@ -257,8 +257,8 @@ $(document).ready(function() {
   select();
 
 
-  $('.js-relocate').on('click', '.select__item', function () {
-      var goTo = $(this).parents('.js-relocate');
+  $('.js-relocate .select__item').on('click', function () {
+      var goTo = $(this).parents('.js-relocate').data('relocate');
       relocate(goTo);
   });
 
@@ -318,7 +318,7 @@ $('.select__item').on('click', function () {
 
 
 function relocate(item) {
-  var relocate = $(this).data('relocate') || item.data('relocate');
+  var relocate = item || $(this).data('relocate');
   var location = window.location.href;
   var pageName = location.split("/").slice(-1)[0];
 
