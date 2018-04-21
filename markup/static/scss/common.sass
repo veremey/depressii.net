@@ -314,6 +314,12 @@ p
 		font-size: 14px
 		line-height: 1.25
 		+hr
+	&__md
+		font-size: 16px
+		line-height: 1.25
+		text-transform: uppercase
+		color: $blueBlack
+		+hm
 	&__link
 		color: #009de1
 		+tr(.4s)
@@ -394,6 +400,7 @@ p
 		font-size: 0
 	&__img
 		max-width: 100%
+		width: 100%// results
 		display: inline-block
 		vertical-align: top
 
@@ -688,6 +695,7 @@ p
 
 a.article__pic:hover
 	opacity: .8
+
 .help
 	width: 100%
 	display: flex
@@ -991,6 +999,7 @@ a.article__pic:hover
 	display: flex
 	align-items: center
 	justify-content: space-between
+	margin-left: auto
 	width: 100%
 	max-width: 376px
 	vertical-align: top
@@ -1006,7 +1015,8 @@ a.article__pic:hover
 	&:hover
 		background-color: #004E73
 		color: #fff
-		.icon-back
+		.icon-back,
+		.icon-help
 			background-image: url('../img/content/icon-status-white.png')
 
 

@@ -1,5 +1,11 @@
 
 .questions
+	&__header
+		display: flex
+		align-items: center
+		justify-content: space-between
+		.title__big
+			margin-bottom: 0
 	&__content
 
 	&__footer
@@ -7,10 +13,28 @@
 		align-items: center
 		justify-content: space-between
 
+.meter
+	width: 100%
+	max-width: 300px
+	display: flex
+	align-items: center
+	justify-content: space-between
+	&__text
+		margin-right: 20px
+		span
+			font-size: 14px
+			color: $blue
+			+hb
+	&-ui
+		flex: 1 0 auto
+
 .question
 	display: flex
 	justify-content: space-between
 	height: 440px
+	display: none
+	&.is-active
+		display: flex
 	&__pic
 		position: relative
 		width: 33%
@@ -32,7 +56,13 @@
 	.title__sb
 		margin-bottom: 1.45em
 
-
+.result
+	&__content
+		display: flex
+		align-items: flex-start
+		justify-content: space-between
+	&__diagramm
+		margin-left: 30px
 
 .radio
 	position: relative
@@ -95,4 +125,22 @@
 	// 	vertical-align: top
 	// 	width: calc(100% - 50px)
 	// 	margin-left: 15px
+
+// ******** ui *****************/
+.ui-slider-horizontal
+	height: 15px
+	border-radius: 15px
+	pointer-events: none
+.ui-slider-horizontal .ui-slider-handle
+	display: none
+
+.ui-widget-header
+	background-color: #FDB434
+	border-radius: 15px
+	pointer-events: none
+.ui-widget.ui-widget-content
+	border: none
+	background-color: #E6E6E6
+
+// ******** ui *****************/
 

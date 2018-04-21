@@ -13,6 +13,8 @@
 		
 		<meta name="HandheldFriendly" content="true">
 		<link href="static/css/separate-css/jquery.mCustomScrollbar.css" rel="stylesheet" type="text/css">
+		<link href="static/css/separate-css/jquery-ui.css" rel="stylesheet" type="text/css">
+		
 		<link href="static/css/main.css" rel="stylesheet" type="text/css">
 		
 		
@@ -62,7 +64,7 @@
 			
 			<!-- header -->
 			<div class="layout__n box_t40">
-				<div class="layout__m box_80">
+				<div class="layout__m box_80 js-question-section" >
 					<div class="page-test">
 						<div id="pre-question" class=" box_40">
 							<p>Выберите ответ, который в наибольшей степени соответствует Вашему самочувствию на прошлой неделе. </p>
@@ -75,14 +77,18 @@
 								<h4 class="title__big">Вопрос <span>1</span></h4>
 						
 								<div class="meter">
-						
+									<div class="meter__text">
+										<span class="meter__start">1</span>
+										<span class="meter__static"> из 14</span>
+									</div>
+									<div class="meter-ui"></div>
 								</div>
 						
 							</div>
 						
 							<div class="questions__content">
 								<!-- #1 -->
-								<div class="question" id="question-01">
+								<div class="question is-active" id="question-1">
 									<div class="question__pic">
 										<img src="static/img/content/patient/01.jpg" alt="qpic" class="question__img">
 									</div>
@@ -91,13 +97,13 @@
 										<div class="question__variant">
 											<div class="question__answer">
 												<label class="radio">
-													<input class="radio__input" type="radio" name="q1" >
+													<input class="radio__input" type="radio" name="q1"  checked="">
 													<span>Совсем нет</span>
 												</label>
 											</div>
 											<div class="question__answer">
 												<label class="radio">
-													<input class="radio__input" type="radio" name="q1" checked="">
+													<input class="radio__input" type="radio" name="q1">
 													<span>Время от времени</span>
 												</label>
 											</div>
@@ -118,7 +124,7 @@
 									</div>
 								</div>
 								<!-- #2 -->
-								<div class="question" id="question-02">
+								<div class="question" id="question-2">
 									<div class="question__pic">
 										<img src="static/img/content/patient/02.jpg" alt="qpic" class="question__img">
 									</div>
@@ -127,25 +133,25 @@
 										<div class="question__variant">
 											<div class="question__answer">
 												<label class="radio">
-													<input class="radio__input" type="radio" name="q1" >
+													<input class="radio__input" type="radio" name="q2"  checked="">
 													<span>Определённо это так</span>
 												</label>
 											</div>
 											<div class="question__answer">
 												<label class="radio">
-													<input class="radio__input" type="radio" name="q1" >
+													<input class="radio__input" type="radio" name="q2" >
 													<span>Наверное, это так</span>
 												</label>
 											</div>
 											<div class="question__answer">
 												<label class="radio">
-													<input class="radio__input" type="radio" name="q1" >
+													<input class="radio__input" type="radio" name="q2" >
 													<span>Лишь в очень малой степени это так</span>
 												</label>
 											</div>
 											<div class="question__answer">
 												<label class="radio">
-													<input class="radio__input" type="radio" name="q1" >
+													<input class="radio__input" type="radio" name="q2" >
 													<span>Это совсем не так</span>
 												</label>
 											</div>
@@ -155,7 +161,7 @@
 									</div>
 								</div>
 								<!-- #3 -->
-								<div class="question" id="question-03">
+								<div class="question" id="question-3">
 									<div class="question__pic">
 										<img src="static/img/content/patient/03.jpg" alt="qpic" class="question__img">
 									</div>
@@ -164,25 +170,25 @@
 										<div class="question__variant">
 											<div class="question__answer">
 												<label class="radio">
-													<input class="radio__input" type="radio" name="q1" >
+													<input class="radio__input" type="radio" name="q3"  checked="">
 													<span>Совсем нет</span>
 												</label>
 											</div>
 											<div class="question__answer">
 												<label class="radio">
-													<input class="radio__input" type="radio" name="q1" >
+													<input class="radio__input" type="radio" name="q3" >
 													<span>Иногда, но это меня не беспокоит</span>
 												</label>
 											</div>
 											<div class="question__answer">
 												<label class="radio">
-													<input class="radio__input" type="radio" name="q1" >
+													<input class="radio__input" type="radio" name="q3" >
 													<span>Это так, но страх не очень сильный</span>
 												</label>
 											</div>
 											<div class="question__answer">
 												<label class="radio">
-													<input class="radio__input" type="radio" name="q1" >
+													<input class="radio__input" type="radio" name="q3" >
 													<span>Определённо так и страх очень сильный</span>
 												</label>
 											</div>
@@ -192,7 +198,7 @@
 									</div>
 								</div>
 								<!-- #4 -->
-								<div class="question" id="question-04">
+								<div class="question" id="question-4">
 									<div class="question__pic">
 										<img src="static/img/content/patient/04.jpg" alt="qpic" class="question__img">
 									</div>
@@ -201,25 +207,25 @@
 										<div class="question__variant">
 											<div class="question__answer">
 												<label class="radio">
-													<input class="radio__input" type="radio" name="q1" >
+													<input class="radio__input" type="radio" name="q4"  checked="">
 													<span>Определённо это так</span>
 												</label>
 											</div>
 											<div class="question__answer">
 												<label class="radio">
-													<input class="radio__input" type="radio" name="q1" >
+													<input class="radio__input" type="radio" name="q4" >
 													<span>Наверное, это так</span>
 												</label>
 											</div>
 											<div class="question__answer">
 												<label class="radio">
-													<input class="radio__input" type="radio" name="q1" >
+													<input class="radio__input" type="radio" name="q4" >
 													<span>Лишь в очень малой степени это так</span>
 												</label>
 											</div>
 											<div class="question__answer">
 												<label class="radio">
-													<input class="radio__input" type="radio" name="q1" >
+													<input class="radio__input" type="radio" name="q4" >
 													<span>Совсем нет</span>
 												</label>
 											</div>
@@ -227,7 +233,7 @@
 									</div>
 								</div>
 								<!-- #5 -->
-								<div class="question" id="question-05">
+								<div class="question" id="question-5">
 									<div class="question__pic">
 										<img src="static/img/content/patient/05.jpg" alt="qpic" class="question__img">
 									</div>
@@ -236,25 +242,25 @@
 										<div class="question__variant">
 											<div class="question__answer">
 												<label class="radio">
-													<input class="radio__input" type="radio" name="q1" >
+													<input class="radio__input" type="radio" name="q5"  checked="">
 													<span>Только иногда</span>
 												</label>
 											</div>
 											<div class="question__answer">
 												<label class="radio">
-													<input class="radio__input" type="radio" name="q1" >
+													<input class="radio__input" type="radio" name="q5" >
 													<span>Время от времени и не так часто</span>
 												</label>
 											</div>
 											<div class="question__answer">
 												<label class="radio">
-													<input class="radio__input" type="radio" name="q1" >
+													<input class="radio__input" type="radio" name="q5" >
 													<span>Большую часть времени</span>
 												</label>
 											</div>
 											<div class="question__answer">
 												<label class="radio">
-													<input class="radio__input" type="radio" name="q1" >
+													<input class="radio__input" type="radio" name="q5" >
 													<span>Постоянно</span>
 												</label>
 											</div>
@@ -263,7 +269,7 @@
 									</div>
 								</div>
 								<!-- #6 -->
-								<div class="question" id="question-06">
+								<div class="question" id="question-6">
 									<div class="question__pic">
 										<img src="static/img/content/patient/06.jpg" alt="qpic" class="question__img">
 									</div>
@@ -272,25 +278,25 @@
 										<div class="question__variant">
 											<div class="question__answer">
 												<label class="radio">
-													<input class="radio__input" type="radio" name="q1" >
+													<input class="radio__input" type="radio" name="q6"  checked="">
 													<span>Большую часть времени</span>
 												</label>
 											</div>
 											<div class="question__answer">
 												<label class="radio">
-													<input class="radio__input" type="radio" name="q1" >
+													<input class="radio__input" type="radio" name="q6" >
 													<span>Иногда</span>
 												</label>
 											</div>
 											<div class="question__answer">
 												<label class="radio">
-													<input class="radio__input" type="radio" name="q1" >
+													<input class="radio__input" type="radio" name="q6" >
 													<span>Очень редко</span>
 												</label>
 											</div>
 											<div class="question__answer">
 												<label class="radio">
-													<input class="radio__input" type="radio" name="q1" >
+													<input class="radio__input" type="radio" name="q6" >
 													<span>Совсем не испытываю</span>
 												</label>
 											</div>
@@ -298,7 +304,7 @@
 									</div>
 								</div>
 								<!-- #7 -->
-								<div class="question" id="question-07">
+								<div class="question" id="question-7">
 									<div class="question__pic">
 										<img src="static/img/content/patient/07.jpg" alt="qpic" class="question__img">
 									</div>
@@ -307,25 +313,25 @@
 										<div class="question__variant">
 											<div class="question__answer">
 												<label class="radio">
-													<input class="radio__input" type="radio" name="q1" >
+													<input class="radio__input" type="radio" name="q7"  checked="">
 													<span>Определённо это так</span>
 												</label>
 											</div>
 											<div class="question__answer">
 												<label class="radio">
-													<input class="radio__input" type="radio" name="q1" >
+													<input class="radio__input" type="radio" name="q7" >
 													<span>Наверное, это так</span>
 												</label>
 											</div>
 											<div class="question__answer">
 												<label class="radio">
-													<input class="radio__input" type="radio" name="q1" >
+													<input class="radio__input" type="radio" name="q7" >
 													<span>Не часто</span>
 												</label>
 											</div>
 											<div class="question__answer">
 												<label class="radio">
-													<input class="radio__input" type="radio" name="q1" >
+													<input class="radio__input" type="radio" name="q7" >
 													<span>Совсем нет</span>
 												</label>
 											</div>
@@ -333,7 +339,7 @@
 									</div>
 								</div>
 								<!-- #8 -->
-								<div class="question" id="question-08">
+								<div class="question" id="question-8">
 									<div class="question__pic">
 										<img src="static/img/content/patient/08.jpg" alt="qpic" class="question__img">
 									</div>
@@ -342,25 +348,25 @@
 										<div class="question__variant">
 											<div class="question__answer">
 												<label class="radio">
-													<input class="radio__input" type="radio" name="q1" >
+													<input class="radio__input" type="radio" name="q8"  checked="">
 													<span>Совсем нет</span>
 												</label>
 											</div>
 											<div class="question__answer">
 												<label class="radio">
-													<input class="radio__input" type="radio" name="q1" >
+													<input class="radio__input" type="radio" name="q8" >
 													<span>Иногда</span>
 												</label>
 											</div>
 											<div class="question__answer">
 												<label class="radio">
-													<input class="radio__input" type="radio" name="q1" >
+													<input class="radio__input" type="radio" name="q8" >
 													<span>Очень часто</span>
 												</label>
 											</div>
 											<div class="question__answer">
 												<label class="radio">
-													<input class="radio__input" type="radio" name="q1" >
+													<input class="radio__input" type="radio" name="q8" >
 													<span>Почти все время</span>
 												</label>
 											</div>
@@ -368,7 +374,7 @@
 									</div>
 								</div>
 								<!-- #9 -->
-								<div class="question" id="question-09">
+								<div class="question" id="question-9">
 									<div class="question__pic">
 										<img src="static/img/content/patient/09.jpg" alt="qpic" class="question__img">
 									</div>
@@ -377,25 +383,25 @@
 										<div class="question__variant">
 											<div class="question__answer">
 												<label class="radio">
-													<input class="radio__input" type="radio" name="q1" >
+													<input class="radio__input" type="radio" name="q9"  checked="">
 													<span>Совсем нет</span>
 												</label>
 											</div>
 											<div class="question__answer">
 												<label class="radio">
-													<input class="radio__input" type="radio" name="q1" >
+													<input class="radio__input" type="radio" name="q9" >
 													<span>Иногда</span>
 												</label>
 											</div>
 											<div class="question__answer">
 												<label class="radio">
-													<input class="radio__input" type="radio" name="q1" >
+													<input class="radio__input" type="radio" name="q9" >
 													<span>Часто</span>
 												</label>
 											</div>
 											<div class="question__answer">
 												<label class="radio">
-													<input class="radio__input" type="radio" name="q1" >
+													<input class="radio__input" type="radio" name="q9" >
 													<span>Очень часто</span>
 												</label>
 											</div>
@@ -413,7 +419,7 @@
 										<div class="question__variant">
 											<div class="question__answer">
 												<label class="radio">
-													<input class="radio__input" type="radio" name="q10" >
+													<input class="radio__input" type="radio" name="q10"  checked="">
 													<span>Я слежу за собой так же, как и раньше</span>
 												</label>
 											</div>
@@ -448,7 +454,7 @@
 										<div class="question__variant">
 											<div class="question__answer">
 												<label class="radio">
-													<input class="radio__input" type="radio" name="q11" >
+													<input class="radio__input" type="radio" name="q11"  checked="">
 													<span>Совсем нет</span>
 												</label>
 											</div>
@@ -483,7 +489,7 @@
 										<div class="question__variant">
 											<div class="question__answer">
 												<label class="radio">
-													<input class="radio__input" type="radio" name="q12" >
+													<input class="radio__input" type="radio" name="q12"  checked="">
 													<span>Точно так же, как и обычно</span>
 												</label>
 											</div>
@@ -518,7 +524,7 @@
 										<div class="question__variant">
 											<div class="question__answer">
 												<label class="radio">
-													<input class="radio__input" type="radio" name="q13" >
+													<input class="radio__input" type="radio" name="q13"  checked="">
 													<span>Совсем нет</span>
 												</label>
 											</div>
@@ -553,7 +559,7 @@
 										<div class="question__variant">
 											<div class="question__answer">
 												<label class="radio">
-													<input class="radio__input" type="radio" name="q14" >
+													<input class="radio__input" type="radio" name="q14"  checked="">
 													<span>Часто</span>
 												</label>
 											</div>
@@ -589,15 +595,250 @@
 									<i class="icon-back"></i>
 									Назад
 								</button>
-								<button class="btn-next">
+								<a href="#" class="btn-next" data-relocate="patient-result.html">
 									Перейти к следующему вопросу
 									<i class="icon-help"></i>
-								</button>
+								</a >
 							</div>
 						</div>
 					</div>
 				</div>
+
+				<section class="section  box_80  js-result-section" style="display: none;">
+					<h4 class="title__bl">Результаты теста</h4>
+					<!--  result-1 -->
+					<div class="result result-1 box_60" id="result-1">
+						<div class="box_30">
+							<div class="section__pic">
+								<img class="section__img" src="static/img/content/patient/r-1.jpg" alt="picture">
+							</div>
+						</div>
+						<!--  -->
+						<div class="result__content box_30">
+							<div class=" result__text">
+								<h5 class="title__s">Ваша жизнь полноценна и вполне устраивает вас. Вы с легкостью можете улыбнуться и посмеяться. Знаете, что приносит удовольствие, будь то книга, радио- или телепередача. </h5>
+								<p class="desc__normal">То, чем вы занимаетесь, удовлетворяет вас, в течение дня бодрости хватает как на работу, так и на личную жизнь. Дела выполняете легко, без напряженности. Уделяете внимание своему внешнему виду, стараетесь ухаживать за собой и выглядеть привлекательно. Когда вы устаете, то самостоятельно можете расслабиться, заняться делом, которое может отвлечь и порадовать.</p>
+								<p class="desc__normal">Вы не испытываете напряжения и ощущения, что вам не по себе. Вам не известен страх, что что-то ужасное может вот-вот случиться. Беспокойные мысли крутятся в голове иногда и связаны с объективными внешними факторами. Вы не испытываете внутреннего напряжения, дрожь в теле, неусидчивость. Не знакомы с чувством паники.</p>
+								<p class="desc__md">ТЕСТ ПОКАЗАЛ ОТСУТСТВИЕ ДОСТОВЕРНО ВЫРАЖЕННЫХ СИМПТОМОВ ДЕПРЕССИИ ИЛИ ТРЕВОГИ</p>
+							</div>
+							<!--  -->
+							<div class="result__diagramm">
+								<img src="static/img/content/patient/diagramm.png" alt="">
+							</div>
+
+						</div>
+						<!--  -->
+						<div class="is-center">
+							<a href="./patient-test.html" class="test-btn">Пройти заново
+								<i class="icon-help"></i>
+							</a>
+						</div>
+					</div>
+					<!--  result-2 -->
+					<div class="result result-2 box_60"  id="result-2">
+						<div class="box_30">
+							<div class="section__pic">
+								<img class="section__img" src="static/img/content/patient/r-2.jpg" alt="picture">
+							</div>
+						</div>
+						<!--  -->
+						<div class="result__content box_30">
+							<div class=" result__text">
+								<h5 class="title__s">Ваша жизнь полноценна и вполне устраивает вас. Вы с легкостью можете улыбнуться и посмеяться. Знаете, что приносит удовольствие, будь то книга, радио- или телепередача</h5>
+
+								<p class="desc__normal">То, чем вы занимаетесь, удовлетворяет вас, в течение дня бодрости хватает как на работу, так и на личную жизнь. Дела выполняете легко, без напряженности. Уделяете внимание своему внешнему виду, стараетесь ухаживать за собой и выглядеть привлекательно. Когда вы устаете, то самостоятельно можете расслабиться, заняться делом, которое может отвлечь и порадовать.</p>
+								<p class="desc__normal">Большую часть времени вам не по себе. Вы отмечаете внутреннее напряжение или дрожь. Испытываете неусидчивость, которая проявляется в необходимости двигательной активности. Зачастую вас одолевает страх, будто что-то ужасное может вот-вот случиться. В голове постоянно, или большую часть времени, крутятся беспокойные мысли. При этом с трудом удаётся присесть или расслабиться. Довольно часто возникает внезапное необоснованное чувство паники.</p>
+								<p class="desc__md">ПО РЕЗУЛЬТАТАМ ТЕСТА У ВАС МОЖЕТ БЫТЬ ДИАГНОСТИРОВАНА КЛИНИЧЕСКАЯ ТРЕВОГА. ОБРАТИТЕСЬ К СПЕЦИАЛИСТУ.</p>
+							</div>
+							<!--  -->
+							<div class="result__diagramm">
+								<img src="static/img/content/patient/diagramm.png" alt="">
+							</div>
+
+						</div>
+						<!--  -->
+						<div class="is-center">
+							<a href="./patient-test.html" class="test-btn">Пройти заново
+								<i class="icon-help"></i>
+							</a>
+						</div>
+					</div>
+					<!--  result-3 -->
+					<div class="result result-3 box_60"  id="result-3">
+						<div class="box_30">
+							<div class="section__pic">
+								<img class="section__img" src="static/img/content/patient/r-3.jpg" alt="picture">
+							</div>
+						</div>
+						<!--  -->
+						<div class="result__content box_30">
+							<div class=" result__text">
+								<h5 class="title__s">То, что обычно радовало и доставляло удовольствие, перестало приносить прежнее удовлетворение. Вы не способны от души посмеяться, хотя прежде не испытывали проблем с чувством юмора. </h5>
+
+								<p class="desc__normal">Делаете все медленно, отмечая недостаток энергии и сил, ощущаете разбитость. Перестали следить за собой. Работу выполняете с трудом. Окружающие стали замечать изменения в вашем настроении. Данное состояние длится более 2 недель.</p>
+								<p class="desc__normal">Большую часть времени вам не по себе. Вы отмечаете внутреннее напряжение или дрожь. Испытываете неусидчивость, которая проявляется в необходимости двигательной активности. Зачастую вас одолевает страх, будто что-то ужасное может вот-вот случиться. В голове постоянно, или большую часть времени, крутятся беспокойные мысли. При этом с трудом удаётся присесть или расслабиться. Довольно часто возникает внезапное необоснованное чувство паники.</p>
+								<p class="desc__md">ПО РЕЗУЛЬТАТАМ ТЕСТА У ВАС МОЖЕТ БЫТЬ ДИАГНОСТИРОВАНА КЛИНИЧЕСКАЯ ДЕПРЕССИЯ И КЛИНИЧЕСКАЯ ТРЕВОГА. ОБРАТИТЕСЬ К СПЕЦИАЛИСТУ.</p>
+							</div>
+							<!--  -->
+							<div class="result__diagramm">
+								<img src="static/img/content/patient/diagramm.png" alt="">
+							</div>
+
+						</div>
+						<!--  -->
+						<div class="is-center">
+							<a href="./patient-test.html" class="test-btn">Пройти заново
+								<i class="icon-help"></i>
+							</a>
+						</div>
+					</div>
+					<!--  -->
+
+
+					<!-- ********************************** -->
+
+					<section class="section">
+						<h3 class="title__s">Если Вы хотите получить консультацию специалиста Вы можете обратиться в кабинет «Спокойствие рядом», находящийся в Вашем городе или узнать больше о проблеме</h3>
+					</section>
+
+					<!-- map -->
+					<div class="map-module ">
+						<div class="chooseCity box_20" >
+							<button class="chooseCity__btn">
+								<i class="icon-markerSmall"></i>
+								<span>Город</span>
+							</button>
+					
+							<div class="select js-select">
+					      <div class="select__text js-select-text">
+					      	<span>- - -</span>
+					      </div>
+					
+					      <input class="js-select-input" type="hidden" value="">
+					      <div class="select__box js-select-list">
+						      <ul class="select__list">
+						        <li class="select__item" data-id="0">
+						        	<span>Белгород</span>
+						       </li>
+						        <li class="select__item" data-id="1">
+						        	<span>Волгоград</span>
+						       </li>
+										<li class="select__item" data-id="2">
+						        	<span>Воронеж</span>
+						      	</li>
+										<li class="select__item" data-id="3">
+						        	<span>Екатеринбург</span>
+						      	</li>
+										<li class="select__item" data-id="4">
+						        	<span>Железноводск</span>
+						      	</li>
+										<li class="select__item" data-id="5">
+						        	<span>Ижевск</span>
+						      	</li>
+										<li class="select__item" data-id="6">
+						        	<span>Иркутск</span>
+						      	</li>
+										<li class="select__item" data-id="7">
+						        	<span>Казань</span>
+						      	</li>
+										<li class="select__item" data-id="8">
+						        	<span>Калуга</span>
+						      	</li>
+										<li class="select__item" data-id="9">
+						        	<span>Краснодар</span>
+						      	</li>
+										<li class="select__item" data-id="10">
+						        	<span>Красноярск</span>
+						      	</li>
+										<li class="select__item" data-id="11">
+						        	<span>Липецк</span>
+						      	</li>
+										<li class="select__item" data-id="12">
+						        	<span>Набережные Челны</span>
+						      	</li>
+										<li class="select__item" data-id="13">
+						        	<span>Нижний Новгород</span>
+						      	</li>
+										<li class="select__item" data-id="14">
+						        	<span>Новороссийск</span>
+						      	</li>
+										<li class="select__item" data-id="15">
+						        	<span>Новосибирск</span>
+						      	</li>
+						      </ul>
+						    </div>
+					    </div>
+					
+						</div>
+					
+						<div class="map-btns">
+							<button class="btn btn-map is-active">Карта</button>
+							<button class="btn btn-list">Медицинские центры</button>
+						</div>
+					
+						<div class="map-section">
+							<div class="map-aside">
+								<ul class="filial">
+									<li class="filial__item">Управление делами Президента РФ Федеральное Государственное бюджетное учреждение Объединенная Больница с Поликлиникой</li>
+									<li class="filial__item">Медицинский центр «Атлас»</li>
+									<li class="filial__item">Медицинский центр </li>
+									<li class="filial__item">КДЦ «МЕДСИ»</li>
+									<li class="filial__item">МК Семейный доктор</li>
+									<li class="filial__item">Управление делами Президента РФ Федеральное Государственное бюджетное учреждение Объединенная Больница с Поликлиникой</li>
+									<li class="filial__item">Медицинский центр «Атлас»</li>
+									<li class="filial__item">Медицинский центр </li>
+									<li class="filial__item">КДЦ «МЕДСИ»</li>
+									<li class="filial__item">МК Семейный доктор</li>
+									<li class="filial__item">Управление делами Президента РФ Федеральное Государственное бюджетное учреждение Объединенная Больница с Поликлиникой</li>
+									<li class="filial__item">Медицинский центр «Атлас»</li>
+									<li class="filial__item">Медицинский центр </li>
+									<li class="filial__item">КДЦ «МЕДСИ»</li>
+									<li class="filial__item">МК Семейный доктор</li>
+								</ul>
+							</div>
+					
+							<div id="map"></div>
+					
+							<script>
+						    function initMap() {
+						      var uluru = {lat: 55.744510, lng: 37.605334};
+						      var map = new google.maps.Map(document.getElementById('map'), {
+						        zoom: 15,
+						        center: uluru
+						      });
+						    }
+						  </script>
+					
+						  <script async defer
+						  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAcnQgh1mE04it6R7C7t9Yx0oAZ5nykT_c&callback=initMap">
+						  </script>
+						</div>
+					
+							<div class="hiden-map-info" >
+						  <div class="map-content">
+						  	<h5 class="map__title">Управление делами Президента РФ Федеральное Государственное бюджетное учреждение Объединенная Больница с Поликлиникой</h5>
+						  	<p class="map__address">Москва, Мичуринский проспект д. 6</p>
+						  	<div class="map__contact">
+						  		<div class="map__row">
+						  			<img src="static/img/content/icon-tel.png" alt="tel">
+						  			<a href="tel:+74952121111" class="map__tel" data-tel="+7 (495) 212 1111">+7 (495) 212 ****</a>
+						  			<button class="show-tel">Показать номер</button>
+						  		</div>
+						  		<div class="map__row">
+						  			<img src="static/img/content/icon-earth.png" alt="tel">
+						  			<a href="http://medsi.ru/clinics/belorusska" class="map__site">http://medsi.ru/clinics/belorusska</a>
+						  		</div>
+						  	</div>
+						 		<p class="map__info">Дополнительная информация: Для записи на прием к врачу позвоните, пожалуйста, по указанному телефону. Обязательно уточните, работает ли клиника по ОМС, ДМС полисам или организован платный прием.</p>
+						  </div>
+						</div>
+					</div>
+					<!-- end map -->
+				</section>
+				<!--  -->
 			</div>
+
+
 
 			<!-- footer -->
 			<footer class="footer">
