@@ -69,8 +69,8 @@ button
 	border: none
 	outline: none
 
-b, strong
-	font-weight: normal
+// b, strong
+// 	font-weight: normal
 
 p
 	margin: 0
@@ -127,8 +127,6 @@ p
 			word-wrap: no-wrap
 			&:hover
 				border-color: $n
-
-
 
 
 .layout
@@ -240,6 +238,12 @@ p
 				color: $blue
 		+r(750)
 			font-size: 18px
+	&__mz
+		font-size: 22px
+		line-height: 1.3
+		margin-bottom: 1em
+		color: #fff
+		+hb
 	&__m
 		font-size: 18px
 		line-height: 2
@@ -260,6 +264,14 @@ p
 		margin-bottom: 1em
 		color: #343535
 		+hbl
+
+.link
+	&-blue
+		color: #40B0E6
+		border-bottom: 1px solid #40B0E6
+		+tr(.4s)
+		&:hover
+			border-bottom: $n
 
 .subtitle
 	.flex_j
@@ -403,6 +415,9 @@ p
 		margin-bottom: 0
 		+r(700)
 			left: 10px
+		&.mod-m
+			bottom: 40px
+			+try(0)
 
 .column
 	display: flex
@@ -802,6 +817,17 @@ a.article__pic:hover
 	margin-left: 10px
 	background-size: 16px 15px
 
+.icon-back
+	display: inline-block
+	vertical-align: top
+	background-image: url(../img/content/icon-status-navy.png)
+	width: 16px
+	min-width: 16px
+	height: 15px
+	margin-left: 10px
+	background-size: 16px 15px
+	+rotate(180)
+
 .search
 	display: flex
 	align-items: center
@@ -925,6 +951,84 @@ a.article__pic:hover
 			+r(500)
 				display: none
 
+.btn-bg
+	display: inline-block
+	vertical-align: top
+	background-color: #004E73
+	padding: 7px 10px
+	text-transform: uppercase
+	font-size: 12px
+	color: #fff
+	border-radius: 4px
+	+hm
+	cursor: pointer
+	+tr(.4s)
+	&:hover
+		opacity: .8
+
+.btn-back
+	display: flex
+	align-items: center
+	justify-content: space-between
+	width: 134px
+	vertical-align: top
+	padding: 11px 18px
+	font-size: 18px
+	color: #004E73
+	background-color: $n
+	border-radius: 4px
+	border: 2px solid #004E73
+	+hm
+	cursor: pointer
+	+tr(.4s)
+	&:hover
+		background-color: #004E73
+		color: #fff
+		.icon-back
+			background-image: url('../img/content/icon-status-white.png')
+
+.btn-next
+	display: flex
+	align-items: center
+	justify-content: space-between
+	width: 100%
+	max-width: 376px
+	vertical-align: top
+	padding: 11px 18px
+	font-size: 18px
+	color: #004E73
+	background-color: $n
+	border-radius: 4px
+	border: 2px solid #004E73
+	+hm
+	cursor: pointer
+	+tr(.4s)
+	&:hover
+		background-color: #004E73
+		color: #fff
+		.icon-back
+			background-image: url('../img/content/icon-status-white.png')
+
+
+.test-btn
+	margin: 0 auto
+	padding: 13px 10px
+	width: 100%
+	max-width: 304px
+	display: flex
+	align-items: center
+	justify-content: center
+	background-color: $blue
+	border-radius: 4px
+	color: #fff
+	font-size: 24px
+	+hb
+	+tr(.4s)
+	&:hover
+		background-color: #0084BD
+	.icon-help
+		margin-left: 15px
+		background-image: url('../img/content/icon-status-white.png')
 
 .box
 	&_20
@@ -943,6 +1047,10 @@ a.article__pic:hover
 		margin-bottom: 80px
 		+r(780)
 			margin-bottom: 40px
+	&_t40
+		padding-top: 40px
+		+r(700)
+			padding-top: 20px
 	&_t60
 		padding-top: 60px
 		+r(700)

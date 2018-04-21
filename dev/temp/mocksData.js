@@ -90,6 +90,16 @@ __iconsData: {
             height: '37.57px'
         },
     
+        'icon-16': {
+            width: '403.874px',
+            height: '512.002px'
+        },
+    
+        'icon-17': {
+            width: '368px',
+            height: '512.003px'
+        },
+    
         'logo': {
             width: '122.602px',
             height: '23.146px'
@@ -116,6 +126,9 @@ __pages: [{
                 name: 'main',
                 href: 'main.html'
              },{
+                name: 'patient-test',
+                href: 'patient-test.html'
+             },{
                 name: 'problem',
                 href: 'problem.html'
              },{
@@ -127,4 +140,10 @@ __pages: [{
              },{
                 name: 'stories',
                 href: 'stories.html'
+             },{
+                name: 'test-title',
+                href: 'test-title.html'
+             },{
+                name: 'tests',
+                href: 'tests.html'
              }]

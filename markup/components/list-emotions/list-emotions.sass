@@ -56,5 +56,68 @@
 		stroke: #fff
 		stroke-miterlimit: 10
 
+.definition
+	padding: 40px 0 0
+	margin: 0
+	list-style-type: none
+	display: flex
+	justify-content: space-between
+	+r(700)
+		padding: 20px 0 0
+	+r(650)
+		display: block
+	&__list
+		display: flex
+		align-items: flex-start
+		margin-bottom: 30px
+		width: 46%
+		+r(650)
+			display: block
+			width: 90%
+			text-align: center
+			margin: 0 auto 20px
+	&__pic
+		display: inline-block
+		vertical-align: top
+		background-color: #009de1
+		position: relative
+		flex: 1 0 70px
+		width: 70px
+		height: 70px
+		border-radius: 100%
+		margin-right: 10px
+		+r(650)
+			margin: 0 0 15px 0
+	&__icon
+		+vcenter
+		height: 44px
+		width: 44px
+		fill: #fff
+	p
+		font-size: 18px
+		+hr
+		+r(700)
+			font-size: 16px
+
+.list-simple
+	padding: 0
+	margin: 0
+	font-size: 0
+
+	&__item
+		position: relative
+		display: block
+		padding-left: 35px
+		margin-bottom: 25px
+		font-size: 16px
+		&:before
+			content: ''
+			position: absolute
+			top: .4em
+			left: 0
+			width: 6px
+			height: 6px
+			border-radius: 100%
+			background-color: $blue
 
 

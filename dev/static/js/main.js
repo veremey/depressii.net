@@ -2966,3 +2966,4 @@ $(document).ready(function () {
 		}, 2000);
 	}
 });
+"use strict";

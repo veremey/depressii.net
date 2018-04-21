@@ -65,6 +65,16 @@ __iconsData: {
             height: '37.57px'
         },
     
+        'icon-16': {
+            width: '403.874px',
+            height: '512.002px'
+        },
+    
+        'icon-17': {
+            width: '368px',
+            height: '512.003px'
+        },
+    
         'logo': {
             width: '122.602px',
             height: '23.146px'
