@@ -12,6 +12,18 @@
 		display: flex
 		align-items: center
 		justify-content: space-between
+	.btn-next,
+	.btn-back
+		+r(650)
+			width: 48%
+			justify-content: center
+		span
+			+r(650)
+				display: none
+	// .btn-back
+	// 	span
+	// 		+r(650)
+	// 			display: none
 
 .meter
 	width: 100%
@@ -19,6 +31,9 @@
 	display: flex
 	align-items: center
 	justify-content: space-between
+	+r(650)
+		max-width: 200px
+
 	&__text
 		margin-right: 20px
 		span
@@ -74,12 +89,7 @@
 			padding-left: 40px
 	.title__sb
 		margin-bottom: 1.45em
-	.btn-next span
-		+r(650)
-			display: none
-	.btn-back span
-		+r(650)
-			display: none
+
 
 .result
 	display: none

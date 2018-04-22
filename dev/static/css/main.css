@@ -3709,6 +3709,23 @@ a.article__pic:hover {
           justify-content: space-between;
 }
 
+@media only screen and (max-width: 650px) {
+  .questions .btn-next,
+  .questions .btn-back {
+    width: 48%;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  .questions .btn-next span,
+  .questions .btn-back span {
+    display: none;
+  }
+}
+
 .meter {
   width: 100%;
   max-width: 300px;
@@ -3721,6 +3738,12 @@ a.article__pic:hover {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+}
+
+@media only screen and (max-width: 650px) {
+  .meter {
+    max-width: 200px;
+  }
 }
 
 .meter__text {
@@ -3827,18 +3850,6 @@ a.article__pic:hover {
 
 .question .title__sb {
   margin-bottom: 1.45em;
-}
-
-@media only screen and (max-width: 650px) {
-  .question .btn-next span {
-    display: none;
-  }
-}
-
-@media only screen and (max-width: 650px) {
-  .question .btn-back span {
-    display: none;
-  }
 }
 
 .result {
