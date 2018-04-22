@@ -62,12 +62,22 @@
 		display: flex
 		align-items: flex-start
 		justify-content: space-between
+		+r(780)
+			flex-direction: column-reverse
 	&__text
 		width: 70%
 		padding-right: 30px
+		+r(780)
+			width: 100%
 	&__diagramm
 		position: relative
 		width: 30%
+		+r(780)
+			width: 50%
+			margin: 0 auto 20px
+		+r(650)
+			width: 80%
+			max-width: 300px
 		&_text
 			+vcenter
 			text-align: center
@@ -75,10 +85,14 @@
 			font-size: 24px
 			color: $blue
 			+hr
+			+r(990)
+				font-size: 20px
 		b
 			font-size: 28px
 			color: $blue
 			+hbl
+			+r(990)
+				font-size: 24px
 	&.is-active
 		display: block
 	.result__diagramm_points

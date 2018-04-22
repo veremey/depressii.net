@@ -3799,14 +3799,43 @@ a.article__pic:hover {
           justify-content: space-between;
 }
 
+@media only screen and (max-width: 780px) {
+  .result__content {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+  }
+}
+
 .result__text {
   width: 70%;
   padding-right: 30px;
 }
 
+@media only screen and (max-width: 780px) {
+  .result__text {
+    width: 100%;
+  }
+}
+
 .result__diagramm {
   position: relative;
   width: 30%;
+}
+
+@media only screen and (max-width: 780px) {
+  .result__diagramm {
+    width: 50%;
+    margin: 0 auto 20px;
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  .result__diagramm {
+    width: 80%;
+    max-width: 300px;
+  }
 }
 
 .result__diagramm_text {
@@ -3824,10 +3853,22 @@ a.article__pic:hover {
   font-family: 'helveticaneuecyrromanwebfont', Arial, sans-serif;
 }
 
+@media only screen and (max-width: 990px) {
+  .result__diagramm span {
+    font-size: 20px;
+  }
+}
+
 .result__diagramm b {
   font-size: 28px;
   color: #004e73;
   font-family: 'helveticaneuecyrblackwebfont', Arial, sans-serif;
+}
+
+@media only screen and (max-width: 990px) {
+  .result__diagramm b {
+    font-size: 24px;
+  }
 }
 
 .result.is-active {

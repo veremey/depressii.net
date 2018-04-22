@@ -5,7 +5,7 @@ $(document).ready(function () {
 	$('.meter-ui').slider({
       range: "min",
       min: 0,
-      max: 14,
+      max: $('.meter__end').text(),
       value: $value,
       slide: function( event, ui ) {
         $( ".meter__start" ).text( ui.value );
@@ -66,6 +66,7 @@ function getPageNum(val) {
 			break;
 	}
 }
+
 
 function nextTest(e) {
 	e.preventDefault();

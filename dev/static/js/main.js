@@ -2973,14 +2973,14 @@ $(document).ready(function () {
 		}, 2000);
 	}
 });
-"use strict";
+'use strict';
 
 $(document).ready(function () {
 
 	$('.meter-ui').slider({
 		range: "min",
 		min: 0,
-		max: 14,
+		max: $('.meter__end').text(),
 		value: $value,
 		slide: function slide(event, ui) {
 			$(".meter__start").text(ui.value);
@@ -3089,3 +3089,4 @@ function initChart() {
 		}
 	});
 }
+"use strict";

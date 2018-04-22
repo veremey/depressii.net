@@ -5,6 +5,33 @@
     }
 },
 
+'resurs': {
+	item: [{
+		id: 0,
+		pic: "static/img/content/patient/01.jpg",
+		title: "На шумной вечеринке я обычно:",
+		variant: [{
+			item: {
+				text: "Редко знаю меру в напитках, от души веселюсь, и никто меня не остановит",
+				checked: true
+			},
+			item: {
+				text: "Завожу новые знакомства, обсуждаю новинки моды Вряд ли вообще пойду на вечеринку, сидеть дома за просмотром фильма куда интереснее",
+				checked: false
+			},
+			item: {
+				text: "Сижу у бара в уголке, изредка робко поглядываю в зал, может кто-нибудь заметит и подойдет",
+				checked: false
+			},
+			item: {
+				text: "С удовольствием произнесу тост, попросят — могу и спеть, и танцевать до упаду… А потом пойду на after–party.",
+				checked: false
+			}
+		}]
+	}]
+
+},
+
 /* Module data structure */
 
 // moduleName: {
@@ -131,6 +158,12 @@ __pages: [{
              },{
                 name: 'problem',
                 href: 'problem.html'
+             },{
+                name: 'resurs-test',
+                href: 'resurs-test.html'
+             },{
+                name: 'rodstvennik-test',
+                href: 'rodstvennik-test.html'
              },{
                 name: 'search-ok',
                 href: 'search-ok.html'
