@@ -203,6 +203,8 @@ p
 		font-size: 32px
 		margin-bottom: .6em
 		+hbl
+		+r(650)
+			font-size: 24px
 
 	&__s
 		color: $blueText
@@ -231,8 +233,11 @@ p
 		color: #343535
 		+hbl
 		a
+			font-size: 24px
 			color: #343535
 			+tr(.4s)
+			+r(650)
+				line-height: 1
 		&:hover
 			a
 				color: $blue
@@ -264,6 +269,11 @@ p
 		margin-bottom: 1em
 		color: #343535
 		+hbl
+		+r(780)
+			font-size: 24px
+			margin-bottom: .6em
+		+r(600)
+			font-size: 18px
 
 .link
 	&-blue
@@ -437,6 +447,8 @@ p
 		display: inline-block
 		vertical-align: top
 		width: 46%
+		+r(780)
+			width: 48%
 		+r(650)
 			display: block
 			width: 100%
@@ -530,6 +542,7 @@ p
 	+r(700)
 		padding-left: 10px
 		padding-right: 10px
+		border-radius: 0
 	img
 		display: inline-block
 		vertical-align: top
@@ -550,6 +563,7 @@ p
 	+r(700)
 		padding-left: 10px
 		padding-right: 10px
+		border-radius: 0
 	&__desc
 		width: 100%
 		max-width: 720px
@@ -572,6 +586,11 @@ p
 		+tr(.4s)
 		&:hover
 			opacity: .8
+	.title__b
+		+r(750)
+			font-size: 40px
+		+r(650)
+			font-size: 30px
 
 .footnote
 	padding: 0
@@ -783,6 +802,12 @@ a.article__pic:hover
 		color: #16576C
 	.show-more
 		background-color: $n
+		max-width: 296px
+		min-width: 170px
+		text-align: center
+		+r(650)
+			font-size: 14px
+			padding: 10px
 	.mod-icon
 		display: flex
 		align-items: center
@@ -797,6 +822,7 @@ a.article__pic:hover
 .show-more
 	display: inline-block
 	vertical-align: top
+	min-width: 180px
 	padding: 12px 20px
 	border: 2px solid $blue
 	background-color: #fff
@@ -807,7 +833,7 @@ a.article__pic:hover
 	+hb
 	+tr(.4s)
 	&:hover
-		background-color: $blueBlack
+		background-color: $blue
 		color: #fff
 		.icon-help
 			background-image: url(../img/content/icon-status-yellow.png)
@@ -1045,6 +1071,8 @@ a.article__pic:hover
 		margin-bottom: 20px
 	&_30
 		margin-bottom: 30px
+		+r(700)
+			margin-bottom: 15px
 	&_40
 		margin-bottom: 40px
 		+r(780)
