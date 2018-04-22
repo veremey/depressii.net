@@ -79,7 +79,8 @@
 								<div class="meter">
 									<div class="meter__text">
 										<span class="meter__start">1</span>
-										<span class="meter__static"> из 14</span>
+										<span class="meter__static"> из </span>
+										<span class="meter__end">14</span>
 									</div>
 									<div class="meter-ui"></div>
 								</div>
@@ -590,14 +591,14 @@
 							</div>
 
 							<div class="questions__footer box_t40">
-								<button class="btn-back">
+								<button class="btn-back" style="display: none;">
 									<i class="icon-back"></i>
-									Назад
+									<span>Назад</span>
 								</button>
-								<a href="#" class="btn-next" data-relocate="patient-result.html">
-									Перейти к следующему вопросу
+								<button class="btn-next" data-relocate="patient-result.html">
+									<span>Перейти к следующему вопросу</span>
 									<i class="icon-help"></i>
-								</a >
+								</button >
 							</div>
 						</div>
 
@@ -847,8 +848,6 @@
 				<!--  -->
 			</div>
 
-
-
 			<!-- footer -->
 			<footer class="footer">
 				<div class="footer__top">
@@ -889,7 +888,7 @@
 			<!-- footer -->
 		</div>
 
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+		<script src="static/js/separate-js/Chart.min.js"></script>
 
 		<script src="static/js/main.js"></script>
 
