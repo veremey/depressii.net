@@ -3783,6 +3783,10 @@ a.article__pic:hover {
   margin-bottom: 1.45em;
 }
 
+.result {
+  display: none;
+}
+
 .result__content {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -3795,8 +3799,43 @@ a.article__pic:hover {
           justify-content: space-between;
 }
 
+.result__text {
+  width: 70%;
+  padding-right: 30px;
+}
+
 .result__diagramm {
-  margin-left: 30px;
+  position: relative;
+  width: 30%;
+}
+
+.result__diagramm_text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.result__diagramm span {
+  font-size: 24px;
+  color: #004e73;
+  font-family: 'helveticaneuecyrromanwebfont', Arial, sans-serif;
+}
+
+.result__diagramm b {
+  font-size: 28px;
+  color: #004e73;
+  font-family: 'helveticaneuecyrblackwebfont', Arial, sans-serif;
+}
+
+.result.is-active {
+  display: block;
+}
+
+.result .result__diagramm_points {
+  font-size: 36px;
 }
 
 .radio {

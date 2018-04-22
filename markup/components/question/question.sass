@@ -57,12 +57,34 @@
 		margin-bottom: 1.45em
 
 .result
+	display: none
 	&__content
 		display: flex
 		align-items: flex-start
 		justify-content: space-between
+	&__text
+		width: 70%
+		padding-right: 30px
 	&__diagramm
-		margin-left: 30px
+		position: relative
+		width: 30%
+		&_text
+			+vcenter
+			text-align: center
+		span
+			font-size: 24px
+			color: $blue
+			+hr
+		b
+			font-size: 28px
+			color: $blue
+			+hbl
+	&.is-active
+		display: block
+	.result__diagramm_points
+		font-size: 36px
+
+
 
 .radio
 	position: relative
