@@ -2761,7 +2761,12 @@ a.article__pic:hover {
   fill: #fff;
 }
 
-.term .icon-12,
+.term .icon-12 {
+  fill: red;
+  stroke: red;
+  stroke-miterlimit: 5;
+}
+
 .term .icon-15 {
   fill: none;
   stroke: #fff;
