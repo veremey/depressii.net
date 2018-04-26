@@ -12,18 +12,26 @@
 		display: flex
 		align-items: center
 		justify-content: space-between
-	.btn-next,
-	.btn-back
 		+r(650)
-			width: 48%
+			flex-direction: column-reverse
 			justify-content: center
-		span
-			+r(650)
-				display: none
+
+	.btn-next
+		+r(650)
+			margin: 0 0 20px
 	// .btn-back
+	// 	+r(650)
+	// 		width: 48%
+	// 		justify-content: center
 	// 	span
 	// 		+r(650)
 	// 			display: none
+
+
+#pre-question
+	p
+		color: #004e73
+		+g
 
 .meter
 	width: 100%
