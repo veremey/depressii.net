@@ -1,13 +1,13 @@
+'resurs': {
+
+
+},
+
 'head': {
     defaults: {
         title: 'depressii.net',
         useSocialMetaTags: false
     }
-},
-
-'resurs': {
-
-
 },
 
 /* Module data structure */

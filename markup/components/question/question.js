@@ -80,13 +80,16 @@ function getPageNum(val) {
 
 			  if(points < 15){
 			  	index = 0;
-			  }else if(15 > points > 21) {
+			  } else if(points > 21) {
+			  	index = 2;
+			  } else if(points > 15) {
 			  	index = 1;
 			  } else {
-			  	index = 2;
+			  	console.log('Это не обычный индекс');
 			  }
 
-				var buildChart = initChart();
+
+				var buildChart = initChart(index);
 
 				$('.result__diagramm_points').each(function () {
 					$(this).text(points);
@@ -111,7 +114,7 @@ function nextTest(e) {
 		var value = $('#question-' + $value).find('.radio__input:checked').data('point');
 		answer.push(+value);
 	}
-	console.log(latters);
+	// console.log(latters);
 
 	var newValue = ++$value ;
 	var slideQuestion = spinQuestion(newValue);
@@ -147,7 +150,7 @@ function spinQuestion(arg) {
 	var page = getPageNum(arg);
 }
 
-function initChart() {
+function initChart(arg) {
   var value = 42 - points;
 
   var data = {
@@ -156,6 +159,9 @@ function initChart() {
         data: [points, value]
     }],
 	};
+
+	index = arg;
+	console.log(index + ' = indexxx');
 
 	var ctx = $('.result__chart').get(index).getContext('2d');
 
