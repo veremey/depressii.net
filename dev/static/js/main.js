@@ -2487,9 +2487,9 @@ $(document).ready(function () {
 });
 'use strict';
 
-/*- out search input click -*/
+/*- out  click -*/
 $(document).on('click touchstart', function (el) {
-		var childr = $('.header__bottom').find('*') && $('.js-open');
+		var childr = $('.js-open') || $('.header__bottom').find('*');
 
 		if ($(el.target).is(childr) == false) {
 				$('.header__bottom, .btn-menu').removeClass('is-active');
