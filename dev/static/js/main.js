@@ -2488,13 +2488,13 @@ $(document).ready(function () {
 'use strict';
 
 /*- out  click -*/
-$(document).on('click touchstart', function (el) {
-		var childr = $('.js-open') || $('.header__bottom').find('*');
+// $(document).on('click touchstart', function(el){
+//  var childr =  $('.js-open') || $('.header__bottom').find('*') ;
 
-		if ($(el.target).is(childr) == false) {
-				$('.header__bottom, .btn-menu').removeClass('is-active');
-		}
-});
+//  if( $(el.target).is(childr) == false ){
+//    $('.header__bottom, .btn-menu').removeClass('is-active');
+//  }
+// });
 /*--*/
 
 $(document).on('scroll', function () {
@@ -2897,82 +2897,6 @@ $('#map').on('click touchstart', '.show-tel', function () {
   $(this).parent('.map__row').find('.map__tel').text(text);
 });
 "use strict";
-"use strict";
-
-var pppBtn = $(".js-ppp");
-var closeBtn = $(".js-close");
-// const openBtn = $(".js-open");
-var formBtn = $('.form__btn');
-var formCheckBox = $('.agreement__checkbox');
-
-formCheckBox.on('click', getAgreement);
-closeBtn.on('click', close);
-// openBtn.on('click', open);
-pppBtn.on('click', ppp);
-
-function getAgreement() {
-	console.log($(this));
-	if ($(this).is(':checked')) {
-		$(this).attr("checked", false);
-		formBtn.removeAttr("disabled");
-	} else {
-		$(this).attr("checked", true);
-		formBtn.attr("disabled", "");
-	}
-}
-
-function close(e) {
-	e.preventDefault();
-	var closeName = $(this).data('close');
-	var parentName = $(this).data('parent');
-	var closeEl = $("." + closeName);
-	var parentEl = $("." + parentName);
-	closeEl.css({ 'display': 'none' });
-	parentEl.css({ 'display': 'none' });
-}
-
-function open(e) {
-	e.preventDefault();
-	var openName = $(this).data('open');
-	var openEl = $("." + openName);
-	openEl.css({ 'display': 'block' });
-}
-
-function ppp(e) {
-	e.preventDefault();
-	var openName = $(this).data('open');
-	var docHeight = $(document).height() + "px";
-	var openEl = $("." + openName);
-	var ppp = $(".ppp");
-	ppp.attr('style', 'display: block; height: ' + ("" + docHeight));
-	// console.log(docHeight);
-	openEl.css({ 'display': 'block' });
-}
-
-$(document).ready(function () {
-	var docHeight = $(document).height() + "px";
-
-	$(".js-open").on('click', function (e) {
-		e.preventDefault();
-		var openName = $(this).data('open');
-		var openEl = $("." + openName);
-
-		if ($(this).hasClass('is-active')) {
-			$(this).removeClass('is-active');
-			openEl.removeClass('is-active');
-		} else {
-			$(this).addClass('is-active');
-			openEl.addClass('is-active');
-		}
-	});
-
-	if ($('.js-autoppp').length) {
-		setTimeout(function () {
-			$('.ppp').attr('style', 'display: block; height: ' + ("" + docHeight));
-			$('.js-autoppp').css({ 'display': 'block' });
-		}, 2000);
-	}
-});
 'use strict';
 
 if ($('.questions').length) {
@@ -3229,4 +3153,80 @@ if ($('.questions').length) {
 		e: 0
 	};
 } // end if
+"use strict";
+
+var pppBtn = $(".js-ppp");
+var closeBtn = $(".js-close");
+// const openBtn = $(".js-open");
+var formBtn = $('.form__btn');
+var formCheckBox = $('.agreement__checkbox');
+
+formCheckBox.on('click', getAgreement);
+closeBtn.on('click', close);
+// openBtn.on('click', open);
+pppBtn.on('click', ppp);
+
+function getAgreement() {
+	console.log($(this));
+	if ($(this).is(':checked')) {
+		$(this).attr("checked", false);
+		formBtn.removeAttr("disabled");
+	} else {
+		$(this).attr("checked", true);
+		formBtn.attr("disabled", "");
+	}
+}
+
+function close(e) {
+	e.preventDefault();
+	var closeName = $(this).data('close');
+	var parentName = $(this).data('parent');
+	var closeEl = $("." + closeName);
+	var parentEl = $("." + parentName);
+	closeEl.css({ 'display': 'none' });
+	parentEl.css({ 'display': 'none' });
+}
+
+function open(e) {
+	e.preventDefault();
+	var openName = $(this).data('open');
+	var openEl = $("." + openName);
+	openEl.css({ 'display': 'block' });
+}
+
+function ppp(e) {
+	e.preventDefault();
+	var openName = $(this).data('open');
+	var docHeight = $(document).height() + "px";
+	var openEl = $("." + openName);
+	var ppp = $(".ppp");
+	ppp.attr('style', 'display: block; height: ' + ("" + docHeight));
+	// console.log(docHeight);
+	openEl.css({ 'display': 'block' });
+}
+
+$(document).ready(function () {
+	var docHeight = $(document).height() + "px";
+
+	$(".js-open").on('click', function (e) {
+		e.preventDefault();
+		var openName = $(this).data('open');
+		var openEl = $("." + openName);
+
+		if ($(this).hasClass('is-active')) {
+			$(this).removeClass('is-active');
+			openEl.removeClass('is-active');
+		} else {
+			$(this).addClass('is-active');
+			openEl.addClass('is-active');
+		}
+	});
+
+	if ($('.js-autoppp').length) {
+		setTimeout(function () {
+			$('.ppp').attr('style', 'display: block; height: ' + ("" + docHeight));
+			$('.js-autoppp').css({ 'display': 'block' });
+		}, 2000);
+	}
+});
 "use strict";

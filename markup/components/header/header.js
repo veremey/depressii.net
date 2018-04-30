@@ -1,12 +1,12 @@
 
 /*- out  click -*/
-$(document).on('click touchstart', function(el){
- var childr =  $('.js-open') || $('.header__bottom').find('*') ;
+// $(document).on('click touchstart', function(el){
+//  var childr =  $('.js-open') || $('.header__bottom').find('*') ;
 
- if( $(el.target).is(childr) == false ){
-   $('.header__bottom, .btn-menu').removeClass('is-active');
- }
-});
+//  if( $(el.target).is(childr) == false ){
+//    $('.header__bottom, .btn-menu').removeClass('is-active');
+//  }
+// });
 /*--*/
 
 $(document).on('scroll', function () {
