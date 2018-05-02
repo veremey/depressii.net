@@ -161,7 +161,7 @@ function initChart(arg) {
 	};
 
 	index = arg;
-	console.log(index + ' = indexxx');
+	// console.log(index + ' = indexxx');
 
 	var ctx = $('.result__chart').get(index).getContext('2d');
 

@@ -19,14 +19,14 @@ $(document).ready(function () {
 });
 'use strict';
 
-/*- out search input click -*/
-$(document).on('click touchstart', function (el) {
-    var childr = $('.header__bottom').find('*') && $('.js-open');
+/*- out  click -*/
+// $(document).on('click touchstart', function(el){
+//  var childr =  $('.js-open') || $('.header__bottom').find('*') ;
 
-    if ($(el.target).is(childr) == false) {
-        $('.header__bottom, .btn-menu').removeClass('is-active');
-    }
-});
+//  if( $(el.target).is(childr) == false ){
+//    $('.header__bottom, .btn-menu').removeClass('is-active');
+//  }
+// });
 /*--*/
 
 $(document).on('scroll', function () {
@@ -429,82 +429,6 @@ $('#map').on('click touchstart', '.show-tel', function () {
   $(this).parent('.map__row').find('.map__tel').text(text);
 });
 "use strict";
-"use strict";
-
-var pppBtn = $(".js-ppp");
-var closeBtn = $(".js-close");
-// const openBtn = $(".js-open");
-var formBtn = $('.form__btn');
-var formCheckBox = $('.agreement__checkbox');
-
-formCheckBox.on('click', getAgreement);
-closeBtn.on('click', close);
-// openBtn.on('click', open);
-pppBtn.on('click', ppp);
-
-function getAgreement() {
-  console.log($(this));
-  if ($(this).is(':checked')) {
-    $(this).attr("checked", false);
-    formBtn.removeAttr("disabled");
-  } else {
-    $(this).attr("checked", true);
-    formBtn.attr("disabled", "");
-  }
-}
-
-function close(e) {
-  e.preventDefault();
-  var closeName = $(this).data('close');
-  var parentName = $(this).data('parent');
-  var closeEl = $("." + closeName);
-  var parentEl = $("." + parentName);
-  closeEl.css({ 'display': 'none' });
-  parentEl.css({ 'display': 'none' });
-}
-
-function open(e) {
-  e.preventDefault();
-  var openName = $(this).data('open');
-  var openEl = $("." + openName);
-  openEl.css({ 'display': 'block' });
-}
-
-function ppp(e) {
-  e.preventDefault();
-  var openName = $(this).data('open');
-  var docHeight = $(document).height() + "px";
-  var openEl = $("." + openName);
-  var ppp = $(".ppp");
-  ppp.attr('style', 'display: block; height: ' + ("" + docHeight));
-  // console.log(docHeight);
-  openEl.css({ 'display': 'block' });
-}
-
-$(document).ready(function () {
-  var docHeight = $(document).height() + "px";
-
-  $(".js-open").on('click', function (e) {
-    e.preventDefault();
-    var openName = $(this).data('open');
-    var openEl = $("." + openName);
-
-    if ($(this).hasClass('is-active')) {
-      $(this).removeClass('is-active');
-      openEl.removeClass('is-active');
-    } else {
-      $(this).addClass('is-active');
-      openEl.addClass('is-active');
-    }
-  });
-
-  if ($('.js-autoppp').length) {
-    setTimeout(function () {
-      $('.ppp').attr('style', 'display: block; height: ' + ("" + docHeight));
-      $('.js-autoppp').css({ 'display': 'block' });
-    }, 2000);
-  }
-});
 'use strict';
 
 if ($('.questions').length) {
@@ -554,13 +478,15 @@ if ($('.questions').length) {
 
           if (points < 15) {
             index = 0;
-          } else if (15 > points > 21) {
+          } else if (points > 21) {
+            index = 2;
+          } else if (points > 15) {
             index = 1;
           } else {
-            index = 2;
+            console.log('Это не обычный индекс');
           }
 
-          var buildChart = initChart();
+          var buildChart = initChart(index);
 
           $('.result__diagramm_points').each(function () {
             $(this).text(points);
@@ -584,7 +510,7 @@ if ($('.questions').length) {
       var value = $('#question-' + $value).find('.radio__input:checked').data('point');
       answer.push(+value);
     }
-    console.log(latters);
+    // console.log(latters);
 
     var newValue = ++$value;
     var slideQuestion = spinQuestion(newValue);
@@ -619,7 +545,7 @@ if ($('.questions').length) {
     var page = getPageNum(arg);
   };
 
-  var initChart = function initChart() {
+  var initChart = function initChart(arg) {
     var value = 42 - points;
 
     var data = {
@@ -628,6 +554,9 @@ if ($('.questions').length) {
         data: [points, value]
       }]
     };
+
+    index = arg;
+    // console.log(index + ' = indexxx');
 
     var ctx = $('.result__chart').get(index).getContext('2d');
 
@@ -756,4 +685,80 @@ if ($('.questions').length) {
     e: 0
   };
 } // end if
+"use strict";
+
+var pppBtn = $(".js-ppp");
+var closeBtn = $(".js-close");
+// const openBtn = $(".js-open");
+var formBtn = $('.form__btn');
+var formCheckBox = $('.agreement__checkbox');
+
+formCheckBox.on('click', getAgreement);
+closeBtn.on('click', close);
+// openBtn.on('click', open);
+pppBtn.on('click', ppp);
+
+function getAgreement() {
+  // console.log($(this));
+  if ($(this).is(':checked')) {
+    $(this).attr("checked", false);
+    formBtn.removeAttr("disabled");
+  } else {
+    $(this).attr("checked", true);
+    formBtn.attr("disabled", "");
+  }
+}
+
+function close(e) {
+  e.preventDefault();
+  var closeName = $(this).data('close');
+  var parentName = $(this).data('parent');
+  var closeEl = $("." + closeName);
+  var parentEl = $("." + parentName);
+  closeEl.css({ 'display': 'none' });
+  parentEl.css({ 'display': 'none' });
+}
+
+function open(e) {
+  e.preventDefault();
+  var openName = $(this).data('open');
+  var openEl = $("." + openName);
+  openEl.css({ 'display': 'block' });
+}
+
+function ppp(e) {
+  e.preventDefault();
+  var openName = $(this).data('open');
+  var docHeight = $(document).height() + "px";
+  var openEl = $("." + openName);
+  var ppp = $(".ppp");
+  ppp.attr('style', 'display: block; height: ' + ("" + docHeight));
+  // console.log(docHeight);
+  openEl.css({ 'display': 'block' });
+}
+
+$(document).ready(function () {
+  var docHeight = $(document).height() + "px";
+
+  $(".js-open").on('click', function (e) {
+    e.preventDefault();
+    var openName = $(this).data('open');
+    var openEl = $("." + openName);
+
+    if ($(this).hasClass('is-active')) {
+      $(this).removeClass('is-active');
+      openEl.removeClass('is-active');
+    } else {
+      $(this).addClass('is-active');
+      openEl.addClass('is-active');
+    }
+  });
+
+  if ($('.js-autoppp').length) {
+    setTimeout(function () {
+      $('.ppp').attr('style', 'display: block; height: ' + ("" + docHeight));
+      $('.js-autoppp').css({ 'display': 'block' });
+    }, 2000);
+  }
+});
 "use strict";
