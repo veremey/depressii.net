@@ -6,6 +6,9 @@
 		justify-content: space-between
 		.title__big
 			margin-bottom: 0
+			white-space: nowrap
+			+r(650)
+				font-size: 20px
 	&__content
 
 	&__footer
@@ -41,15 +44,22 @@
 	justify-content: space-between
 	+r(650)
 		max-width: 200px
+		margin-left: 10px
+		flex-wrap: wrap
 
 	&__text
 		margin-right: 20px
+		+r(650)
+			width: 100%
+			margin-right: 0
 		span
 			font-size: 14px
 			color: $blue
 			+hb
 	&-ui
 		flex: 1 0 auto
+		+r(650)
+			width: 100%
 
 .question
 	display: flex

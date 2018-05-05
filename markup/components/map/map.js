@@ -327,22 +327,9 @@ function select() {
   $(".js-select").each(function(){
     var select_list = $(this).children(".js-select-list");
     $(this).click(function(event){
-      $(".js-filter").removeClass("is-active");
-      $(".js-filter-list").removeClass('is-active').hide();
 
-        var $self = $(this);
-
-        if ($(this).hasClass("is-active")) {
-            setTimeout(function () {
-              $self.removeClass('is-active');
-            }, 400);
-            select_list.slideUp(100);
-        } else {
-            $(".js-select").removeClass("is-active");
-            $(".js-select-list").removeClass('is-active').hide();
-            select_list.slideDown("fast");
-            $(this).addClass("is-active");
-        }
+      select_list.slideDown("fast");
+      $(this).addClass("is-active");
 
       event.stopPropagation();
     });
