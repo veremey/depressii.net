@@ -3011,7 +3011,7 @@ if ($('.questions').length) {
 						index = 0;
 					} else if (points > 21) {
 						index = 2;
-					} else if (points > 15) {
+					} else if (points >= 15) {
 						index = 1;
 					} else {
 						console.log('Это не обычный индекс');
