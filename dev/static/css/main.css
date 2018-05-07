@@ -4109,6 +4109,7 @@ a.article__pic:hover {
   background-color: #FDB434;
   border-radius: 15px;
   pointer-events: none;
+  height: 100%;
 }
 
 .ui-widget.ui-widget-content {
