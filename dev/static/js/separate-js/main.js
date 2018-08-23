@@ -489,9 +489,18 @@ $(document).ready(function () {
     setTimeout(function () {
       $('.ppp').attr('style', 'display: block; height: ' + ("" + docHeight));
       $('.js-autoppp').css({ 'display': 'block' });
-    }, 2000);
+    }, 8000);
   }
+
+  if ($('.js-autoppp-1').length) {
+    setTimeout(function () {
+      $('.ppp').attr('style', 'display: block; height: ' + ("" + docHeight));
+      $('.js-autoppp-1').css({ 'display': 'block' });
+    }, 1000);
+  }
+
 });
+
 'use strict';
 
 if ($('.questions').length) {
